@@ -5,8 +5,10 @@ import { ThemeProvider } from '../theme-provider'
 import NavbarFlowDemo from '../Header/page';
 import Footer from '../Footer/Footer';
 import VenomBeam from '../ui/venom-beam';
+import ThankYou from '../comman/ThankYou';
 
 const Layout = ({ children }: { children: React.ReactNode }) => {
+    const [showThankYou, setShowThankYou] = React.useState(false);
     return (
         <div className='' >
             <ThemeProvider
@@ -22,6 +24,14 @@ const Layout = ({ children }: { children: React.ReactNode }) => {
                         <Footer />
                     </div>
                 </VenomBeam>
+
+                <ThankYou
+                    onButtonClick={() => setShowThankYou(false)}
+                    autoDismiss={true}
+                    dismissTime={2000}
+                    title="Thank You For Visiting!"
+                    message="I appreciate you taking the time to explore my portfolio. Feel free to reach out if you'd like to connect!"
+                />
             </ThemeProvider>
         </div>
     )

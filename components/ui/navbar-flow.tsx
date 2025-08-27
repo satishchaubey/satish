@@ -5,6 +5,8 @@ import { motion, useAnimation } from "framer-motion";
 import Link from "next/link";
 import StylishDock from "@/components/ui/magicdock";
 import { HomeIcon, InfoIcon, PhoneIcon, SettingsIcon } from "lucide-react"
+import { PortfolioDock } from "../NavbarFloating";
+
 
 interface NavLink {
   text: string;
@@ -271,18 +273,7 @@ const NavbarFlow: React.FC<NavbarFlowProps> = ({
     setMobileMenuVisible(false);
   };
 
-  const renderSubmenuItems = (submenu: React.ReactNode) => {
-    if (!React.isValidElement(submenu)) return null;
-
-    const submenuProps = submenu.props as { children?: React.ReactNode };
-    if (!submenuProps.children) return null;
-
-    return React.Children.map(submenuProps.children, (child, childIdx) => (
-      <div key={childIdx} onClick={hideMobileMenu}>
-        {child}
-      </div>
-    ));
-  };
+  
 
   return (
     <div className={`sticky top-0 z-50 w-full ${styleName}`}>
@@ -590,14 +581,7 @@ const NavbarFlow: React.FC<NavbarFlowProps> = ({
       {/* mobile view */}
       <div className="block md:hidden">
         <div className="fixed bottom-0 left-0 w-full  z-50 md:hidden">
-          <StylishDock
-            items={dockItems}
-            distance={150}
-            panelHeight={60}
-            baseItemSize={40}
-            magnification={70}
-            variant="default"
-          />
+            <PortfolioDock />
         </div>
       </div>
     </div>

@@ -9,6 +9,7 @@ import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
 import { Send, Mail, Phone, User, MessageSquare, MapPin, Loader2 } from "lucide-react";
 import LustreText from "../ui/lustretext";
+import { toast } from "../ui/toast";
 
 const ContactForm = () => {
   const [formData, setFormData] = useState({
@@ -53,7 +54,11 @@ const ContactForm = () => {
       if (!response.ok) {
         throw new Error('Failed to send message');
       }
-
+      toast({
+        title: "Contact Form Submitted Successfully.",
+        description: "We will get back to you soon. Thank you!",
+        variant: "success",
+      })
       setIsSubmitted(true);
 
       // Reset form after 3 seconds

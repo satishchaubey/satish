@@ -140,7 +140,7 @@ const WorkExperience = () => {
   );
 
   return (
-    <section id="experience" ref={sectionRef} className="relative pt-35 dark:from-gray-900 dark:via-gray-800 dark:to-gray-900 overflow-hidden">
+    <section id="experience" ref={sectionRef} className="relative pt-10 md:pt-35 dark:from-gray-900 dark:via-gray-800 dark:to-gray-900 overflow-hidden">
       <div className="flex justify-center  items-center">
         <IconCloud images={images} />
       </div>

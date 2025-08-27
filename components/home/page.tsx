@@ -7,17 +7,16 @@ import Typeanimation from '@/components/ui/typeanimation';
 
 export default function VenomBeamDemo() {
     return (
-        <div className=" md:pt-30 ">
+        <div className="flex justify-center items-center min-h-screen">
             <div className="grid grid-cols-1 md:grid-cols-2 items-center gap-8">
                 {/* Left Side: Text */}
-                <div className="flex flex-col justify-center text-center md:text-left">
+                <div className="flex flex-col justify-center text-center md:text-left order-2 md:order-1">
                     <h2 className="bg-clip-text text-transparent bg-gradient-to-b from-neutral-900 to-neutral-700 dark:from-neutral-600 dark:to-white text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight leading-tight">
-                        Hi,I'm  {" "}
-                        <LustreText text=" Satish Chaubey" />
+                        <LustreText text="Hi,I'm Satish Chaubey" className="text-3xl md:text-5xl font-extrabold text-teal-600" />
                         <br />
                         <div className="font-extrabold tracking-tight  leading-snug">
                             <TextHighlighter type="zigzag" highlightColor="#00ffb7ff" repeat>
-                                <span className="bg-clip-text text-transparent bg-gradient-to-b from-neutral-900 to-neutral-700 dark:from-neutral-600 dark:to-white text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight leading-tight">
+                                <span className="bg-clip-text text-transparent bg-gradient-to-b from-neutral-900 to-neutral-700 dark:from-neutral-600 dark:to-white text-2xl md:text-xl lg:text-4xl font-bold tracking-tight leading-tight">
                                     Full Stack Engineer
                                 </span>
                             </TextHighlighter>
@@ -33,13 +32,13 @@ export default function VenomBeamDemo() {
                             />
                         </div>
                     </h2>
-                    <p className="mt-4 text-base md:text-lg text-neutral-700 dark:text-neutral-400">
+                    <p className="mt-4 p-4 md:p-0  text-base md:text-lg text-neutral-700 dark:text-neutral-400">
                         I build scalable, high-performance web applications using modern technologies. On the frontend, I craft responsive UIs with Next.js, React, TailwindCSS, ShadCN, and Framer Motion. On the backend, I develop reliable systems with NestJS, Node.js, BullMQ, and Express, backed by SQL/MongoDB and deployed on AWS/GCP. I also leverage Redux Toolkit and WebSockets to deliver fast, real-time, and seamless digital experiences.
                     </p>
                 </div>
 
                 {/* Right Side: Globe */}
-                <div className="flex justify-center">
+                <div className="flex justify-center order-1 md:order-2">
                     <Globe
                         rotateCities={["delhi", "gorakhpur"]}
                         rotationSpeed={3000}

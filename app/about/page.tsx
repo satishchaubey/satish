@@ -7,7 +7,6 @@ import React from 'react'
 const About = () => {
     return (
         <>
-            {/* <IconCloudDemo/> */}
             <div>
                 <WorkExperience />
             </div>

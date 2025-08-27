@@ -15,39 +15,55 @@ import {
 } from "lucide-react";
 import { AnimatedButton } from "../ui/animated-button";
 import Link from "next/link";
+import { FaWhatsapp } from "react-icons/fa";
+import { SiUpwork, SiFiverr } from 'react-icons/si'
+import { ThemeSwitch } from "../ui/theme-switch";
+
 
 const Footer = () => {
   const socialLinks = [
     {
       name: "GitHub",
-      icon: <Github className="w-5 h-5" />,
-      href: "https://github.com/yourusername",
+      icon: <Github className="w-5 h-5 text-[#333]" />,
+      href: "https://github.com/satishchaubey/satishchaubey",
       color: "hover:text-gray-400"
     },
     {
       name: "LinkedIn",
-      icon: <Linkedin className="w-5 h-5" />,
-      href: "https://linkedin.com/in/yourusername",
+      icon: <Linkedin className="w-5 h-5 text-[#0A66C2]" />,
+      href: "https://www.linkedin.com/in/satish-chaubey/",
       color: "hover:text-blue-400"
     },
     {
-      name: "Twitter",
-      icon: <Twitter className="w-5 h-5" />,
-      href: "https://twitter.com/yourusername",
-      color: "hover:text-blue-300"
-    },
-    {
       name: "Instagram",
-      icon: <Instagram className="w-5 h-5" />,
+      icon: <Instagram className="w-5 h-5 text-[#E1306C]" />,
       href: "https://instagram.com/yourusername",
       color: "hover:text-pink-400"
     },
     {
       name: "YouTube",
-      icon: <Youtube className="w-5 h-5" />,
+      icon: <Youtube className="w-5 h-5 text-[#E1306C]" />,
       href: "https://youtube.com/yourusername",
       color: "hover:text-red-400"
-    }
+    },
+    {
+      name: "WhatsApp",
+      icon: <FaWhatsapp className="w-5 h-5 text-[#25D366]" />,
+      href: "https://youtube.com/yourusername",
+      color: "hover:text-red-400"
+    },
+    {
+      name: "Fiverr",
+      icon: <SiFiverr className="w-5 h-5 text-[#6fda44]" />,
+      href: "https://youtube.com/yourusername",
+      color: "hover:text-red-400"
+    },
+    {
+      name: "Upwork",
+      icon: <SiUpwork className="w-5 h-5 text-[#1DBF73]" />,
+      href: "https://youtube.com/yourusername",
+      color: "hover:text-red-400"
+    },
   ];
 
   const containerVariants = {
@@ -163,6 +179,9 @@ const Footer = () => {
                     <div className="absolute inset-0 bg-gradient-to-r from-white/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                   </motion.a>
                 ))}
+                <ThemeSwitch
+                  showHiEmoji={true}
+                />
               </motion.div>
             </div>
 
@@ -170,7 +189,7 @@ const Footer = () => {
             <motion.div variants={itemVariants} className="space-y-4">
               <h4 className="text-lg font-semibold text-gray-950 dark:text-white">Quick Links</h4>
               <div className="flex flex-wrap gap-6 text-gray-400">
-                 {[ "Home"].map((link) => (
+                {["Home"].map((link) => (
                   <motion.div
                     key={link}
                     className="hover:text-white transition-colors duration-200"
@@ -179,7 +198,16 @@ const Footer = () => {
                     <Link href={`/`}>{link}</Link>
                   </motion.div>
                 ))}
-                {[ "Game", "About", "Contact"].map((link) => (
+                {["Experience"].map((link) => (
+                  <motion.div
+                    key={link}
+                    className="hover:text-white transition-colors duration-200"
+                    whileHover={{ x: 5 }}
+                  >
+                    <Link href={`/resume`}>{link}</Link>
+                  </motion.div>
+                ))}
+                {["Game", "About", "Contact"].map((link) => (
                   <motion.div
                     key={link}
                     className="hover:text-white transition-colors duration-200"
@@ -205,25 +233,7 @@ const Footer = () => {
             <span>© 2025 Satish Kumar Chaubey. All rights reserved.</span>
             <Heart className="w-4 h-4 mx-1 text-red-500 fill-current animate-pulse" />
           </div>
-
-          <div className="flex items-center gap-6 text-sm text-gray-400">
-            <motion.a
-              href="#privacy"
-              className="hover:text-white transition-colors"
-              whileHover={{ scale: 1.05 }}
-            >
-              Privacy Policy
-            </motion.a>
-            <motion.a
-              href="#terms"
-              className="hover:text-white transition-colors"
-              whileHover={{ scale: 1.05 }}
-            >
-              Terms of Service
-            </motion.a>
-          </div>
         </motion.div>
-
         {/* Floating Elements */}
         <motion.div
           className="absolute bottom-10 right-10 opacity-10"
@@ -244,6 +254,7 @@ const Footer = () => {
       {/* Gradient Orbs */}
       <div className="absolute top-0 left-0 w-32 h-32 bg-blue-500/10 rounded-full blur-3xl" />
       <div className="absolute bottom-0 right-0 w-48 h-48 bg-purple-500/10 rounded-full blur-3xl" />
+
     </footer>
   );
 };

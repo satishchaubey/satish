@@ -3,112 +3,67 @@
 import * as React from "react";
 import { useTheme } from "next-themes";
 import { cn } from "@/lib/utils";
+import { Sun, Moon } from "lucide-react";
 
 interface ThemeSwitchProps extends React.HTMLAttributes<HTMLDivElement> {
-  modes?: string[];
-  icons?: React.ReactNode[];
-  showActiveIconOnly?: boolean;
-  showInactiveIcons?: "all" | "none" | "next";
-  variant?: "default" | "icon-click";
+  showHiEmoji?: boolean;
 }
 
 const ThemeSwitch = React.forwardRef<HTMLDivElement, ThemeSwitchProps>(
-  (
-    {
-      className,
-      modes = ["light", "dark", "system"],
-      icons = [],
-      showActiveIconOnly = false,
-      showInactiveIcons = "all",
-      variant = "default",
-      ...props
-    },
-    ref
-  ) => {
+  ({ className, showHiEmoji = true, ...props }, ref) => {
     const { theme, setTheme } = useTheme();
-
-    const currentModeIndex = React.useMemo(() => {
-      const index = modes.indexOf(theme || "");
-      return index !== -1 ? index : 0;
-    }, [theme, modes]);
-
-    const handleToggle = React.useCallback(() => {
-      const nextIndex = (currentModeIndex + 1) % modes.length;
-      setTheme(modes[nextIndex]);
-    }, [currentModeIndex, modes, setTheme]);
-
     const [isClient, setIsClient] = React.useState(false);
+    const [showHi, setShowHi] = React.useState(false);
+
     React.useEffect(() => {
       setIsClient(true);
     }, []);
 
+    const handleToggle = React.useCallback(() => {
+      setTheme(theme === "light" ? "dark" : "light");
+      
+      // Show "Hi" emoji briefly when toggling
+      if (showHiEmoji) {
+        setShowHi(true);
+        setTimeout(() => setShowHi(false), 1000);
+      }
+    }, [theme, setTheme, showHiEmoji]);
+
     if (!isClient) return null;
 
-    const switchWidth = modes.length === 2 ? "w-24" : "w-30";
-
-    const isIconVisible = (index: number) => {
-      if (index === currentModeIndex) return true;
-      switch (showInactiveIcons) {
-        case "none":
-          return false;
-        case "next":
-          return index === (currentModeIndex + 1) % modes.length;
-        case "all":
-        default:
-          return true;
-      }
-    };
-
     return (
-      <div
-        className={cn(
-          "relative inline-flex w-full rounded-full border border-input bg-background p-1 shadow-sm transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring",
-          switchWidth,
-          className
-        )}
-        onClick={variant === "default" ? handleToggle : undefined}
-        ref={ref}
-        {...props}
-      >
-        {showActiveIconOnly ? (
-          <div className="absolute inset-0 flex items-center justify-center">
-            <div className="flex h-6 w-6 items-center justify-center rounded-full bg-foreground text-background z-10">
-              {icons[currentModeIndex]}
-            </div>
+      <div className={cn("relative flex items-center gap-2", className)} ref={ref} {...props}>
+        {/* Hi emoji that appears briefly */}
+        {showHi && (
+          <div className="absolute -top-8 left-1/2 transform -translate-x-1/2 animate-bounce">
+            <span className="text-2xl">👋</span>
           </div>
-        ) : (
-          <>
-            <div className="flex w-full h-full items-center justify-between gap-4">
-              {icons.map((icon, idx) => {
-                const key = `theme-icon-${idx}`;
-                const visible = isIconVisible(idx);
-
-                return (
-                  <div
-                    key={key}
-                    className={cn(
-                      "flex h-6 w-6 cursor-pointer items-center justify-center rounded-full z-10 transition-opacity duration-200",
-                      currentModeIndex === idx
-                        ? "text-background"
-                        : "text-muted-foreground",
-                      visible ? "opacity-100" : "opacity-0"
-                    )}
-                    onClick={(e) => {
-                      if (variant === "icon-click") {
-                        e.stopPropagation();
-                        setTheme(modes[idx]);
-                      }
-                    }}
-                  >
-                    {React.isValidElement(icon)
-                      ? React.cloneElement(icon, { key: `icon-element-${idx}` })
-                      : icon}
-                  </div>
-                );
-              })}
-            </div>
-          </>
         )}
+        
+        {/* Theme switch */}
+        <div
+          className={cn(
+            "relative inline-flex w-16 h-8 rounded-full border border-input bg-background p-1 shadow-sm transition-colors cursor-pointer",
+            "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
+          )}
+          onClick={handleToggle}
+        >
+          {/* Toggle indicator */}
+          <div
+            className={cn(
+              "absolute top-1 left-1 h-6 w-6 rounded-full bg-foreground text-background flex items-center justify-center transition-transform duration-300",
+              theme === "dark" && "transform translate-x-8"
+            )}
+          >
+            {theme === "light" ? <Sun size={14} /> : <Moon size={14} />}
+          </div>
+          
+          {/* Icons in background */}
+          <div className="flex w-full justify-between items-center px-1">
+            <Sun size={14} className="text-muted-foreground" />
+            <Moon size={14} className="text-muted-foreground" />
+          </div>
+        </div>
       </div>
     );
   }

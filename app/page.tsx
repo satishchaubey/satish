@@ -8,7 +8,6 @@ import SkillsComponent from "@/components/Skills/SkillsComponent";
 export default function Home() {
   return (
     <div className="font-sans  ">
-
       <>
         <VenomBeamDemo />
         <div className="pb-20">

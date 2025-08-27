@@ -27,6 +27,10 @@ export default function NavbarFlowDemo() {
                                 url: "/",
                             },
                             {
+                                text: "Experience",
+                                url: "/resume",
+                            },
+                            {
                                 text: "Games",
                                 url: "/game",
                             },
@@ -90,12 +94,7 @@ export default function NavbarFlowDemo() {
                         ]}
                         rightComponent={
                             <ThemeSwitch
-                                modes={["light", "dark"]}
-                                icons={[
-                                    <Sun key="sun-icon" size={16} />,
-                                    <Moon key="moon-icon" size={16} />,
-                                ]}
-                                showInactiveIcons="all"
+                                showHiEmoji={true}
                             />
                         }
                     />
