@@ -80,7 +80,7 @@ const ResumeHeader: React.FC<ResumeHeaderProps> = ({
 
   return (
     <motion.div
-      className="grid grid-cols-1 md:grid-cols-2 gap-6 items-center"
+      className="flex justify-center items-center"
       initial="hidden"
       animate="visible"
       variants={containerVariants}
@@ -95,7 +95,7 @@ const ResumeHeader: React.FC<ResumeHeaderProps> = ({
           whileHover={{ scale: 1.05 }}
           variants={itemVariants}
         >
-           <p className="text-sm md:text-4xl pt-0 md:pt-10 font-extrabold bg-gradient-to-r from-gray-400 via-gray-500 to-gray-600 bg-clip-text text-transparent leading-tight drop-shadow-lg">
+           <p className="text-2xl md:text-4xl pt-0 md:pt-10 font-extrabold bg-gradient-to-r from-gray-400 via-gray-500 to-gray-600 bg-clip-text text-transparent leading-tight drop-shadow-lg">
             <LustreText text={name} />
           </p>
         </motion.h1>
@@ -181,7 +181,7 @@ const ResumeHeader: React.FC<ResumeHeaderProps> = ({
       </motion.div>
 
       {/* Profile Image Section */}
-      <motion.div
+      {/* <motion.div
         className="flex justify-center order-1 md:order-2"
         variants={itemVariants}
       >
@@ -201,7 +201,6 @@ const ResumeHeader: React.FC<ResumeHeaderProps> = ({
             </motion.div>
           </>
           
-          {/* Online Status Indicator */}
           <motion.div
             className="absolute bottom-8 right-8 md:bottom-6 md:right-8 h-4 w-4 md:h-5 md:w-5 bg-green-500 rounded-full border-2 border-background"
             animate={{ 
@@ -215,7 +214,7 @@ const ResumeHeader: React.FC<ResumeHeaderProps> = ({
             }}
           />
         </motion.div>
-      </motion.div>
+      </motion.div> */}
     </motion.div>
   );
 };
