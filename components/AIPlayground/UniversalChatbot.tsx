@@ -286,7 +286,7 @@ export default function UniversalChatbot() {
           {/* Floating Action Container */}
           <div className="fixed bottom-4 sm:bottom-6 right-4 sm:right-6 z-50 flex flex-col items-end gap-2">
             
-            {/* Download Resume Animated Ticker Pill */}
+            {/* Download Resume Animated Ticker Pill (Commented out per user request)
             {!isOpen && (
               <motion.a
                 href="/Satish_Kumar_Chaubey.pdf"
@@ -302,7 +302,7 @@ export default function UniversalChatbot() {
                   Download Resume (PDF)
                 </span>
               </motion.a>
-            )}
+            )} */}
 
             {/* Floating Trigger Button */}
             <motion.button
