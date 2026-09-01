@@ -599,7 +599,7 @@ export default function ArchitectureSection() {
   };
 
   return (
-    <section id="architecture" className="relative py-6 sm:py-8 px-4 sm:px-6 lg:px-8 overflow-hidden border-t border-border/30">
+    <section id="architecture" className="relative py-2 px-1 sm:px-2 overflow-hidden border-t border-border/30">
       <div className="relative z-10 max-w-6xl mx-auto space-y-3 sm:space-y-4">
         {/* Header Title */}
         <div className="text-center space-y-1.5">
@@ -641,7 +641,7 @@ export default function ArchitectureSection() {
         </div>
 
         {/* MAIN DISPLAY CARD */}
-        <div className="rounded-2xl sm:rounded-3xl border border-border/40 bg-transparent p-3.5 sm:p-8 space-y-4 sm:space-y-6 relative overflow-hidden">
+        <div className="rounded-2xl sm:rounded-3xl border border-border/40 bg-transparent p-1.5 sm:p-3 space-y-4 sm:space-y-6 relative overflow-hidden">
           <div className="absolute top-0 inset-x-0 h-1 bg-gradient-to-r from-teal-500 via-blue-500 to-purple-600" />
 
           {/* SECONDARY SUB-TABS BAR (Rendered only when AI Monitoring is active) */}
