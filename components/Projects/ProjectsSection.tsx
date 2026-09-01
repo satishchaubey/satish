@@ -36,20 +36,20 @@ const ProjectsSection = () => {
         },
         {
             id: 1,
-            title: "plutos ONE Payment & BBPS SaaS",
+            title: "Enterprise BBPS Payment SaaS Platform",
             category: "SaaS",
-            description: "High-scale AI SaaS and BBPS bill payments engine integrated with PayU & Razorpay payment gateways, CBMS, and VMS campaign dashboards.",
+            description: "High-scale AI SaaS and BBPS bill payments engine integrated with PayU & Razorpay payment gateways, analytics, and client campaign dashboards.",
             image: "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=800&h=500&fit=crop",
             technologies: ["Next.js 15", "React.js", "BBPS API", "PayU / Razorpay", "Tailwind CSS"],
             githubUrl: "https://github.com/satishchaubey",
-            liveUrl: "https://plutosone.com",
+            liveUrl: "https://github.com/satishchaubey",
             featured: true
         },
         {
             id: 2,
-            title: "Saarthi — CBI Bank Banking Platform",
+            title: "Omni-Channel Enterprise Digital Banking Platform",
             category: "SaaS",
-            description: "Production banking platform for Central Bank of India built with Next.js & React, prioritizing secure data handling and intuitive banking user journeys.",
+            description: "Production enterprise digital banking portal and transaction management suite built with Next.js & React, prioritizing secure data handling and intuitive banking user journeys.",
             image: "https://images.unsplash.com/photo-1563986768609-322da13575f3?w=800&h=500&fit=crop",
             technologies: ["Next.js 15", "React 19", "Redux Toolkit", "TypeScript", "REST API"],
             githubUrl: "https://github.com/satishchaubey",
@@ -58,7 +58,7 @@ const ProjectsSection = () => {
         },
         {
             id: 3,
-            title: "CSC & SVC High-Traffic Bill Payment Engine",
+            title: "High-Traffic Microservices Bill Payment Engine",
             category: "SaaS",
             description: "High-throughput bill payment engine engineered to process 20,000+ daily transactions with Redis caching and microservices architecture.",
             image: "https://images.unsplash.com/photo-1559526324-4b87b5e36e44?w=800&h=500&fit=crop",
@@ -80,9 +80,9 @@ const ProjectsSection = () => {
         },
         {
             id: 5,
-            title: "Visa & CSC Multi-Country AI Chatbot",
+            title: "Multi-Country AI Assistance & Document Pipeline",
             category: "Real-time & Web3",
-            description: "Multinational assistance chatbot handling visa queries, automated documentation assistance, and real-time customer support routing.",
+            description: "Multinational assistance chatbot handling complex queries, automated documentation pre-verification, and real-time customer support routing.",
             image: "https://images.unsplash.com/photo-1531746790731-6c087fecd65a?w=800&h=500&fit=crop",
             technologies: ["React.js", "LLM APIs", "Node.js", "FastAPI", "Vector Search"],
             githubUrl: "https://github.com/satishchaubey",
@@ -130,7 +130,7 @@ const ProjectsSection = () => {
         },
         {
             id: 10,
-            title: "Enterprise Dashboards (VMS, CBMS, EMS, COU)",
+            title: "Enterprise Operational & Campaign Dashboards",
             category: "SaaS",
             description: "Operational dashboards supporting voucher management, election poll uploads, client campaign assignments, and analytical reporting.",
             image: "https://images.unsplash.com/photo-1507238691740-187a5b1d37b8?w=800&h=500&fit=crop",
@@ -150,13 +150,13 @@ const ProjectsSection = () => {
         },
         {
             id: 12,
-            title: "Plutos One Main Website & Vouchers Platform",
+            title: "Enterprise Vouchers & Rewards Platform",
             category: "SaaS",
-            description: "Production website and voucher redemption engine for Plutos One with performance optimization and dynamic campaign routing.",
+            description: "Production website and voucher redemption engine with performance optimization and dynamic campaign routing.",
             image: "https://images.unsplash.com/photo-1526304640581-d334cdbbf45e?w=800&h=500&fit=crop",
             technologies: ["Next.js 15", "React 19", "Tailwind CSS", "TypeScript"],
             githubUrl: "https://github.com/satishchaubey",
-            liveUrl: "https://plutosone.com"
+            liveUrl: "https://github.com/satishchaubey"
         },
         {
             id: 13,

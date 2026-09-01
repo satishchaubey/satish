@@ -25,13 +25,13 @@ const qaDatabase: { id: number; keywords: string[]; question: string; answer: st
     id: 2,
     keywords: ["experience", "years", "total exp", "how long"],
     question: "How many years of experience does Satish have?",
-    answer: "Satish has 3+ years of production full stack development experience across Plutos One Pvt. Ltd., Speqto Technology, and Techpile Technology."
+    answer: "Satish has 3+ years of production full stack development experience across FinTech SaaS enterprises and technology companies."
   },
   {
     id: 3,
-    keywords: ["current", "role", "company", "present", "plutos"],
+    keywords: ["current", "role", "company", "present", "enterprise"],
     question: "What is Satish's current role and company?",
-    answer: "Satish currently works as a Software Engineer at Plutos One Pvt. Ltd. (Feb 2024–Present), leading frontend SaaS engineering, payment gateway integrations, and BBPS bill payment engines."
+    answer: "Satish currently works as a Software Engineer at a FinTech & SaaS Enterprise (Feb 2024–Present), leading frontend SaaS engineering, payment gateway integrations, and BBPS bill payment engines."
   },
   {
     id: 4,
@@ -65,21 +65,21 @@ const qaDatabase: { id: number; keywords: string[]; question: string; answer: st
   },
   {
     id: 9,
-    keywords: ["csc", "svc", "bill payment", "transactions", "throughput"],
-    question: "What is the CSC & SVC Bill Payment Engine?",
+    keywords: ["bill payment", "transactions", "throughput"],
+    question: "What is the High-Traffic Bill Payment Engine?",
     answer: "It is a high-traffic bill payment engine engineered by Satish that processes over 20,000+ daily transactions using Redis microservice caching."
   },
   {
     id: 10,
     keywords: ["daily", "volume", "transactions count", "20k", "20000"],
     question: "How many daily transactions does Satish's payment engine process?",
-    answer: "His high-throughput CSC & SVC payment engine processes 20,000+ live daily transactions smoothly."
+    answer: "His high-throughput payment engine processes 20,000+ live daily transactions smoothly."
   },
   {
     id: 11,
-    keywords: ["saarthi", "cbi", "central bank", "banking"],
-    question: "What is the Saarthi platform?",
-    answer: "Saarthi is a production banking platform developed for Central Bank of India (CBI) to streamline digital banking services."
+    keywords: ["banking", "digital banking", "enterprise banking"],
+    question: "What is the Enterprise Digital Banking Platform?",
+    answer: "An omni-channel production banking platform developed to streamline digital transaction management and secure user banking journeys."
   },
   {
     id: 12,
@@ -89,9 +89,9 @@ const qaDatabase: { id: number; keywords: string[]; question: string; answer: st
   },
   {
     id: 13,
-    keywords: ["visa", "chatbot", "multi country", "ai chatbot"],
-    question: "What is the Visa & CSC AI Chatbot?",
-    answer: "An AI-powered conversational chatbot that assists users with multi-country visa guidelines, application steps, and document verification."
+    keywords: ["document ai", "chatbot", "multi country", "ai chatbot"],
+    question: "What is the Multi-Country AI Assistance Chatbot?",
+    answer: "An AI-powered conversational chatbot that assists users with multi-country guidelines, application steps, and document verification."
   },
   {
     id: 14,
@@ -101,9 +101,9 @@ const qaDatabase: { id: number; keywords: string[]; question: string; answer: st
   },
   {
     id: 15,
-    keywords: ["vms", "cbms", "ems", "dashboard", "enterprise"],
-    question: "What are VMS, CBMS, and EMS dashboards?",
-    answer: "Enterprise SaaS dashboards built by Satish for Voucher Management (VMS), Campaign Management (CBMS), and Engagement Management (EMS)."
+    keywords: ["operational", "campaign", "dashboard", "enterprise"],
+    question: "What are the Enterprise Operational & Campaign Dashboards?",
+    answer: "Enterprise SaaS operational dashboards built by Satish supporting voucher management, campaign scheduling, analytics, and client management."
   },
   {
     id: 16,

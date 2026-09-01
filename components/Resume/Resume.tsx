@@ -15,14 +15,14 @@ import ThankYou from "../comman/ThankYou";
 const experiences: any[] = [
   {
     role: "Software Engineer",
-    company: "Plutos One Pvt. Ltd.",
+    company: "FinTech & SaaS Enterprise",
     period: "Feb 2024 - Present",
     description: [
       "Develop full-stack and frontend-focused features for SaaS, banking, and enterprise platforms using Next.js, React.js, TypeScript, and Node.js.",
-      "Led frontend development across 30+ enterprise application pages and maintained client & internal dashboards (VMS, CBMS, EMS, COU).",
+      "Led frontend development across 30+ enterprise application pages and maintained client & internal operational dashboards.",
       "Integrated PayU and Razorpay payment gateways with secure frontend workflows and backend API coordination.",
       "Collaborated within microservices architecture and improved application performance by 20% through Redis caching, API optimization, and lazy loading.",
-      "Engineered high-traffic bill payment platform (CSC & SVC) handling 20,000+ daily transactions."
+      "Engineered high-traffic bill payment platform handling 20,000+ daily transactions."
     ],
     technologies: ["Next.js 15", "React 19", "TypeScript", "Node.js", "Express", "PayU", "Razorpay", "BBPS API", "Redis"]
   },
@@ -86,17 +86,17 @@ const skills: any[] = [
 
 const freelanceProjects = [
   {
-    title: "plutos ONE Payment & BBPS SaaS",
-    description: "High-scale AI SaaS and BBPS bill payments engine integrated with PayU & Razorpay payment gateways, CBMS, and VMS campaign dashboards.",
+    title: "Enterprise BBPS Payment SaaS Platform",
+    description: "High-scale AI SaaS and BBPS bill payments engine integrated with PayU & Razorpay payment gateways, analytics, and client campaign dashboards.",
     technologies: ["Next.js 15", "React 19", "BBPS API", "PayU / Razorpay", "Tailwind CSS"]
   },
   {
-    title: "Saarthi — Central Bank of India Platform",
-    description: "Production banking platform for Central Bank of India built with Next.js & React, prioritizing secure data handling and intuitive banking user journeys.",
+    title: "Omni-Channel Enterprise Digital Banking Platform",
+    description: "Production enterprise digital banking portal and transaction management suite built with Next.js & React, prioritizing secure data handling and intuitive banking user journeys.",
     technologies: ["Next.js 15", "React 19", "Redux Toolkit", "TypeScript", "REST API"]
   },
   {
-    title: "CSC & SVC High-Traffic Bill Payment Engine",
+    title: "High-Traffic Microservices Bill Payment Engine",
     description: "High-throughput bill payment engine engineered to process 20,000+ daily transactions with Redis caching and microservices architecture.",
     technologies: ["Next.js", "Node.js", "Express.js", "MongoDB", "Redis Caching"]
   },
@@ -106,8 +106,8 @@ const freelanceProjects = [
     technologies: ["Next.js", "Node.js", "LLM APIs", "WebSockets", "ShadCN UI"]
   },
   {
-    title: "Visa & CSC Multi-Country AI Chatbot",
-    description: "Multinational assistance chatbot handling visa queries, automated documentation assistance, and real-time customer support routing.",
+    title: "Multi-Country AI Assistance & Document Pipeline",
+    description: "Multinational assistance chatbot handling complex queries, automated documentation pre-verification, and real-time customer support routing.",
     technologies: ["React.js", "LLM APIs", "Node.js", "FastAPI", "Vector Search"]
   },
   {
@@ -131,7 +131,7 @@ const freelanceProjects = [
     technologies: ["MongoDB", "Express.js", "React.js", "Node.js", "Redux"]
   },
   {
-    title: "Enterprise Dashboards (VMS, CBMS, EMS, COU)",
+    title: "Enterprise Operational & Campaign Dashboards",
     description: "Operational dashboards supporting voucher management, election poll uploads, client campaign assignments, and analytical reporting.",
     technologies: ["Next.js", "React.js", "Tailwind CSS", "ShadCN", "REST APIs"]
   },
@@ -141,8 +141,8 @@ const freelanceProjects = [
     technologies: ["React.js", "Wagmi", "Web3.js", "MetaMask", "Ethereum"]
   },
   {
-    title: "Plutos One Main Website & Vouchers Platform",
-    description: "Production website and voucher redemption engine for Plutos One with performance optimization and dynamic campaign routing.",
+    title: "Enterprise Vouchers & Rewards Platform",
+    description: "Production website and voucher redemption engine with performance optimization and dynamic campaign routing.",
     technologies: ["Next.js 15", "React 19", "Tailwind CSS", "TypeScript"]
   },
   {

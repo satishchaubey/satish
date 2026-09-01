@@ -25,13 +25,13 @@ const qaDatabase: { id: number; keywords: string[]; question: string; answer: st
     id: 2,
     keywords: ["experience", "years", "total exp", "how long"],
     question: "How many years of experience does Satish have?",
-    answer: "Satish has 3+ years of production full stack development experience across Plutos One Pvt. Ltd., Speqto Technology, and Techpile Technology."
+    answer: "Satish has 3+ years of production full stack development experience across FinTech SaaS enterprises and technology companies."
   },
   {
     id: 3,
-    keywords: ["current", "role", "company", "present", "plutos"],
+    keywords: ["current", "role", "company", "present", "enterprise"],
     question: "What is Satish's current role and company?",
-    answer: "Satish currently works as a Software Engineer at Plutos One Pvt. Ltd. (Feb 2024–Present), leading frontend SaaS engineering and payment engines."
+    answer: "Satish currently works as a Software Engineer at a FinTech & SaaS Enterprise (Feb 2024–Present), leading frontend SaaS engineering and payment engines."
   },
   {
     id: 4,
@@ -53,8 +53,8 @@ const qaDatabase: { id: number; keywords: string[]; question: string; answer: st
   },
   {
     id: 7,
-    keywords: ["csc", "svc", "bill payment", "transactions", "throughput"],
-    question: "What is the CSC & SVC Bill Payment Engine?",
+    keywords: ["bill payment", "transactions", "throughput"],
+    question: "What is the High-Traffic Bill Payment Engine?",
     answer: "A high-traffic bill payment engine engineered by Satish processing 20,000+ daily transactions with Redis caching."
   },
   {
@@ -67,7 +67,7 @@ const qaDatabase: { id: number; keywords: string[]; question: string; answer: st
     id: 9,
     keywords: ["project", "projects", "build"],
     question: "What production projects has Satish built?",
-    answer: "Satish built 13+ production projects including CSC/SVC Payment Engine (20k+ daily txns), Saarthi (CBI Bank), AI Call Monitoring, Visa Chatbot, and Web3 Bound Finance."
+    answer: "Satish built 13+ production projects including High-Traffic Payment Engine (20k+ daily txns), Digital Banking Platform, AI Call Monitoring, Multi-Country AI Pipeline, and Web3 Bound Finance."
   },
   {
     id: 10,

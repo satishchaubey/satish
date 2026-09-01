@@ -25,17 +25,16 @@ const WorkExperience = () => {
 
   const experiences: Experience[] = [
     {
-      company: "Plutos One Pvt. Ltd.",
+      company: "FinTech & SaaS Enterprise",
       role: "Software Engineer",
       period: "Feb 2024 - Present",
       icon: <Rocket className="w-5 h-5 text-teal-500" />,
-      website: "https://plutosone.com",
       technologies: ["React 19", "Next.js 15", "TypeScript", "Node.js", "PayU", "Razorpay", "BBPS API", "Redis"],
       description: [
         "Led frontend engineering for SaaS, BBPS bill payment engines, and 30+ client campaigns.",
         "Integrated PayU and Razorpay payment gateways with secure transaction workflows.",
-        "Built CBMS, EMS, and VMS operational dashboards handling voucher uploads and poll management.",
-        "Engineered high-traffic CSC & SVC bill payment platform processing 20,000+ daily transactions."
+        "Built operational dashboards handling voucher uploads, campaign routing, and analytics reporting.",
+        "Engineered high-traffic bill payment platform processing 20,000+ daily transactions."
       ]
     },
     {
@@ -102,7 +101,7 @@ const WorkExperience = () => {
           </p>
 
           <p className="text-xs sm:text-base text-muted-foreground leading-relaxed">
-            Over the past 3 years, I have architected high-traffic bill payment systems processing over 20,000 transactions per day, integrated payment gateways (PayU, Razorpay, BBPS), and developed enterprise platforms like Central Bank of India’s Saarthi.
+            Over the past 3 years, I have architected high-traffic bill payment systems processing over 20,000 transactions per day, integrated payment gateways (PayU, Razorpay, BBPS), and developed enterprise digital banking platforms.
           </p>
 
           <div className="grid grid-cols-2 gap-2 sm:flex sm:flex-row sm:items-center pt-2 max-w-sm sm:max-w-none">

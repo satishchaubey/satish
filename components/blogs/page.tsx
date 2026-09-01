@@ -47,7 +47,7 @@ const articles: Article[] = [
         category: "AI & LLMs",
         readTime: "7 min read",
         date: "Jun 2026",
-        description: "Step-by-step guide to building retrieval-augmented generation (RAG) chatbots using vector databases, Next.js, and Node.js for automated support and visa assistance.",
+        description: "Step-by-step guide to building retrieval-augmented generation (RAG) chatbots using vector databases, Next.js, and Node.js for automated customer support and document assistance.",
         tags: ["RAG", "Vector DB", "Chatbot", "TypeScript"]
     },
     {
