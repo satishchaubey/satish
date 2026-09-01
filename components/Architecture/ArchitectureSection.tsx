@@ -33,10 +33,10 @@ const geminiLiveProject: ArchitectureProject = {
     "Architected low-latency streaming pipeline enabling continuous bi-directional voice, video, and text interaction with Multimodal AI models. Features real-time PCM audio processing, dynamic interruption handling, function calling, and live audio synthesis.",
   techStack: ["Multimodal LLM", "WebSockets", "Python SDK", "PCM Audio Stream", "Function Calling"],
   metrics: [
-    { label: "Stream Latency", value: "< 250ms" },
-    { label: "Audio Fidelity", value: "24kHz PCM" },
-    { label: "Supported Languages", value: "70+" },
-    { label: "Concurrency", value: "Bi-directional" },
+    { label: "Stream Latency", value: "Low Latency" },
+    { label: "Audio Format", value: "PCM Stream" },
+    { label: "Multi-Language", value: "Supported" },
+    { label: "Streaming Model", value: "Bi-directional" },
   ],
   mermaidCode: `graph TD
     subgraph ClientLayer["1. Multimodal Client Layer"]
@@ -58,24 +58,23 @@ const geminiLiveProject: ArchitectureProject = {
         C4["External Information Retrieval"]
     end
 
-    subgraph OutputLayer["4. Real-Time Response Layer"]
-        D1["Live Audio Output"]
-        D2["Real-Time Transcription"]
-        D3["Latency & Quality Metrics"]
+    subgraph ResponseSynthesis["4. Client Output & Audio Stream"]
+        D1["Dynamic Tool Result Display"]
+        D2["Real-Time Audio Synthesis"]
+        D3["Instant Interruption Flushing"]
     end
 
-    A1 --> B2
+    A1 --> B1
     A2 --> B2
     A3 --> B2
-    B1 --> B2
-    B2 <--> B3
+    B1 --> C1
     B2 <--> C1
+    B3 --> C1
     C1 <--> C2
     C1 <--> C3
     C3 <--> C4
     C1 --> D1
-    C1 --> D2
-    C1 --> D3`,
+    C1 --> D2`,
 };
 
 // 2. Monitoring Microservices Data
@@ -87,13 +86,13 @@ const monitoringOverview: ArchitectureProject = {
   repo: "github.com/satishchaubey/ai-monitoring-platform",
   badge: "Enterprise RAG Platform",
   description:
-    "Enterprise AI-driven incident monitoring and root cause analysis (RCA) platform. Ingests high-throughput system metrics and logs via Distributed Event Stream, indexes vector embeddings in Vector Database, caches queries, and orchestrates omnichannel notifications.",
+    "Enterprise AI-driven incident monitoring and root cause analysis (RCA) platform. Ingests system metrics and logs via Distributed Event Stream, indexes vector embeddings in Vector Database, caches queries, and orchestrates omnichannel notifications.",
   techStack: ["API Gateway", "FastAPI Python 3.12", "Distributed Event Stream", "Vector Database", "Caching Layer", "Multimodal LLM"],
   metrics: [
-    { label: "Daily Transactions", value: "20,000+" },
-    { label: "RCA Generation", value: "< 2s" },
-    { label: "Multi-Tenancy", value: "Isolated" },
-    { label: "Notification SLA", value: "99.9%" },
+    { label: "Throughput", value: "High Concurrency" },
+    { label: "RCA Engine", value: "Real-time" },
+    { label: "Multi-Tenancy", value: "Context Isolated" },
+    { label: "Notifications", value: "Omnichannel Alerting" },
   ],
   mermaidCode: `graph TD
     subgraph IngestionLayer["1. Data Ingestion"]
@@ -150,10 +149,10 @@ const monitoringGateway: ArchitectureProject = {
     "Enterprise API Gateway serving as single entry point for microservices platform. Features token authentication, RBAC authorization, multi-tenant header context propagation, Redis rate limiting, real-time event hub, and reverse-proxy routing to downstream services.",
   techStack: ["NestJS", "TypeScript", "Redis", "Socket.io", "Token Auth", "Reverse Proxy"],
   metrics: [
-    { label: "Proxy Latency", value: "< 10ms" },
-    { label: "Auth Scheme", value: "Token + RBAC" },
-    { label: "Multi-Tenancy", value: "Context Header" },
-    { label: "Real-time Hub", value: "Socket.io" },
+    { label: "Proxy Speed", value: "Low Latency" },
+    { label: "Security", value: "Token Auth & RBAC" },
+    { label: "Context Flow", value: "Header Propagated" },
+    { label: "Event Engine", value: "Real-time Sockets" },
   ],
   mermaidCode: `graph TD
     subgraph Clients["1. Client Access Layer"]
@@ -194,13 +193,13 @@ const monitoringIncident: ArchitectureProject = {
   repo: "github.com/satishchaubey/incident-management-engine",
   badge: "Service Orchestrator",
   description:
-    "Core incident orchestration service. Ingests high-throughput system events, manages incident state lifecycles, enforces multi-level SLA matrices, and triggers omnichannel voice, messaging, email, and team collaboration alerts.",
+    "Core incident orchestration service. Ingests system events, manages incident state lifecycles, enforces multi-level SLA matrices, and triggers omnichannel voice, messaging, email, and team collaboration alerts.",
   techStack: ["NestJS", "Distributed Event Stream", "PostgreSQL", "Voice Gateway", "Messaging API", "Email Service"],
   metrics: [
-    { label: "Alert Ingestion", value: "Event Stream" },
-    { label: "SLA Matrix", value: "Multi-Level SLA" },
-    { label: "Voice Alerts", value: "Automated Calls" },
-    { label: "Persistence", value: "Relational DB" },
+    { label: "Alert Pipeline", value: "Event Stream Queue" },
+    { label: "Escalation", value: "Multi-Level Matrix" },
+    { label: "Voice Dispatch", value: "Automated Alerts" },
+    { label: "Data Store", value: "Relational DB" },
   ],
   mermaidCode: `graph TD
     subgraph Ingestion["1. Event Ingestion"]
@@ -244,10 +243,10 @@ const monitoringRAG: ArchitectureProject = {
     "High-performance RAG document microservice. Processes PDF, Docx, Image OCR, and Plain Text files asynchronously via background workers, indexes embeddings into Vector Database, caches queries via Redis, and prompts LLMs for automated Root Cause Analysis (RCA).",
   techStack: ["FastAPI Python 3.12", "Vector Database", "Queue Worker", "Caching Layer", "Multimodal LLM", "OCR Engine"],
   metrics: [
-    { label: "RCA Generation", value: "< 2s" },
-    { label: "Vector Search", value: "Vector DB" },
-    { label: "Embedding Cache", value: "Redis" },
-    { label: "Document Formats", value: "PDF / Docx / OCR" },
+    { label: "RCA Processing", value: "Automated LLM" },
+    { label: "Vector Indexing", value: "Vector Search DB" },
+    { label: "Cache Layer", value: "Redis Store" },
+    { label: "Document Types", value: "Multi-Format OCR" },
   ],
   mermaidCode: `graph TD
     subgraph Extraction["1. Document Ingestion"]
@@ -306,10 +305,10 @@ const documentAiProject: ArchitectureProject = {
     "Enterprise AI platform assisting applicants with multi-country guidelines, automated document pre-verification, instant checklist generation via RAG vector search, and dynamic human support escalation.",
   techStack: ["FastAPI Python 3.12", "LangChain RAG", "Vector Search", "AI Reasoning Pipeline", "Document OCR", "REST APIs"],
   metrics: [
-    { label: "Coverage", value: "Global / Multi-Country" },
-    { label: "Query Speed", value: "< 2.5s" },
-    { label: "Verification Accuracy", value: "98.5%" },
-    { label: "Escalation SLA", value: "Instant" },
+    { label: "Region Scope", value: "Multi-Country" },
+    { label: "Query Speed", value: "Fast Vector RAG" },
+    { label: "Verification", value: "Automated Rules" },
+    { label: "Escalation", value: "Human Support Route" },
   ],
   mermaidCode: `graph TD
     subgraph UserLayer["1. User & Applicant Interfaces"]
@@ -352,29 +351,29 @@ const portfolioChatbotProject: ArchitectureProject = {
   id: "portfolio-chatbot",
   title: "Satish Portfolio Universal AI Chatbot",
   shortTitle: "Portfolio AI",
-  subtitle: "Instant 30 Q&A Knowledge Engine & Floating Conversational Drawer",
+  subtitle: "Instant Q&A Knowledge Engine & Floating Conversational Drawer",
   repo: "github.com/satishchaubey/portfolio",
   badge: "Conversational Portfolio AI",
   description:
-    "Interactive portfolio AI assistant built with React 19, Framer Motion, and keyword entity matching over 30 verified knowledge items, accessible across all portfolio routes via a global floating drawer.",
+    "Interactive portfolio AI assistant built with React 19, Framer Motion, and keyword entity matching over verified knowledge items, accessible across all portfolio routes via a global floating drawer.",
   techStack: ["React 19", "Next.js 15", "Framer Motion", "Keyword Matcher", "Tailwind CSS v4"],
   metrics: [
-    { label: "Knowledge Items", value: "30 Verified Q&As" },
-    { label: "Response Time", value: "< 50ms" },
-    { label: "Global Drawer", value: "All Routes" },
-    { label: "Hinglish Persona", value: "Custom Built" },
+    { label: "Knowledge Engine", value: "Q&A Database" },
+    { label: "Response Speed", value: "Instant Client Side" },
+    { label: "Accessibility", value: "Global Floating Drawer" },
+    { label: "AI Persona", value: "Interactive Assistant" },
   ],
   mermaidCode: `graph TD
     subgraph TriggerLayer["1. User Trigger & Global Floating Drawer"]
         T1["Floating Action Button (All Routes)"]
         T2["Mobile & Desktop Floating Window"]
-        T3["30 Quick Question Pills"]
+        T3["Quick Question Pills"]
     end
 
     subgraph EngineLayer["2. Client Knowledge Matching Engine"]
         E1["Keyword & Entity Search Evaluator"]
-        E2["30 Verified Knowledge Items DB"]
-        E3["Hinglish Custom Persona Processor"]
+        E2["Verified Knowledge Items DB"]
+        E3["Custom Persona Processor"]
     end
 
     subgraph DisplayLayer["3. Real-Time UI & Response Stream"]
@@ -402,13 +401,13 @@ const whatsappCustomerSupportBot: ArchitectureProject = {
   repo: "github.com/satishchaubey/whatsapp-support-bot",
   badge: "WhatsApp Business API",
   description:
-    "Enterprise WhatsApp conversational assistant handling real-time order tracking, automated FAQ resolutions, catalog browsing, interactive quick-reply menus, and instant seamless handover to human support agents when complex issues are detected.",
+    "Enterprise WhatsApp conversational assistant handling order tracking, automated FAQ resolutions, catalog browsing, interactive quick-reply menus, and instant seamless handover to human support agents when complex issues are detected.",
   techStack: ["Node.js", "Express.js", "WhatsApp Business API", "Redis Event Queue", "MongoDB", "Webhook Handler"],
   metrics: [
-    { label: "Daily Messages", value: "15,000+" },
-    { label: "Response Latency", value: "< 800ms" },
-    { label: "Auto Resolution", value: "85%" },
-    { label: "Live Handover", value: "Instant" },
+    { label: "Message Queue", value: "Redis Event Stream" },
+    { label: "Webhook Speed", value: "Real-time Response" },
+    { label: "Bot Resolution", value: "Automated FAQ & Menu" },
+    { label: "Agent Handover", value: "Seamless Live Switch" },
   ],
   mermaidCode: `graph TD
     subgraph WhatsAppClient["1. WhatsApp User Interface"]
@@ -457,10 +456,10 @@ const whatsappCampaignBot: ArchitectureProject = {
     "High-throughput WhatsApp automation engine powering targeted multi-template drip campaigns, automated utility bill reminders, lead qualification flowcharts, interactive survey menus, and real-time delivery status analytics.",
   techStack: ["FastAPI Python 3.12", "WhatsApp Cloud API", "Interactive Button Payloads", "PostgreSQL", "Celery Queue", "Redis"],
   metrics: [
-    { label: "Campaign Dispatch", value: "50,000+/day" },
-    { label: "Delivery SLA", value: "< 1.2s" },
-    { label: "Template Verification", value: "100% Compliant" },
-    { label: "Engagement CTR", value: "3.2x vs Email" },
+    { label: "Dispatch Worker", value: "Celery Task Queue" },
+    { label: "Delivery Pipeline", value: "Cloud API Gateway" },
+    { label: "Template Status", value: "Verified Compliant" },
+    { label: "User Interaction", value: "Interactive Button Menus" },
   ],
   mermaidCode: `graph TD
     subgraph CampaignEngine["1. Campaign & Drip Scheduler"]

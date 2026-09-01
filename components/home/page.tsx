@@ -70,7 +70,7 @@ export default function VenomBeamDemo() {
         { label: "Years Experience", value: "3+", icon: <Terminal className="w-5 h-5 text-teal-500" /> },
         { label: "Projects Delivered", value: "15+", icon: <Code2 className="w-5 h-5 text-purple-500" /> },
         { label: "Tech Stack Mastery", value: "10+", icon: <Sparkles className="w-5 h-5 text-amber-500" /> },
-        { label: "Uptime & Quality", value: "99.9%", icon: <CheckCircle2 className="w-5 h-5 text-emerald-500" /> }
+        { label: "Code Architecture", value: "Clean", icon: <CheckCircle2 className="w-5 h-5 text-emerald-500" /> }
     ];
 
     return (

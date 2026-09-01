@@ -67,13 +67,13 @@ const qaDatabase: { id: number; keywords: string[]; question: string; answer: st
     id: 9,
     keywords: ["bill payment", "transactions", "throughput"],
     question: "What is the High-Traffic Bill Payment Engine?",
-    answer: "It is a high-traffic bill payment engine engineered by Satish that processes over 20,000+ daily transactions using Redis microservice caching."
+    answer: "It is a high-traffic bill payment engine engineered by Satish using Redis microservice caching."
   },
   {
     id: 10,
-    keywords: ["daily", "volume", "transactions count", "20k", "20000"],
-    question: "How many daily transactions does Satish's payment engine process?",
-    answer: "His high-throughput payment engine processes 20,000+ live daily transactions smoothly."
+    keywords: ["daily", "volume", "transactions count", "throughput"],
+    question: "How does Satish handle high transaction volumes?",
+    answer: "His high-throughput payment engine processes high-concurrency production transactions smoothly using microservices architecture."
   },
   {
     id: 11,

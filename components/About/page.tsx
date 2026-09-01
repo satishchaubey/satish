@@ -34,7 +34,7 @@ const WorkExperience = () => {
         "Led frontend engineering for SaaS, BBPS bill payment engines, and 30+ client campaigns.",
         "Integrated PayU and Razorpay payment gateways with secure transaction workflows.",
         "Built operational dashboards handling voucher uploads, campaign routing, and analytics reporting.",
-        "Engineered high-traffic bill payment platform processing 20,000+ daily transactions."
+        "Engineered high-traffic bill payment platform with microservices architecture."
       ]
     },
     {
@@ -75,8 +75,8 @@ const WorkExperience = () => {
   const images = slugs.map((slug) => `https://cdn.simpleicons.org/${slug}/${slug}`);
 
   const values = [
-    { title: "Scalable Architecture", desc: "Designing robust systems capable of handling 20,000+ daily production transactions effortlessly.", icon: <Terminal className="w-5 h-5 text-teal-500" /> },
-    { title: "Performance First", desc: "Optimizing bundle sizes, lazy loading, and caching with Redis to reduce page load speeds by 20%.", icon: <Zap className="w-5 h-5 text-amber-500" /> },
+    { title: "Scalable Architecture", desc: "Designing robust systems capable of handling high-concurrency production traffic effortlessly.", icon: <Terminal className="w-5 h-5 text-teal-500" /> },
+    { title: "Performance First", desc: "Optimizing bundle sizes, lazy loading, and caching with Redis for ultra-low latency UIs.", icon: <Zap className="w-5 h-5 text-amber-500" /> },
     { title: "Security & Payments", desc: "Integrating end-to-end encrypted payment workflows with PayU, Razorpay, and BBPS APIs.", icon: <ShieldCheck className="w-5 h-5 text-purple-500" /> },
   ];
 
@@ -101,7 +101,7 @@ const WorkExperience = () => {
           </p>
 
           <p className="text-xs sm:text-base text-muted-foreground leading-relaxed">
-            Over the past 3 years, I have architected high-traffic bill payment systems processing over 20,000 transactions per day, integrated payment gateways (PayU, Razorpay, BBPS), and developed enterprise digital banking platforms.
+            Over the past 3 years, I have architected high-traffic bill payment systems, integrated payment gateways (PayU, Razorpay, BBPS), and developed enterprise digital banking platforms.
           </p>
 
           <div className="grid grid-cols-2 gap-2 sm:flex sm:flex-row sm:items-center pt-2 max-w-sm sm:max-w-none">

@@ -74,7 +74,7 @@ const articles: Article[] = [
         category: "Backend & APIs",
         readTime: "5 min read",
         date: "Mar 2026",
-        description: "Architecting high-traffic RESTful APIs with Node.js, Express, and Redis caching handling 20,000+ daily transactions with 20% latency reduction.",
+        description: "Architecting high-traffic RESTful APIs with Node.js, Express, and Redis caching for low-latency microservices performance.",
         tags: ["Node.js", "Redis", "High Traffic", "REST API"]
     },
     {

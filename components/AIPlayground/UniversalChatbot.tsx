@@ -55,7 +55,7 @@ const qaDatabase: { id: number; keywords: string[]; question: string; answer: st
     id: 7,
     keywords: ["bill payment", "transactions", "throughput"],
     question: "What is the High-Traffic Bill Payment Engine?",
-    answer: "A high-traffic bill payment engine engineered by Satish processing 20,000+ daily transactions with Redis caching."
+    answer: "A high-traffic bill payment engine engineered by Satish with Redis caching and microservices architecture."
   },
   {
     id: 8,
@@ -67,7 +67,7 @@ const qaDatabase: { id: number; keywords: string[]; question: string; answer: st
     id: 9,
     keywords: ["project", "projects", "build"],
     question: "What production projects has Satish built?",
-    answer: "Satish built 13+ production projects including High-Traffic Payment Engine (20k+ daily txns), Digital Banking Platform, AI Call Monitoring, Multi-Country AI Pipeline, and Web3 Bound Finance."
+    answer: "Satish built 13+ production projects including High-Traffic Payment Engine, Digital Banking Platform, AI Call Monitoring, Multi-Country AI Pipeline, and Web3 Bound Finance."
   },
   {
     id: 10,

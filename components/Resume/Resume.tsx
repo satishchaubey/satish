@@ -21,8 +21,8 @@ const experiences: any[] = [
       "Develop full-stack and frontend-focused features for SaaS, banking, and enterprise platforms using Next.js, React.js, TypeScript, and Node.js.",
       "Led frontend development across 30+ enterprise application pages and maintained client & internal operational dashboards.",
       "Integrated PayU and Razorpay payment gateways with secure frontend workflows and backend API coordination.",
-      "Collaborated within microservices architecture and improved application performance by 20% through Redis caching, API optimization, and lazy loading.",
-      "Engineered high-traffic bill payment platform handling 20,000+ daily transactions."
+      "Collaborated within microservices architecture and optimized application performance through Redis caching, API optimization, and lazy loading.",
+      "Engineered high-traffic bill payment platform with microservices architecture."
     ],
     technologies: ["Next.js 15", "React 19", "TypeScript", "Node.js", "Express", "PayU", "Razorpay", "BBPS API", "Redis"]
   },
@@ -97,7 +97,7 @@ const freelanceProjects = [
   },
   {
     title: "High-Traffic Microservices Bill Payment Engine",
-    description: "High-throughput bill payment engine engineered to process 20,000+ daily transactions with Redis caching and microservices architecture.",
+    description: "High-throughput bill payment engine engineered with Redis caching and microservices architecture.",
     technologies: ["Next.js", "Node.js", "Express.js", "MongoDB", "Redis Caching"]
   },
   {
