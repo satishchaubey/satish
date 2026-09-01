@@ -197,9 +197,9 @@ const qaDatabase: { id: number; keywords: string[]; question: string; answer: st
   },
   {
     id: 31,
-    keywords: ["resume", "cv", "download", "pdf", "bio pdf"],
-    question: "How can I view or download Satish's Resume?",
-    answer: "📄 You can view and download Satish Chaubey's latest CV / Resume directly:\n\n👉 Click to Download PDF: /Satish_Kumar_Chaubey.pdf\n\nOr visit the /resume route to view his interactive experience timeline!"
+    keywords: ["resume", "cv", "experience", "bio"],
+    question: "How can I view Satish's Resume?",
+    answer: "📄 You can visit the /resume page to view Satish Chaubey's full interactive career timeline, technical skills, and project experience!"
   }
 ];
 

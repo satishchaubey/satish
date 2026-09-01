@@ -71,7 +71,8 @@ const FloatingResumeDownload: React.FC<FloatingResumeDownloadProps> = ({
     "top-left": "top-4 left-4 sm:top-6 sm:left-6 md:top-8 md:left-8",
   };
 
-  if (!isVisible) return null;
+  // Comment out resume download option completely per user request
+  return null;
 
   return (
     <div className={`cursor-pointer fixed ${positionClasses[position]} z-50 ${className}`}>
