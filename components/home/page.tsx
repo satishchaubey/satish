@@ -81,7 +81,7 @@ export default function VenomBeamDemo() {
                 {/* Left Side: Hero Text & Information */}
                 <div className="lg:col-span-7 flex flex-col justify-center text-center lg:text-left order-2 lg:order-1 space-y-6">
                     
-                    {/* Status Badge */}
+                    {/* Status Badge (Commented Out)
                     <motion.div 
                         initial={{ opacity: 0, y: -10 }}
                         animate={{ opacity: 1, y: 0 }}
@@ -96,6 +96,7 @@ export default function VenomBeamDemo() {
                             Available for Full Stack & Engineering Roles
                         </span>
                     </motion.div>
+                    */}
 
                     {/* Main Headline */}
                     <div className="space-y-2">
