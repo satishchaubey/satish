@@ -74,7 +74,7 @@ export default function VenomBeamDemo() {
                     {/* Typewriter Animation Pill */}
                     <div className="flex items-center justify-center lg:justify-start">
                         <div className="inline-flex items-center gap-2 px-3.5 py-2 rounded-2xl bg-card border border-border shadow-sm text-xs sm:text-sm font-semibold max-w-full overflow-hidden">
-                            <span className="text-muted-foreground font-mono flex-shrink-0">Specializing in:</span>
+                            <span className="text-muted-foreground font-mono flex-shrink-0">Core Stack:</span>
                             <Typeanimation
                                 words={["React & Next.js 16", "Node.js & NestJS", "BBPS & Payment Gateways", "PostgreSQL & MongoDB", "Tailwind & TypeScript"]}
                                 typingSpeed="slow"
@@ -89,10 +89,10 @@ export default function VenomBeamDemo() {
 
                     {/* Bio Description */}
                     <p className="text-xs sm:text-sm md:text-base text-muted-foreground leading-relaxed max-w-2xl mx-auto lg:mx-0">
-                        I build high-scale, production-ready web applications & APIs with modern full-stack architectures. Specialized in crafting responsive frontends, payment integrations (BBPS, PayU, Razorpay), real-time automation tools, and cloud backend engines.
+                        I build high-scale, production-ready web applications & APIs with modern full-stack architectures. Experienced in crafting responsive frontends, payment integrations (BBPS, PayU, Razorpay), real-time automation tools, and cloud backend engines.
                     </p>
 
-                    {/* Core Specialization Pills Grid */}
+                    {/* Core Tech Stack Pills Grid */}
                     <div className="grid grid-cols-2 gap-2 pt-1 max-w-xl mx-auto lg:mx-0">
                         {[
                             { title: "Full Stack SaaS", desc: "Next.js 16, React 19, TypeScript", icon: "🚀" },

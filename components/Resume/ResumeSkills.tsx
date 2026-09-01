@@ -90,7 +90,7 @@ const ResumeSkills: React.FC<ResumeSkillsProps> = ({ skills }) => {
         <AnimatePresence mode="popLayout">
           {visibleSkills.map((skill, idx) => {
             const percentage = skill.proficiency * 20;
-            const level = skill.proficiency >= 5 ? "Expert" : skill.proficiency >= 4 ? "Advanced" : "Proficient";
+            const level = skill.proficiency >= 5 ? "Proficient" : skill.proficiency >= 4 ? "Moderate" : "Proficient";
             const icon = getSkillIcon(skill.name, skill.category);
 
             return (

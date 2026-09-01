@@ -25,7 +25,7 @@ const experiences: any[] = [
       "Collaborated within microservices architecture and optimized application performance through Redis caching, API optimization, and lazy loading.",
       "Engineered high-traffic bill payment platform with microservices architecture."
     ],
-    technologies: ["Next.js 15", "React 19", "TypeScript", "Node.js", "Express", "PayU", "Razorpay", "BBPS API", "Redis", "AI RAG/CAG", "Vector DBs"]
+    technologies: ["Next.js 16", "React 19", "TypeScript", "Node.js", "Express", "PayU", "Razorpay", "BBPS API", "Redis", "AI RAG/CAG", "Vector DBs"]
   },
   {
     role: "Front-End Developer",
@@ -76,10 +76,10 @@ const skills: any[] = [
   { name: "TypeScript & JavaScript", category: "Frontend", proficiency: 5 },
   { name: "Tailwind CSS & ShadCN UI", category: "Frontend", proficiency: 5 },
   { name: "Redux Toolkit & Zustand", category: "Frontend", proficiency: 4 },
-  { name: "Node.js & Express.js", category: "Backend", proficiency: 5 },
-  { name: "FastAPI & REST APIs", category: "Backend", proficiency: 4 },
-  { name: "AI RAG & CAG Architecture (Gemini, Vector DBs)", category: "AI & Backend", proficiency: 5 },
-  { name: "Payment Gateways (PayU, Razorpay)", category: "Backend", proficiency: 5 },
+  { name: "Node.js & Express.js", category: "Backend", proficiency: 3.8 },
+  { name: "FastAPI & REST APIs", category: "Backend", proficiency: 3.6 },
+  { name: "AI RAG & CAG Architecture (Gemini, Vector DBs)", category: "AI & Backend", proficiency: 3.5 },
+  { name: "Payment Gateways (PayU, Razorpay)", category: "Backend", proficiency: 3.7 },
   { name: "MongoDB & Redis Caching", category: "Database", proficiency: 5 },
   { name: "PostgreSQL & MySQL", category: "Database", proficiency: 4 },
   { name: "AWS & GCP Cloud", category: "DevOps", proficiency: 4 },
@@ -90,12 +90,12 @@ const freelanceProjects = [
   {
     title: "Enterprise BBPS Payment SaaS Platform",
     description: "High-scale AI SaaS and BBPS bill payments engine integrated with PayU & Razorpay payment gateways, analytics, and client campaign dashboards.",
-    technologies: ["Next.js 15", "React 19", "BBPS API", "PayU / Razorpay", "Tailwind CSS"]
+    technologies: ["Next.js 16", "React 19", "BBPS API", "PayU / Razorpay", "Tailwind CSS"]
   },
   {
     title: "Omni-Channel Enterprise Digital Banking Platform",
     description: "Production enterprise digital banking portal and transaction management suite built with Next.js & React, prioritizing secure data handling and intuitive banking user journeys.",
-    technologies: ["Next.js 15", "React 19", "Redux Toolkit", "TypeScript", "REST API"]
+    technologies: ["Next.js 16", "React 19", "Redux Toolkit", "TypeScript", "REST API"]
   },
   {
     title: "High-Traffic Microservices Bill Payment Engine",
@@ -145,7 +145,7 @@ const freelanceProjects = [
   {
     title: "Enterprise Vouchers & Rewards Platform",
     description: "Production website and voucher redemption engine with performance optimization and dynamic campaign routing.",
-    technologies: ["Next.js 15", "React 19", "Tailwind CSS", "TypeScript"]
+    technologies: ["Next.js 16", "React 19", "Tailwind CSS", "TypeScript"]
   },
   {
     title: "Bound Finance Landing Page",

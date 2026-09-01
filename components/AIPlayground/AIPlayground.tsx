@@ -37,7 +37,7 @@ const qaDatabase: { id: number; keywords: string[]; question: string; answer: st
     id: 4,
     keywords: ["skills", "tech stack", "technologies", "core skills"],
     question: "What are Satish's primary technical skills?",
-    answer: "Satish specializes in React 19.x, Next.js 16 (App Router & React Compiler), TypeScript, Node.js, Express.js, NestJS, MongoDB, PostgreSQL, Redis, PayU, Razorpay, BBPS APIs, Tailwind CSS, Docker, and AWS."
+    answer: "Satish works with React 19.x, Next.js 16 (App Router & React Compiler), TypeScript, Node.js, Express.js, NestJS, MongoDB, PostgreSQL, Redis, PayU, Razorpay, BBPS APIs, Tailwind CSS, Docker, and AWS."
   },
   {
     id: 5,
@@ -48,8 +48,8 @@ const qaDatabase: { id: number; keywords: string[]; question: string; answer: st
   {
     id: 6,
     keywords: ["backend", "node", "express", "server", "api"],
-    question: "What backend technologies does Satish specialize in?",
-    answer: "Satish specializes in Node.js, Express.js, NestJS, RESTful APIs, GraphQL, Redis microservices, and secure payment Webhooks."
+    question: "What backend technologies does Satish focus on?",
+    answer: "Satish is proficient in Node.js, Express.js, NestJS, RESTful APIs, GraphQL, Redis microservices, and secure payment Webhooks."
   },
   {
     id: 7,
@@ -215,7 +215,7 @@ const getAIResponse = (query: string): string => {
     return `📌 ${match.question}\n\n${match.answer}`;
   }
 
-  return `🤖 Satish Chaubey is a Full Stack Engineer (3+ years exp) specializing in React 19, Next.js 15, Node.js, BBPS payment engines, and AI applications.\n\nYou can select any of the 30 questions below or ask me about his skills, experience, projects, or contact info!`;
+  return `🤖 Satish Chaubey is a Full Stack Engineer (3+ years exp) focused on React 19, Next.js 16, Node.js, BBPS payment engines, and AI applications.\n\nYou can select any of the 30 questions below or ask me about his skills, experience, projects, or contact info!`;
 };
 
 const AIPlayground = () => {

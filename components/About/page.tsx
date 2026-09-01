@@ -99,7 +99,7 @@ const WorkExperience = () => {
           </h1>
 
           <p className="text-xs sm:text-base text-muted-foreground leading-relaxed">
-            I am a **Full Stack Engineer** with **<NumberCounter value="3+" /> years of experience** building high-throughput web applications using **Next.js 16** (App Router & React Compiler) and **React 19.x**, payment engines, SaaS dashboards, and AI architectures (**RAG & CAG context caching**). Based in Uttar Pradesh, India, I specialize in crafting clean, resilient JavaScript/TypeScript applications across the full web stack.
+            I am a **Full Stack Engineer** with **<NumberCounter value="3+" /> years of experience** building high-throughput web applications using **Next.js 16** (App Router & React Compiler) and **React 19.x**, payment engines, SaaS dashboards, and AI architectures (**RAG & CAG context caching**). Based in Uttar Pradesh, India, I focus on crafting clean, resilient JavaScript/TypeScript applications across the full web stack.
           </p>
 
           <p className="text-xs sm:text-base text-muted-foreground leading-relaxed">

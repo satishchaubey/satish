@@ -11,7 +11,7 @@ import NumberCounter from "@/components/ui/NumberCounter";
 interface SkillItem {
   name: string;
   category: "Frontend" | "Backend" | "Database & Cloud" | "Tools & Styling";
-  level: "Expert" | "Advanced" | "Intermediate";
+  level: "Proficient" | "Moderate" | "Intermediate";
   percentage: number;
   icon?: React.ReactNode;
   color: string;
@@ -19,30 +19,30 @@ interface SkillItem {
 
 const allSkills: SkillItem[] = [
   // Frontend
-  { name: "React.js & Next.js (App & Page Router)", category: "Frontend", level: "Expert", percentage: 95, icon: <NextJsIcon />, color: "from-teal-500 to-emerald-500" },
-  { name: "TypeScript & JavaScript", category: "Frontend", level: "Expert", percentage: 92, icon: <ReactIcon />, color: "from-cyan-500 to-blue-500" },
-  { name: "Tailwind CSS, ShadCN & Radix UI", category: "Frontend", level: "Expert", percentage: 95, color: "from-teal-400 to-cyan-500" },
-  { name: "Redux Toolkit & State Management", category: "Frontend", level: "Advanced", percentage: 88, color: "from-purple-500 to-indigo-600" },
-  { name: "Vite & Modern Frontend Tooling", category: "Frontend", level: "Advanced", percentage: 86, color: "from-pink-500 to-rose-500" },
-  { name: "SCSS, MUI & Bootstrap", category: "Frontend", level: "Advanced", percentage: 85, color: "from-indigo-400 to-purple-500" },
+  { name: "React.js & Next.js (App & Page Router)", category: "Frontend", level: "Proficient", percentage: 95, icon: <NextJsIcon />, color: "from-teal-500 to-emerald-500" },
+  { name: "TypeScript & JavaScript", category: "Frontend", level: "Proficient", percentage: 92, icon: <ReactIcon />, color: "from-cyan-500 to-blue-500" },
+  { name: "Tailwind CSS, ShadCN & Radix UI", category: "Frontend", level: "Proficient", percentage: 95, color: "from-teal-400 to-cyan-500" },
+  { name: "Redux Toolkit & State Management", category: "Frontend", level: "Moderate", percentage: 88, color: "from-purple-500 to-indigo-600" },
+  { name: "Vite & Modern Frontend Tooling", category: "Frontend", level: "Moderate", percentage: 86, color: "from-pink-500 to-rose-500" },
+  { name: "SCSS, MUI & Bootstrap", category: "Frontend", level: "Moderate", percentage: 85, color: "from-indigo-400 to-purple-500" },
 
   // Backend
-  { name: "Node.js & Express.js", category: "Backend", level: "Expert", percentage: 92, icon: <NodeJsIcon />, color: "from-green-500 to-emerald-600" },
-  { name: "PayU & Razorpay Gateways", category: "Backend", level: "Expert", percentage: 90, color: "from-emerald-500 to-teal-500" },
-  { name: "REST APIs & FastAPI Integration", category: "Backend", level: "Advanced", percentage: 88, color: "from-blue-500 to-indigo-500" },
-  { name: "Redis Caching & Event Streams", category: "Backend", level: "Advanced", percentage: 86, color: "from-red-500 to-rose-600" },
-  { name: "LLM & AI RAG/CAG Architecture", category: "Backend", level: "Advanced", percentage: 85, color: "from-purple-500 to-pink-500" },
+  { name: "Node.js & Express.js", category: "Backend", level: "Moderate", percentage: 78, icon: <NodeJsIcon />, color: "from-green-500 to-emerald-600" },
+  { name: "PayU & Razorpay Gateways", category: "Backend", level: "Moderate", percentage: 75, color: "from-emerald-500 to-teal-500" },
+  { name: "REST APIs & FastAPI Integration", category: "Backend", level: "Moderate", percentage: 72, color: "from-blue-500 to-indigo-500" },
+  { name: "Redis Caching & Event Streams", category: "Backend", level: "Moderate", percentage: 68, color: "from-red-500 to-rose-600" },
+  { name: "LLM & AI RAG/CAG Architecture", category: "Backend", level: "Moderate", percentage: 65, color: "from-purple-500 to-pink-500" },
 
   // Database & Cloud
-  { name: "MongoDB & Mongoose ODM", category: "Database & Cloud", level: "Expert", percentage: 92, color: "from-emerald-500 to-teal-600" },
-  { name: "MERN & Microservices Architecture", category: "Database & Cloud", level: "Expert", percentage: 90, color: "from-purple-600 to-indigo-600" },
-  { name: "MySQL & Relational Databases", category: "Database & Cloud", level: "Advanced", percentage: 84, icon: <SqlIcon />, color: "from-blue-600 to-indigo-600" },
-  { name: "GCP Deployment & AWS (EC2, S3)", category: "Database & Cloud", level: "Advanced", percentage: 82, icon: <AwsIcon />, color: "from-amber-500 to-orange-600" },
+  { name: "MongoDB & Mongoose ODM", category: "Database & Cloud", level: "Proficient", percentage: 92, color: "from-emerald-500 to-teal-600" },
+  { name: "MERN & Microservices Architecture", category: "Database & Cloud", level: "Proficient", percentage: 90, color: "from-purple-600 to-indigo-600" },
+  { name: "MySQL & Relational Databases", category: "Database & Cloud", level: "Moderate", percentage: 84, icon: <SqlIcon />, color: "from-blue-600 to-indigo-600" },
+  { name: "GCP Deployment & AWS (EC2, S3)", category: "Database & Cloud", level: "Moderate", percentage: 82, icon: <AwsIcon />, color: "from-amber-500 to-orange-600" },
 
   // Tools & Testing
-  { name: "Git, GitHub & Version Control", category: "Tools & Styling", level: "Expert", percentage: 95, color: "from-slate-700 to-slate-900" },
-  { name: "Postman & API Testing", category: "Tools & Styling", level: "Expert", percentage: 92, color: "from-orange-500 to-amber-600" },
-  { name: "VS Code & Developer Tooling", category: "Tools & Styling", level: "Expert", percentage: 95, color: "from-blue-500 to-cyan-600" },
+  { name: "Git, GitHub & Version Control", category: "Tools & Styling", level: "Proficient", percentage: 95, color: "from-slate-700 to-slate-900" },
+  { name: "Postman & API Testing", category: "Tools & Styling", level: "Proficient", percentage: 92, color: "from-orange-500 to-amber-600" },
+  { name: "VS Code & Developer Tooling", category: "Tools & Styling", level: "Proficient", percentage: 95, color: "from-blue-500 to-cyan-600" },
 ];
 
 const categories = [

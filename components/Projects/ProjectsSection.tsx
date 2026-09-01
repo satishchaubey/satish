@@ -29,7 +29,7 @@ const ProjectsSection = () => {
             category: "Full Stack",
             description: "Production email outreach and lead automation suite. Features batch raw email parsing, Fresh Outreach vs Follow-Up modes, Gmail drafts sync, PDF resume attachments, and SMTP delivery logs.",
             image: "/sheetsync-mailer.jpg",
-            technologies: ["React 19", "Next.js 15", "SMTP / Nodemailer", "Gmail API", "PDF Engine", "Tailwind CSS"],
+            technologies: ["React 19", "Next.js 16", "SMTP / Nodemailer", "Gmail API", "PDF Engine", "Tailwind CSS"],
             githubUrl: "https://github.com/satishchaubey",
             liveUrl: "https://github.com/satishchaubey",
             featured: true
@@ -40,7 +40,7 @@ const ProjectsSection = () => {
             category: "SaaS",
             description: "High-scale AI SaaS and BBPS bill payments engine integrated with PayU & Razorpay payment gateways, analytics, and client campaign dashboards.",
             image: "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=800&h=500&fit=crop",
-            technologies: ["Next.js 15", "React.js", "BBPS API", "PayU / Razorpay", "Tailwind CSS"],
+            technologies: ["Next.js 16", "React.js", "BBPS API", "PayU / Razorpay", "Tailwind CSS"],
             githubUrl: "https://github.com/satishchaubey",
             liveUrl: "https://github.com/satishchaubey",
             featured: true
@@ -51,7 +51,7 @@ const ProjectsSection = () => {
             category: "SaaS",
             description: "Production enterprise digital banking portal and transaction management suite built with Next.js & React, prioritizing secure data handling and intuitive banking user journeys.",
             image: "https://images.unsplash.com/photo-1563986768609-322da13575f3?w=800&h=500&fit=crop",
-            technologies: ["Next.js 15", "React 19", "Redux Toolkit", "TypeScript", "REST API"],
+            technologies: ["Next.js 16", "React 19", "Redux Toolkit", "TypeScript", "REST API"],
             githubUrl: "https://github.com/satishchaubey",
             liveUrl: "https://github.com/satishchaubey",
             featured: true
@@ -154,7 +154,7 @@ const ProjectsSection = () => {
             category: "SaaS",
             description: "Production website and voucher redemption engine with performance optimization and dynamic campaign routing.",
             image: "https://images.unsplash.com/photo-1526304640581-d334cdbbf45e?w=800&h=500&fit=crop",
-            technologies: ["Next.js 15", "React 19", "Tailwind CSS", "TypeScript"],
+            technologies: ["Next.js 16", "React 19", "Tailwind CSS", "TypeScript"],
             githubUrl: "https://github.com/satishchaubey",
             liveUrl: "https://github.com/satishchaubey"
         },
