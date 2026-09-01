@@ -1,8 +1,8 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Star, Github, ExternalLink, Sparkles, Code2, ArrowUpRight, Layers } from "lucide-react";
+import { Star, Github, ExternalLink, Sparkles, Code2, ArrowUpRight, Layers, ChevronDown, ChevronUp } from "lucide-react";
 import { AnimatedButton } from "@/components/ui/animated-button";
 import Link from "next/link";
 import LustreText from "../ui/lustretext";
@@ -170,11 +170,24 @@ const ProjectsSection = () => {
         }
     ];
 
+    const [showAll, setShowAll] = useState(false);
+    const [isMobile, setIsMobile] = useState(false);
+
+    useEffect(() => {
+        const checkMobile = () => setIsMobile(window.innerWidth < 640);
+        checkMobile();
+        window.addEventListener("resize", checkMobile);
+        return () => window.removeEventListener("resize", checkMobile);
+    }, []);
+
     const categories = ["All", "SaaS", "Real-time & Web3", "Full Stack"];
 
     const filteredProjects = activeFilter === "All" 
         ? projects 
         : projects.filter(p => p.category === activeFilter);
+
+    const initialLimit = isMobile ? 4 : 3;
+    const visibleProjects = showAll ? filteredProjects : filteredProjects.slice(0, initialLimit);
 
     return (
         <section id="projects" className="relative py-3 md:py-4 px-4 overflow-hidden">
@@ -230,7 +243,7 @@ const ProjectsSection = () => {
                 {/* Projects Grid: 2 Cards Side-by-Side on Mobile */}
                 <div className="grid grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-6">
                     <AnimatePresence>
-                        {filteredProjects.map((project, idx) => (
+                        {visibleProjects.map((project, idx) => (
                             <motion.div
                                 key={project.id}
                                 initial={{ opacity: 0, y: 15 }}
@@ -295,6 +308,20 @@ const ProjectsSection = () => {
                         ))}
                     </AnimatePresence>
                 </div>
+
+                {/* View All Toggle Button */}
+                {filteredProjects.length > initialLimit && (
+                    <div className="flex justify-center pt-8">
+                        <button
+                            onClick={() => setShowAll(!showAll)}
+                            className="flex items-center gap-2 px-6 py-2.5 rounded-full border border-teal-500/40 bg-teal-500/10 hover:bg-teal-500/20 text-teal-600 dark:text-teal-400 text-xs sm:text-sm font-bold transition-all cursor-pointer hover:scale-105 shadow-md"
+                        >
+                            <Sparkles className="w-4 h-4 text-amber-500" />
+                            <span>{showAll ? "Show Top Projects" : `View All Projects (${filteredProjects.length} Total)`}</span>
+                            {showAll ? <ChevronUp className="w-4 h-4" /> : <ChevronDown className="w-4 h-4" />}
+                        </button>
+                    </div>
+                )}
 
                 {/* View GitHub Repository CTA */}
                 <motion.div

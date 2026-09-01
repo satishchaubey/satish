@@ -13,7 +13,9 @@ import {
   Zap,
   Globe,
   ShieldCheck,
-  Workflow
+  Workflow,
+  ChevronDown,
+  ChevronUp
 } from "lucide-react";
 
 interface ResumeSkillItem {
@@ -43,12 +45,24 @@ const getSkillIcon = (name: string, category: string) => {
 
 const ResumeSkills: React.FC<ResumeSkillsProps> = ({ skills }) => {
   const [activeTab, setActiveTab] = useState<string>("All");
+  const [showAll, setShowAll] = useState<boolean>(false);
+  const [isMobile, setIsMobile] = useState<boolean>(false);
+
+  React.useEffect(() => {
+    const checkMobile = () => setIsMobile(window.innerWidth < 640);
+    checkMobile();
+    window.addEventListener("resize", checkMobile);
+    return () => window.removeEventListener("resize", checkMobile);
+  }, []);
 
   const categories = ["All", "Frontend", "Backend", "Database", "DevOps", "Tools"];
 
   const filteredSkills = activeTab === "All" 
     ? skills 
     : skills.filter((s) => s.category.toLowerCase().includes(activeTab.toLowerCase()));
+
+  const initialLimit = isMobile ? 4 : 3;
+  const visibleSkills = showAll ? filteredSkills : filteredSkills.slice(0, initialLimit);
 
   return (
     <div className="space-y-6 pt-2">
@@ -72,7 +86,7 @@ const ResumeSkills: React.FC<ResumeSkillsProps> = ({ skills }) => {
       {/* Grid of Skill Cards */}
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
         <AnimatePresence mode="popLayout">
-          {filteredSkills.map((skill, idx) => {
+          {visibleSkills.map((skill, idx) => {
             const percentage = skill.proficiency * 20;
             const level = skill.proficiency >= 5 ? "Expert" : skill.proficiency >= 4 ? "Advanced" : "Proficient";
             const icon = getSkillIcon(skill.name, skill.category);
@@ -128,6 +142,20 @@ const ResumeSkills: React.FC<ResumeSkillsProps> = ({ skills }) => {
           })}
         </AnimatePresence>
       </div>
+
+      {/* View All Skills Toggle Button */}
+      {filteredSkills.length > initialLimit && (
+        <div className="flex justify-center pt-2">
+          <button
+            onClick={() => setShowAll(!showAll)}
+            className="flex items-center gap-2 px-6 py-2.5 rounded-full border border-border bg-card hover:bg-accent text-foreground text-xs md:text-sm font-semibold transition-all cursor-pointer hover:scale-105 shadow-sm"
+          >
+            <Sparkles className="w-4 h-4 text-amber-500" />
+            <span>{showAll ? "Show Top Skills" : `View All Technical Skills (${filteredSkills.length} Total)`}</span>
+            {showAll ? <ChevronUp className="w-4 h-4" /> : <ChevronDown className="w-4 h-4" />}
+          </button>
+        </div>
+      )}
     </div>
   );
 };

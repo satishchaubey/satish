@@ -16,8 +16,17 @@ interface ResumeProjectsProps {
 
 const ResumeProjects: React.FC<ResumeProjectsProps> = ({ projects }) => {
   const [showAll, setShowAll] = useState(false);
+  const [isMobile, setIsMobile] = useState(false);
 
-  const visibleProjects = showAll ? projects : projects.slice(0, 6);
+  React.useEffect(() => {
+    const checkMobile = () => setIsMobile(window.innerWidth < 640);
+    checkMobile();
+    window.addEventListener("resize", checkMobile);
+    return () => window.removeEventListener("resize", checkMobile);
+  }, []);
+
+  const initialLimit = isMobile ? 4 : 3;
+  const visibleProjects = showAll ? projects : projects.slice(0, initialLimit);
 
   return (
     <div className="space-y-6 pt-4">
@@ -68,7 +77,7 @@ const ResumeProjects: React.FC<ResumeProjectsProps> = ({ projects }) => {
       </div>
 
       {/* Expand Button */}
-      {projects.length > 6 && (
+      {projects.length > initialLimit && (
         <div className="flex justify-center pt-2">
           <button
             onClick={() => setShowAll(!showAll)}

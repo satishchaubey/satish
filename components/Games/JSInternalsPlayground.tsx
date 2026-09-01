@@ -272,12 +272,12 @@ export default function JSInternalsPlayground() {
       </div>
 
       {/* Control Toolbar */}
-      <div className="flex flex-wrap items-center justify-between gap-3 p-3 rounded-2xl bg-card border border-border/50">
-        <div className="flex items-center gap-2">
+      <div className="flex flex-wrap items-center justify-between gap-2 p-2.5 sm:p-3 rounded-2xl bg-card border border-border/50">
+        <div className="flex flex-wrap items-center gap-1.5 sm:gap-2">
           <Button
             size="sm"
             onClick={() => setIsPlaying(!isPlaying)}
-            className="bg-teal-600 hover:bg-teal-700 text-white font-bold text-xs gap-1.5 cursor-pointer"
+            className="bg-teal-600 hover:bg-teal-700 text-white font-bold text-[11px] sm:text-xs px-2.5 sm:px-3.5 py-1.5 gap-1 sm:gap-1.5 cursor-pointer flex-shrink-0"
           >
             {isPlaying ? <Pause className="w-3.5 h-3.5" /> : <Play className="w-3.5 h-3.5" />}
             {isPlaying ? "Pause" : "Auto Play"}
@@ -288,7 +288,7 @@ export default function JSInternalsPlayground() {
             variant="outline"
             disabled={currentStepIndex >= preset.steps.length - 1}
             onClick={() => setCurrentStepIndex((prev) => Math.min(preset.steps.length - 1, prev + 1))}
-            className="text-xs font-bold gap-1 cursor-pointer"
+            className="text-[11px] sm:text-xs font-bold px-2.5 sm:px-3.5 py-1.5 gap-1 cursor-pointer flex-shrink-0"
           >
             <SkipForward className="w-3.5 h-3.5" /> Step Forward
           </Button>
@@ -300,20 +300,20 @@ export default function JSInternalsPlayground() {
               setCurrentStepIndex(0);
               setIsPlaying(false);
             }}
-            className="text-xs font-bold gap-1 cursor-pointer"
+            className="text-[11px] sm:text-xs font-bold px-2 sm:px-3 py-1.5 gap-1 cursor-pointer flex-shrink-0"
           >
             <RotateCcw className="w-3.5 h-3.5" /> Reset
           </Button>
         </div>
 
         {/* Speed Controls */}
-        <div className="flex items-center gap-1.5 text-xs font-bold text-muted-foreground">
+        <div className="flex items-center gap-1 sm:gap-1.5 text-[11px] sm:text-xs font-bold text-muted-foreground flex-shrink-0">
           <span>Speed:</span>
           {[0.5, 1, 2].map((spd) => (
             <button
               key={spd}
               onClick={() => setPlaybackSpeed(spd)}
-              className={`px-2 py-0.5 rounded text-[11px] font-mono cursor-pointer transition-all ${
+              className={`px-1.5 sm:px-2 py-0.5 rounded text-[10px] sm:text-[11px] font-mono cursor-pointer transition-all ${
                 playbackSpeed === spd
                   ? "bg-teal-500 text-white font-bold"
                   : "bg-accent/50 text-muted-foreground hover:text-foreground"
