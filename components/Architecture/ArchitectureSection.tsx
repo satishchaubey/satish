@@ -302,45 +302,45 @@ const plutosMainProject: ArchitectureProject = {
   ],
 };
 
-// 3. Visa AI Chatbot Data
+// 3. Multi-Country AI Assistance & Document Pipeline Data
 const visaChatbotProject: ArchitectureProject = {
   id: "visa-chatbot",
-  title: "Visa & CSC Multi-Country AI Chatbot",
-  shortTitle: "Visa AI Chatbot",
+  title: "Multi-Country AI Assistance & Document Pipeline",
+  shortTitle: "AI Document Pipeline",
   subtitle: "FastAPI RAG Pipeline, Document OCR Verification & Intent Router",
-  repo: "github.com/satishchaubey/visa-csc-ai-chatbot",
-  badge: "Document AI & RAG Chatbot",
+  repo: "github.com/satishchaubey/ai-document-pipeline",
+  badge: "Sanitized Document AI",
   description:
-    "Enterprise AI chatbot assisting applicants with multi-country visa guidelines, automated passport & document pre-verification (OCR), instant checklist generation via LangChain RAG vector search, and dynamic human agent escalation.",
-  techStack: ["FastAPI Python 3.12", "LangChain RAG", "ChromaDB", "Google Gemini Flash", "Document OCR", "REST APIs"],
+    "Enterprise AI platform assisting applicants with multi-country guidelines, automated document pre-verification, instant checklist generation via RAG vector search, and dynamic human support escalation.",
+  techStack: ["FastAPI Python 3.12", "LangChain RAG", "Vector Search", "AI Reasoning Pipeline", "Document OCR", "REST APIs"],
   metrics: [
-    { label: "Country Coverage", value: "Global / CSC" },
+    { label: "Coverage", value: "Global / Multi-Country" },
     { label: "Query Speed", value: "< 2.5s" },
     { label: "Verification Accuracy", value: "98.5%" },
     { label: "Escalation SLA", value: "Instant" },
   ],
   mermaidCode: `graph TD
     subgraph UserLayer["1. User & Applicant Interfaces"]
-        U1["🌐 Web Portal / Mobile Widget"]
-        U2["💬 Visa & CSC Query Assistance"]
-        U3["📄 Document Upload (PDF / Passport Scan)"]
+        U1["Web Portal / Mobile Interface"]
+        U2["Visa & General Query Assistance"]
+        U3["Document Upload"]
     end
 
-    subgraph RouterLayer["2. Conversational Intent Router"]
-        R1["⚡ FastAPI Intent Classifier"]
-        R2["🧠 Entity Extractor (Country, Visa Type, Document Rules)"]
+    subgraph RouterLayer["2. Conversational Processing"]
+        R1["Intent Classification Service"]
+        R2["Entity & Requirement Extraction"]
     end
 
-    subgraph AIKnowledgeLayer["3. Vector RAG Search & Policy Engine"]
-        V1["🗄️ Vector Database (Emb. Documents)"]
-        L1["🤖 LangChain / LLM Reasoning Pipeline"]
-        G1["🔍 Multi-Country Compliance Rules Engine"]
+    subgraph AIKnowledgeLayer["3. AI Knowledge & Policy Layer"]
+        V1["Knowledge & Vector Search"]
+        L1["AI Reasoning Pipeline"]
+        G1["Policy & Compliance Rules"]
     end
 
-    subgraph ResponseLayer["4. Response Synthesis & Escalation"]
-        O1["✅ Instant Guidelines & Checklist Response"]
-        O2["📋 Automated Document Pre-Verification Report"]
-        O3["👨‍💼 Human Agent Escalation Queue (High Priority)"]
+    subgraph ResponseLayer["4. Response & Escalation"]
+        O1["Guidelines & Checklist Response"]
+        O2["Document Verification Summary"]
+        O3["Human Support Escalation"]
     end
 
     U1 --> R1
