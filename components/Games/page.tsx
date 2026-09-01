@@ -4,10 +4,12 @@ import React, { useState, useEffect, useRef } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
-import { Timer, Target, Play, Trophy, RotateCcw, Info, Zap, Gamepad2, Brain, Keyboard, Sparkles, RefreshCw, Cpu } from "lucide-react";
+import { Timer, Target, Play, Trophy, RotateCcw, Info, Zap, Gamepad2, Brain, Keyboard, Sparkles, RefreshCw, Cpu, Layers } from "lucide-react";
 import { Confetti, type ConfettiRef } from "@/components/magicui/confetti";
 import LustreText from "@/components/ui/lustretext";
 import EventLoopPlayground from "./EventLoopPlayground";
+import PythonInternalsPlayground from "./PythonInternalsPlayground";
+import JSInternalsPlayground from "./JSInternalsPlayground";
 
 // ----------------------------------------------------
 // GAME 1: WHACK-A-BUG
@@ -367,7 +369,7 @@ const TyperGame = () => {
 // MAIN GAMES HUB CONTAINER
 // ----------------------------------------------------
 const WhackADev = () => {
-  const [activeTab, setActiveTab] = useState<"eventloop" | "whack" | "memory" | "typer">("eventloop");
+  const [activeTab, setActiveTab] = useState<"jsinternals" | "eventloop" | "python" | "whack" | "memory" | "typer">("jsinternals");
 
   return (
     <div className="pt-20 md:pt-24 pb-12 px-4 max-w-5xl mx-auto space-y-6">
@@ -380,27 +382,51 @@ const WhackADev = () => {
           <LustreText text="Dev Arcade Hub" className="text-lg sm:text-3xl md:text-5xl font-extrabold" />
         </h1>
         <p className="text-[11px] sm:text-xs md:text-sm text-muted-foreground max-w-xl mx-auto">
-          Master JavaScript Event Loop, test reaction speed, memory, and typing velocity in interactive developer mini-games.
+          Master JavaScript V8 Engine & Python Internals, Event Loop, reaction speed, memory, and typing velocity in interactive developer mini-games.
         </p>
       </div>
 
-      {/* Game Selector Tabs - Event Loop First */}
-      <div className="grid grid-cols-2 sm:grid-cols-4 gap-1.5 sm:flex sm:flex-row sm:justify-center sm:gap-2 max-w-xl mx-auto pt-2">
+      {/* Game Selector Tabs */}
+      <div className="flex flex-wrap items-center justify-center gap-1.5 sm:gap-2 max-w-3xl mx-auto pt-2">
         <button
-          onClick={() => setActiveTab("eventloop")}
-          className={`flex items-center justify-center gap-1 sm:gap-2 px-2 sm:px-4 py-2 sm:py-2.5 rounded-full text-[11px] sm:text-xs md:text-sm font-bold transition-all cursor-pointer w-full ${
-            activeTab === "eventloop"
+          onClick={() => setActiveTab("jsinternals")}
+          className={`flex items-center justify-center gap-1 sm:gap-2 px-2.5 sm:px-4 py-2 sm:py-2.5 rounded-full text-[11px] sm:text-xs md:text-sm font-bold transition-all cursor-pointer ${
+            activeTab === "jsinternals"
               ? "bg-gradient-to-r from-teal-500 to-blue-600 text-white shadow-md ring-2 ring-teal-400/50"
               : "border border-border bg-card text-muted-foreground hover:bg-accent"
           }`}
         >
           <Cpu className="w-3.5 h-3.5 sm:w-4 sm:h-4 flex-shrink-0 text-teal-400" />
-          <span className="truncate">Event Loop</span>
+          <span className="truncate">JS Engine (V8)</span>
+        </button>
+
+        <button
+          onClick={() => setActiveTab("eventloop")}
+          className={`flex items-center justify-center gap-1 sm:gap-2 px-2.5 sm:px-4 py-2 sm:py-2.5 rounded-full text-[11px] sm:text-xs md:text-sm font-bold transition-all cursor-pointer ${
+            activeTab === "eventloop"
+              ? "bg-gradient-to-r from-teal-500 to-blue-600 text-white shadow-md ring-2 ring-teal-400/50"
+              : "border border-border bg-card text-muted-foreground hover:bg-accent"
+          }`}
+        >
+          <RefreshCw className="w-3.5 h-3.5 sm:w-4 sm:h-4 flex-shrink-0 text-cyan-400" />
+          <span className="truncate">JS Event Loop</span>
+        </button>
+
+        <button
+          onClick={() => setActiveTab("python")}
+          className={`flex items-center justify-center gap-1 sm:gap-2 px-2.5 sm:px-4 py-2 sm:py-2.5 rounded-full text-[11px] sm:text-xs md:text-sm font-bold transition-all cursor-pointer ${
+            activeTab === "python"
+              ? "bg-gradient-to-r from-amber-500 to-orange-600 text-slate-950 shadow-md ring-2 ring-amber-400/50 font-extrabold"
+              : "border border-border bg-card text-muted-foreground hover:bg-accent"
+          }`}
+        >
+          <Zap className="w-3.5 h-3.5 sm:w-4 sm:h-4 flex-shrink-0 text-amber-500" />
+          <span className="truncate">Python Internals</span>
         </button>
 
         <button
           onClick={() => setActiveTab("whack")}
-          className={`flex items-center justify-center gap-1 sm:gap-2 px-2 sm:px-4 py-2 sm:py-2.5 rounded-full text-[11px] sm:text-xs md:text-sm font-bold transition-all cursor-pointer w-full ${
+          className={`flex items-center justify-center gap-1 sm:gap-2 px-2.5 sm:px-4 py-2 sm:py-2.5 rounded-full text-[11px] sm:text-xs md:text-sm font-bold transition-all cursor-pointer ${
             activeTab === "whack"
               ? "bg-gradient-to-r from-teal-500 to-blue-600 text-white shadow-md"
               : "border border-border bg-card text-muted-foreground hover:bg-accent"
@@ -412,7 +438,7 @@ const WhackADev = () => {
 
         <button
           onClick={() => setActiveTab("memory")}
-          className={`flex items-center justify-center gap-1 sm:gap-2 px-2 sm:px-4 py-2 sm:py-2.5 rounded-full text-[11px] sm:text-xs md:text-sm font-bold transition-all cursor-pointer w-full ${
+          className={`flex items-center justify-center gap-1 sm:gap-2 px-2.5 sm:px-4 py-2 sm:py-2.5 rounded-full text-[11px] sm:text-xs md:text-sm font-bold transition-all cursor-pointer ${
             activeTab === "memory"
               ? "bg-gradient-to-r from-teal-500 to-blue-600 text-white shadow-md"
               : "border border-border bg-card text-muted-foreground hover:bg-accent"
@@ -424,7 +450,7 @@ const WhackADev = () => {
 
         <button
           onClick={() => setActiveTab("typer")}
-          className={`flex items-center justify-center gap-1 sm:gap-2 px-2 sm:px-4 py-2 sm:py-2.5 rounded-full text-[11px] sm:text-xs md:text-sm font-bold transition-all cursor-pointer w-full ${
+          className={`flex items-center justify-center gap-1 sm:gap-2 px-2.5 sm:px-4 py-2 sm:py-2.5 rounded-full text-[11px] sm:text-xs md:text-sm font-bold transition-all cursor-pointer ${
             activeTab === "typer"
               ? "bg-gradient-to-r from-teal-500 to-blue-600 text-white shadow-md"
               : "border border-border bg-card text-muted-foreground hover:bg-accent"
@@ -437,7 +463,9 @@ const WhackADev = () => {
 
       {/* Active Game Card */}
       <Card className="rounded-3xl border border-border bg-card p-4 sm:p-6 shadow-xl">
+        {activeTab === "jsinternals" && <JSInternalsPlayground />}
         {activeTab === "eventloop" && <EventLoopPlayground />}
+        {activeTab === "python" && <PythonInternalsPlayground />}
         {activeTab === "whack" && <WhackGame />}
         {activeTab === "memory" && <MemoryGame />}
         {activeTab === "typer" && <TyperGame />}
