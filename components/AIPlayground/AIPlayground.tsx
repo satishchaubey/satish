@@ -175,7 +175,7 @@ const qaDatabase: { id: number; keywords: string[]; question: string; answer: st
     id: 27,
     keywords: ["performance", "speed", "optimization", "fast"],
     question: "How does Satish optimize application performance?",
-    answer: "By utilizing Next.js Server Components, Redis data caching, code-splitting, lazy loading, and bundle size reduction (reducing page loads by ~20%)."
+    answer: "By utilizing Next.js Server Components, Redis data caching, code-splitting, lazy loading, and bundle size optimization for ultra-fast rendering speeds."
   },
   {
     id: 28,
@@ -193,7 +193,7 @@ const qaDatabase: { id: number; keywords: string[]; question: string; answer: st
     id: 30,
     keywords: ["standout", "why hire", "unique", "special"],
     question: "What makes Satish Chaubey stand out as a Full Stack Engineer?",
-    answer: "Satish combines deep frontend mastery (React 19, Next.js 15) with proven high-throughput backend architecture (20k+ daily txns, BBPS, PayU/Razorpay) and AI integration experience."
+    answer: "Satish combines deep frontend mastery (React 19, Next.js 16) with proven microservices backend architecture (BBPS, PayU/Razorpay, Redis) and AI integration experience."
   },
   {
     id: 31,

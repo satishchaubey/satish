@@ -13,13 +13,13 @@ interface Message {
   timestamp: string;
 }
 
-// 30 Verified Q&A Knowledge Base
+// 31 Verified Q&A Knowledge Base
 const qaDatabase: { id: number; keywords: string[]; question: string; answer: string }[] = [
   {
     id: 1,
     keywords: ["who", "satish", "about", "intro", "bio"],
     question: "Who is Satish Chaubey?",
-    answer: "Satish Kumar Chaubey is a Full Stack Engineer with 3+ years of experience building high-throughput payment engines, BBPS microservices, SaaS dashboards, and AI integrations."
+    answer: "Satish Kumar Chaubey is a Full Stack Engineer with 3+ years of experience building high-throughput payment engines, BBPS microservices, SaaS dashboards, and AI integrations based in Ghaziabad, UP, India."
   },
   {
     id: 2,
@@ -31,52 +31,172 @@ const qaDatabase: { id: number; keywords: string[]; question: string; answer: st
     id: 3,
     keywords: ["current", "role", "company", "present", "enterprise"],
     question: "What is Satish's current role and company?",
-    answer: "Satish currently works as a Software Engineer at a FinTech & SaaS Enterprise (Feb 2024–Present), leading frontend SaaS engineering and payment engines."
+    answer: "Satish currently works as a Software Engineer at a FinTech & SaaS Enterprise (Feb 2024–Present), leading frontend SaaS engineering, payment gateway integrations, and BBPS bill payment engines."
   },
   {
     id: 4,
     keywords: ["skills", "tech stack", "technologies", "core skills"],
     question: "What are Satish's primary technical skills?",
-    answer: "Satish specializes in React 19, Next.js 15, TypeScript, Node.js, Express.js, NestJS, MongoDB, PostgreSQL, Redis, PayU, Razorpay, BBPS APIs, Tailwind CSS, Docker, and AWS."
+    answer: "Satish specializes in React 19.x, Next.js 16 (App Router & React Compiler), TypeScript, Node.js, Express.js, NestJS, MongoDB, PostgreSQL, Redis, PayU, Razorpay, BBPS APIs, Tailwind CSS, Docker, and AWS."
   },
   {
     id: 5,
     keywords: ["frontend", "framework", "ui", "react", "next"],
     question: "What frontend technologies does Satish use?",
-    answer: "Satish uses React 19, Next.js 15, TypeScript, Tailwind CSS v4, Framer Motion, and Redux Toolkit."
+    answer: "Satish uses React 19.x, Next.js 16 (App Router & React Compiler), TypeScript, Tailwind CSS v4, Framer Motion, Redux Toolkit, and Vite for modern UIs."
   },
   {
     id: 6,
     keywords: ["backend", "node", "express", "server", "api"],
     question: "What backend technologies does Satish specialize in?",
-    answer: "Satish specializes in Node.js, Express.js, NestJS, REST APIs, Redis microservices, and secure payment Webhooks."
+    answer: "Satish specializes in Node.js, Express.js, NestJS, RESTful APIs, GraphQL, Redis microservices, and secure payment Webhooks."
   },
   {
     id: 7,
-    keywords: ["bill payment", "transactions", "throughput"],
-    question: "What is the High-Traffic Bill Payment Engine?",
-    answer: "A high-traffic bill payment engine engineered by Satish with Redis caching and microservices architecture."
+    keywords: ["database", "postgres", "mongo", "sql", "redis"],
+    question: "What databases does Satish work with?",
+    answer: "Satish works with PostgreSQL, MongoDB, and Redis caching for ultra-low latency query speeds and high concurrency."
   },
   {
     id: 8,
-    keywords: ["contact", "email", "phone", "reach", "hire"],
-    question: "How can I contact Satish?",
-    answer: "📧 Email: satishchaubey02@gmail.com\n📞 Phone: +91 8299805407\n📍 Location: Ghaziabad, UP, India"
+    keywords: ["payment", "payu", "razorpay", "gateway", "bbps"],
+    question: "What payment gateways has Satish integrated?",
+    answer: "Satish has integrated PayU, Razorpay, and Bharat Bill Payment System (BBPS) APIs for seamless bill payment flows."
   },
   {
     id: 9,
-    keywords: ["project", "projects", "build"],
-    question: "What production projects has Satish built?",
-    answer: "Satish built 13+ production projects including High-Traffic Payment Engine, Digital Banking Platform, AI Call Monitoring, Multi-Country AI Pipeline, and Web3 Bound Finance."
+    keywords: ["bill payment", "transactions", "throughput"],
+    question: "What is the High-Traffic Bill Payment Engine?",
+    answer: "It is a high-traffic bill payment engine engineered by Satish using Redis microservice caching."
   },
   {
     id: 10,
-    keywords: ["degree", "education", "bca", "college"],
-    question: "What degree does Satish hold?",
-    answer: "Satish holds a Bachelor of Computer Applications (BCA) degree from ITM College of Management, Gorakhpur (2019-2021)."
+    keywords: ["daily", "volume", "transactions count", "throughput"],
+    question: "How does Satish handle high transaction volumes?",
+    answer: "His high-throughput payment engine processes high-concurrency production transactions smoothly using microservices architecture."
   },
   {
     id: 11,
+    keywords: ["banking", "digital banking", "enterprise banking"],
+    question: "What is the Enterprise Digital Banking Platform?",
+    answer: "An omni-channel production banking platform developed to streamline digital transaction management and secure user banking journeys."
+  },
+  {
+    id: 12,
+    keywords: ["ai call", "sentiment", "speech", "call monitoring"],
+    question: "What is the AI Call Monitoring project?",
+    answer: "An LLM-driven audio analysis system built by Satish that analyzes sales & support calls for sentiment scoring, agent compliance, and insights."
+  },
+  {
+    id: 13,
+    keywords: ["document ai", "chatbot", "multi country", "ai chatbot"],
+    question: "What is the Multi-Country AI Assistance Chatbot?",
+    answer: "An AI-powered conversational chatbot that assists users with multi-country guidelines, application steps, and document verification."
+  },
+  {
+    id: 14,
+    keywords: ["bound finance", "web3", "crypto", "exchange", "ethereum"],
+    question: "What is Bound Finance Web3 Exchange?",
+    answer: "A decentralized crypto trading platform built on Ethereum and Binance Smart Chain with Web3 wallet integration."
+  },
+  {
+    id: 15,
+    keywords: ["operational", "campaign", "dashboard", "enterprise"],
+    question: "What are the Enterprise Operational & Campaign Dashboards?",
+    answer: "Enterprise SaaS operational dashboards built by Satish supporting voucher management, campaign scheduling, analytics, and client management."
+  },
+  {
+    id: 16,
+    keywords: ["location", "city", "where", "address", "ghaziabad"],
+    question: "Where is Satish located?",
+    answer: "Satish is located in Ghaziabad, Uttar Pradesh, India, and is open to hybrid, remote, or relocation opportunities."
+  },
+  {
+    id: 17,
+    keywords: ["email", "mail", "gmail", "contact email"],
+    question: "How can I contact Satish Chaubey via email?",
+    answer: "You can email Satish directly at satishchaubey02@gmail.com."
+  },
+  {
+    id: 18,
+    keywords: ["phone", "mobile", "number", "call"],
+    question: "What is Satish's phone number?",
+    answer: "Satish can be reached by phone or WhatsApp at +91 8299805407."
+  },
+  {
+    id: 19,
+    keywords: ["linkedin", "social", "profile link"],
+    question: "What is Satish's LinkedIn profile?",
+    answer: "Satish's LinkedIn profile is linkedin.com/in/satish-chaubey."
+  },
+  {
+    id: 20,
+    keywords: ["github", "code repo", "projects github"],
+    question: "What is Satish's GitHub profile?",
+    answer: "Satish's GitHub profile is github.com/satishchaubey."
+  },
+  {
+    id: 21,
+    keywords: ["degree", "education", "bca", "graduation"],
+    question: "What degree does Satish hold?",
+    answer: "Satish holds a Bachelor of Computer Applications (BCA) degree."
+  },
+  {
+    id: 22,
+    keywords: ["college", "university", "itm", "gorakhpur"],
+    question: "Where did Satish complete his BCA?",
+    answer: "He completed his BCA at ITM College of Management, Gorakhpur (2019-2021)."
+  },
+  {
+    id: 23,
+    keywords: ["certification", "certificate", "mern cert"],
+    question: "What certifications does Satish hold?",
+    answer: "Satish holds a Full Stack MERN Developer Certification from Techpile Technology Pvt. Ltd."
+  },
+  {
+    id: 24,
+    keywords: ["speqto", "speqto role", "frontend speqto"],
+    question: "What was Satish's role at Speqto Technology?",
+    answer: "At Speqto Technology (Jun 2023–Jan 2024), Satish served as a Front-End Developer building React/Vite UIs and Web3 wallet connections."
+  },
+  {
+    id: 25,
+    keywords: ["techpile", "intern", "mern intern"],
+    question: "What was Satish's role at Techpile Technology?",
+    answer: "At Techpile Technology (Jun 2022–May 2023), Satish worked as a MERN Stack Intern building full-stack web applications."
+  },
+  {
+    id: 26,
+    keywords: ["docker", "cloud", "aws", "gcp", "devops"],
+    question: "Does Satish have experience with Docker & Cloud?",
+    answer: "Yes, Satish uses Docker for containerization and deploys applications on AWS and GCP cloud infrastructure."
+  },
+  {
+    id: 27,
+    keywords: ["performance", "speed", "optimization", "fast"],
+    question: "How does Satish optimize application performance?",
+    answer: "By utilizing Next.js Server Components, Redis data caching, code-splitting, lazy loading, and bundle size optimization for ultra-fast rendering speeds."
+  },
+  {
+    id: 28,
+    keywords: ["state", "redux", "zustand", "context"],
+    question: "What state management tools does Satish use?",
+    answer: "Satish uses Redux Toolkit, Zustand, and React Context API for global state management."
+  },
+  {
+    id: 29,
+    keywords: ["hire", "open", "job", "full time", "career"],
+    question: "Is Satish open for full-time Full Stack Developer roles?",
+    answer: "Yes! Satish is actively open to Full Stack Software Engineer roles and high-impact technical opportunities."
+  },
+  {
+    id: 30,
+    keywords: ["standout", "why hire", "unique", "special"],
+    question: "What makes Satish Chaubey stand out as a Full Stack Engineer?",
+    answer: "Satish combines deep frontend mastery (React 19, Next.js 16) with proven microservices backend architecture (BBPS, PayU/Razorpay, Redis) and AI integration experience."
+  },
+  {
+    id: 31,
     keywords: ["resume", "cv", "download", "pdf", "bio pdf"],
     question: "How can I view or download Satish's Resume?",
     answer: "📄 You can download Satish Chaubey's latest CV / Resume directly:\n\n👉 Click to Download PDF: /Satish_Kumar_Chaubey.pdf\n\nOr visit the /resume page to view his online experience timeline!"
