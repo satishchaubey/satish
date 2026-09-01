@@ -74,121 +74,151 @@ export default function VenomBeamDemo() {
     ];
 
     return (
-        <div className="flex flex-col justify-center items-center pt-20 md:pt-24 pb-4 px-4 md:px-8 max-w-7xl mx-auto">
+        <div className="flex flex-col justify-center items-center pt-20 md:pt-24 pb-8 px-4 md:px-8 max-w-7xl mx-auto space-y-12">
             {/* Top Hero Grid */}
-            <div className="grid grid-cols-1 lg:grid-cols-12 items-center gap-12 w-full">
+            <div className="grid grid-cols-1 lg:grid-cols-12 items-center gap-10 lg:gap-12 w-full">
                 
                 {/* Left Side: Hero Text & Information */}
-                <div className="lg:col-span-7 flex flex-col justify-center text-center lg:text-left order-2 lg:order-1">
+                <div className="lg:col-span-7 flex flex-col justify-center text-center lg:text-left order-2 lg:order-1 space-y-6">
                     
                     {/* Status Badge */}
                     <motion.div 
                         initial={{ opacity: 0, y: -10 }}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ duration: 0.5 }}
-                        className="inline-flex items-center gap-2 self-center lg:self-start px-4 py-2.5 rounded-full border border-teal-500/30 bg-teal-500/10 backdrop-blur-md mb-8 shadow-sm"
+                        className="inline-flex items-center gap-2.5 self-center lg:self-start px-4 py-2 rounded-full border border-teal-500/30 bg-teal-500/10 backdrop-blur-md shadow-sm"
                     >
-                        <span className="relative flex h-3 w-3">
+                        <span className="relative flex h-2.5 w-2.5">
                             <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
-                            <span className="relative inline-flex rounded-full h-3 w-3 bg-emerald-500"></span>
+                            <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-emerald-500"></span>
                         </span>
-                        <span className="text-xs md:text-sm font-semibold text-teal-700 dark:text-teal-300">
+                        <span className="text-xs sm:text-sm font-bold text-teal-700 dark:text-teal-300 tracking-wide">
                             Available for Full Stack & Engineering Roles
                         </span>
                     </motion.div>
 
                     {/* Main Headline */}
-                    <h1 className="text-lg sm:text-3xl lg:text-5xl font-extrabold tracking-tight">
-                        <LustreText text="Satish Kumar Chaubey" className="text-lg sm:text-3xl lg:text-5xl font-extrabold" />
+                    <div className="space-y-2">
+                        <h1 className="text-3xl sm:text-5xl lg:text-6xl font-black tracking-tight leading-none">
+                            <LustreText text="Satish Kumar Chaubey" className="text-3xl sm:text-5xl lg:text-6xl font-black" />
+                        </h1>
                         
-                        <div className="mt-1.5">
+                        <div className="pt-1">
                             <TextHighlighter type="zigzag" highlightColor="#00ffb788" repeat>
-                                <span className="bg-clip-text text-transparent bg-gradient-to-r from-teal-600 via-blue-600 to-purple-600 dark:from-teal-300 dark:via-blue-400 dark:to-purple-400 text-base sm:text-2xl lg:text-4xl font-extrabold tracking-tight">
+                                <span className="bg-clip-text text-transparent bg-gradient-to-r from-teal-500 via-blue-500 to-purple-500 dark:from-teal-300 dark:via-blue-400 dark:to-purple-400 text-2xl sm:text-3xl lg:text-4xl font-extrabold tracking-tight">
                                     Full Stack Engineer
                                 </span>
                             </TextHighlighter>
                         </div>
-                    </h1>
+                    </div>
 
-                    {/* Typewriter Animation */}
-                    <div className="mt-4 text-base sm:text-2xl font-bold flex items-center justify-center lg:justify-start gap-1.5 h-10 sm:h-12">
-                        <span className="text-muted-foreground text-xs sm:text-lg font-medium">Specializing in:</span>
-                        <Typeanimation
-                            words={["React & Next.js", "Node.js & NestJS", "Redux & WebSockets", "PostgreSQL & MongoDB", "Tailwind & ShadCN"]}
-                            typingSpeed="slow"
-                            deletingSpeed="slow"
-                            gradientFrom="blue-500"
-                            gradientTo="purple-500"
-                            pauseDuration={2000}
-                            className="text-xs sm:text-xl lg:text-3xl font-extrabold text-teal-600 dark:text-teal-400"
-                        />
+                    {/* Typewriter Animation Pill */}
+                    <div className="flex items-center justify-center lg:justify-start">
+                        <div className="inline-flex items-center gap-2 px-3.5 py-2 rounded-2xl bg-card border border-border shadow-sm text-xs sm:text-sm font-semibold max-w-full overflow-hidden">
+                            <span className="text-muted-foreground font-mono flex-shrink-0">Specializing in:</span>
+                            <Typeanimation
+                                words={["React & Next.js 16", "Node.js & NestJS", "BBPS & Payment Gateways", "PostgreSQL & MongoDB", "Tailwind & TypeScript"]}
+                                typingSpeed="slow"
+                                deletingSpeed="slow"
+                                gradientFrom="teal-500"
+                                gradientTo="blue-500"
+                                pauseDuration={2200}
+                                className="text-xs sm:text-sm md:text-base font-extrabold text-teal-600 dark:text-teal-400 truncate"
+                            />
+                        </div>
                     </div>
 
                     {/* Bio Description */}
-                    <p className="mt-4 sm:mt-6 text-xs sm:text-base text-muted-foreground leading-relaxed max-w-2xl mx-auto lg:mx-0">
-                        I craft scalable, high-performance web applications with modern architectures. Experienced in building responsive UIs, robust backend APIs, payment integrations (BBPS, Razorpay, PayU), and real-time streaming interfaces.
+                    <p className="text-xs sm:text-sm md:text-base text-muted-foreground leading-relaxed max-w-2xl mx-auto lg:mx-0">
+                        I build high-scale, production-ready web applications & APIs with modern full-stack architectures. Specialized in crafting responsive frontends, payment integrations (BBPS, PayU, Razorpay), real-time automation tools, and cloud backend engines.
                     </p>
 
-                    {/* Action Buttons */}
-                    <div className="mt-6 sm:mt-8 grid grid-cols-2 gap-2 sm:flex sm:flex-row sm:items-center justify-center lg:justify-start max-w-sm sm:max-w-none mx-auto lg:mx-0">
-                        <Link href="#projects" className="w-full sm:w-auto">
-                            <AnimatedButton
-                                className="w-full bg-gradient-to-r from-teal-500 to-blue-600 text-white font-semibold shadow-lg hover:shadow-teal-500/25 cursor-pointer text-xs sm:text-sm px-2.5 sm:px-5 py-2.5 flex items-center justify-center"
-                                variant="default"
-                                size="default"
-                                glow={true}
-                                textEffect="normal"
-                                rounded="custom"
-                                borderRadius="100px"
-                                background="rgba(13, 148, 136, 0.9)"
+                    {/* Core Specialization Pills Grid */}
+                    <div className="grid grid-cols-2 gap-2 pt-1 max-w-xl mx-auto lg:mx-0">
+                        {[
+                            { title: "Full Stack SaaS", desc: "Next.js 16, React 19, TypeScript", icon: "🚀" },
+                            { title: "Payment Systems", desc: "BBPS, Razorpay, PayU Integration", icon: "💳" },
+                            { title: "Backend APIs", desc: "Node.js, NestJS, PostgreSQL, Mongo", icon: "⚙️" },
+                            { title: "AI & Automation", desc: "Lead Mailers, AI Tools & Scripts", icon: "🤖" },
+                        ].map((spec, i) => (
+                            <div
+                                key={i}
+                                className="p-2.5 rounded-xl border border-border/80 bg-card/60 backdrop-blur-sm flex items-center gap-2.5 text-left transition-all hover:bg-card hover:border-teal-500/40"
                             >
-                                <span className="truncate">Projects</span> <ArrowRight className="ml-1 w-3.5 h-3.5 sm:w-4 sm:h-4 flex-shrink-0" />
-                            </AnimatedButton>
-                        </Link>
-
-                        <Link href="/resume" className="w-full sm:w-auto">
-                            <AnimatedButton
-                                className="w-full border border-border text-foreground hover:bg-accent hover:text-accent-foreground font-semibold cursor-pointer text-xs sm:text-sm px-2.5 sm:px-5 py-2.5 flex items-center justify-center"
-                                variant="default"
-                                size="default"
-                                glow={false}
-                                textEffect="normal"
-                                rounded="custom"
-                                borderRadius="100px"
-                                background="transparent"
-                            >
-                                <FileText className="mr-1 w-3.5 h-3.5 sm:w-4 sm:h-4 flex-shrink-0" /> <span className="truncate">Resume</span>
-                            </AnimatedButton>
-                        </Link>
+                                <span className="text-base flex-shrink-0">{spec.icon}</span>
+                                <div className="min-w-0">
+                                    <div className="text-xs font-bold text-foreground truncate">{spec.title}</div>
+                                    <div className="text-[10px] text-muted-foreground truncate">{spec.desc}</div>
+                                </div>
+                            </div>
+                        ))}
                     </div>
 
-                    {/* Social Quick Links */}
-                    <div className="mt-6 flex items-center justify-center lg:justify-start gap-4">
-                        <a
-                            href="https://github.com/satishchaubey"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className="p-2.5 rounded-full border border-border bg-background/50 hover:bg-accent hover:scale-110 transition-all text-foreground"
-                            aria-label="GitHub"
-                        >
-                            <Github className="w-4 h-4" />
-                        </a>
-                        <a
-                            href="https://linkedin.com/in/satish-chaubey"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className="p-2.5 rounded-full border border-border bg-background/50 hover:bg-accent hover:scale-110 transition-all text-blue-600 dark:text-blue-400"
-                            aria-label="LinkedIn"
-                        >
-                            <Linkedin className="w-4 h-4" />
-                        </a>
-                        <Link
-                            href="/contact"
-                            className="p-2.5 rounded-full border border-border bg-background/50 hover:bg-accent hover:scale-110 transition-all text-purple-600 dark:text-purple-400"
-                            aria-label="Contact"
-                        >
-                            <Mail className="w-4 h-4" />
-                        </Link>
+                    {/* Action Buttons & Socials */}
+                    <div className="pt-2 flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4">
+                        <div className="grid grid-cols-2 gap-2 sm:flex sm:items-center sm:gap-3 w-full sm:w-auto">
+                            <Link href="#projects" className="w-full sm:w-auto">
+                                <AnimatedButton
+                                    className="w-full bg-gradient-to-r from-teal-500 via-blue-600 to-indigo-600 text-white font-bold shadow-lg hover:shadow-teal-500/25 cursor-pointer text-xs sm:text-sm px-5 py-2.5 flex items-center justify-center rounded-full"
+                                    variant="default"
+                                    size="default"
+                                    glow={true}
+                                    textEffect="normal"
+                                    rounded="custom"
+                                    borderRadius="100px"
+                                    background="rgba(13, 148, 136, 0.95)"
+                                >
+                                    <span>Explore Projects</span> <ArrowRight className="ml-1.5 w-4 h-4 flex-shrink-0" />
+                                </AnimatedButton>
+                            </Link>
+
+                            <Link href="/resume" className="w-full sm:w-auto">
+                                <AnimatedButton
+                                    className="w-full border border-border text-foreground hover:bg-accent hover:text-accent-foreground font-semibold cursor-pointer text-xs sm:text-sm px-5 py-2.5 flex items-center justify-center rounded-full"
+                                    variant="default"
+                                    size="default"
+                                    glow={false}
+                                    textEffect="normal"
+                                    rounded="custom"
+                                    borderRadius="100px"
+                                    background="transparent"
+                                >
+                                    <FileText className="mr-1.5 w-4 h-4 flex-shrink-0" /> <span>Resume</span>
+                                </AnimatedButton>
+                            </Link>
+                        </div>
+
+                        {/* Social Quick Links */}
+                        <div className="flex items-center gap-2">
+                            <a
+                                href="https://github.com/satishchaubey"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="p-2.5 rounded-full border border-border bg-card hover:bg-accent hover:border-teal-500/50 hover:scale-110 transition-all text-foreground"
+                                aria-label="GitHub"
+                                title="GitHub Profile"
+                            >
+                                <Github className="w-4 h-4" />
+                            </a>
+                            <a
+                                href="https://linkedin.com/in/satish-chaubey"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="p-2.5 rounded-full border border-border bg-card hover:bg-accent hover:border-blue-500/50 hover:scale-110 transition-all text-blue-600 dark:text-blue-400"
+                                aria-label="LinkedIn"
+                                title="LinkedIn Profile"
+                            >
+                                <Linkedin className="w-4 h-4" />
+                            </a>
+                            <Link
+                                href="/contact"
+                                className="p-2.5 rounded-full border border-border bg-card hover:bg-accent hover:border-purple-500/50 hover:scale-110 transition-all text-purple-600 dark:text-purple-400"
+                                aria-label="Contact"
+                                title="Send Email / Contact"
+                            >
+                                <Mail className="w-4 h-4" />
+                            </Link>
+                        </div>
                     </div>
                 </div>
 
@@ -201,21 +231,30 @@ export default function VenomBeamDemo() {
                         animate="visible"
                     >
                         {/* Decorative Gradient Backdrop Glow */}
-                        <div className="absolute -inset-1.5 bg-gradient-to-r from-teal-500 via-blue-500 to-purple-600 rounded-3xl blur-xl opacity-30 animate-pulse" />
+                        <div className="absolute -inset-2 bg-gradient-to-r from-teal-500 via-blue-500 to-purple-600 rounded-3xl blur-2xl opacity-25 animate-pulse" />
 
                         {/* Card Container */}
                         <motion.div
-                            className="relative rounded-3xl border border-border bg-card/80 backdrop-blur-xl p-6 shadow-2xl overflow-hidden"
-                            whileHover={{ y: -5 }}
+                            className="relative rounded-3xl border border-border bg-card/90 backdrop-blur-2xl p-5 sm:p-6 shadow-2xl overflow-hidden space-y-4"
+                            whileHover={{ y: -4 }}
                             transition={{ type: "spring", stiffness: 200 }}
                         >
+                            {/* Header Status Bar inside Profile Card */}
+                            <div className="flex items-center justify-between text-xs font-semibold text-muted-foreground pb-1">
+                                <span className="flex items-center gap-1.5 text-emerald-500 font-bold">
+                                    <span className="w-2 h-2 rounded-full bg-emerald-500 animate-ping" />
+                                    Online & Ready
+                                </span>
+                                <span className="text-[11px] font-mono text-muted-foreground">New Delhi, India 🇮🇳</span>
+                            </div>
+
                             {/* Pixel Art / Image Container */}
-                            <div className="relative overflow-hidden rounded-2xl border border-border/50 bg-neutral-950 flex justify-center items-center">
+                            <div className="relative overflow-hidden rounded-2xl border border-border/60 bg-neutral-950 flex justify-center items-center">
                                 <PixelImage src={`/satish.jpg`} grid="8x8" />
 
                                 {/* Online Pulse Badge */}
                                 <motion.div
-                                    className="absolute bottom-4 right-4 h-4 w-4 bg-emerald-500 rounded-full border-2 border-card z-20"
+                                    className="absolute bottom-3 right-3 h-4 w-4 bg-emerald-500 rounded-full border-2 border-card z-20"
                                     animate={{
                                         scale: [1, 1.25, 1],
                                         boxShadow: ["0 0 0 0 rgba(16, 185, 129, 0.7)", "0 0 0 8px rgba(16, 185, 129, 0)", "0 0 0 0 rgba(16, 185, 129, 0)"]
@@ -229,17 +268,17 @@ export default function VenomBeamDemo() {
                             </div>
 
                             {/* Floating Tech Badges */}
-                            <div className="mt-4 flex flex-wrap gap-2 justify-center">
-                                <span className="px-3 py-1 text-xs font-semibold rounded-full bg-teal-500/10 text-teal-600 dark:text-teal-300 border border-teal-500/20">
+                            <div className="flex flex-wrap gap-2 justify-center">
+                                <span className="px-3 py-1 text-xs font-bold rounded-full bg-teal-500/10 text-teal-600 dark:text-teal-300 border border-teal-500/30">
                                     ⚡ Next.js 16
                                 </span>
-                                <span className="px-3 py-1 text-xs font-semibold rounded-full bg-blue-500/10 text-blue-600 dark:text-blue-300 border border-blue-500/20">
+                                <span className="px-3 py-1 text-xs font-bold rounded-full bg-blue-500/10 text-blue-600 dark:text-blue-300 border border-blue-500/30">
                                     🚀 NestJS
                                 </span>
-                                <span className="px-3 py-1 text-xs font-semibold rounded-full bg-purple-500/10 text-purple-600 dark:text-purple-300 border border-purple-500/20">
+                                <span className="px-3 py-1 text-xs font-bold rounded-full bg-purple-500/10 text-purple-600 dark:text-purple-300 border border-purple-500/30">
                                     💎 React 19.x
                                 </span>
-                                <span className="px-3 py-1 text-xs font-semibold rounded-full bg-amber-500/10 text-amber-600 dark:text-amber-300 border border-amber-500/20">
+                                <span className="px-3 py-1 text-xs font-bold rounded-full bg-amber-500/10 text-amber-600 dark:text-amber-300 border border-amber-500/30">
                                     🔥 MERN Stack
                                 </span>
                             </div>
@@ -254,12 +293,12 @@ export default function VenomBeamDemo() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.6, delay: 0.2 }}
-                className="mt-8 md:mt-12 grid grid-cols-2 md:grid-cols-4 gap-3 sm:gap-4 md:gap-6 w-full items-stretch"
+                className="grid grid-cols-2 md:grid-cols-4 gap-3 sm:gap-4 md:gap-6 w-full items-stretch"
             >
                 {stats.map((stat, idx) => (
                     <div 
                         key={idx}
-                        className="p-3.5 sm:p-5 rounded-2xl border border-border bg-card/60 backdrop-blur-md hover:bg-card/90 transition-all duration-300 flex flex-col items-center justify-between text-center shadow-md group hover:scale-[1.03] min-h-[140px] sm:min-h-[160px]"
+                        className="p-4 sm:p-5 rounded-2xl border border-border bg-card/70 backdrop-blur-md hover:bg-card hover:border-teal-500/40 transition-all duration-300 flex flex-col items-center justify-between text-center shadow-md group hover:scale-[1.02] min-h-[130px] sm:min-h-[150px]"
                     >
                         <div className="p-2.5 sm:p-3 rounded-xl bg-background border border-border mb-2 group-hover:scale-110 transition-transform">
                             {stat.icon}
@@ -268,7 +307,7 @@ export default function VenomBeamDemo() {
                             <span className="text-xl sm:text-2xl md:text-3xl font-extrabold bg-gradient-to-r from-foreground to-muted-foreground bg-clip-text text-transparent">
                                 <NumberCounter value={stat.value} />
                             </span>
-                            <span className="text-[11px] sm:text-xs md:text-sm font-semibold text-muted-foreground mt-1 leading-tight text-center">
+                            <span className="text-[11px] sm:text-xs md:text-sm font-bold text-muted-foreground mt-1 leading-tight text-center">
                                 {stat.label}
                             </span>
                         </div>

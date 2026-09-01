@@ -4,9 +4,10 @@ import React, { useState, useEffect, useRef } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
-import { Timer, Target, Play, Trophy, RotateCcw, Info, Zap, Gamepad2, Brain, Keyboard, Sparkles, RefreshCw } from "lucide-react";
+import { Timer, Target, Play, Trophy, RotateCcw, Info, Zap, Gamepad2, Brain, Keyboard, Sparkles, RefreshCw, Cpu } from "lucide-react";
 import { Confetti, type ConfettiRef } from "@/components/magicui/confetti";
 import LustreText from "@/components/ui/lustretext";
+import EventLoopPlayground from "./EventLoopPlayground";
 
 // ----------------------------------------------------
 // GAME 1: WHACK-A-BUG
@@ -366,10 +367,10 @@ const TyperGame = () => {
 // MAIN GAMES HUB CONTAINER
 // ----------------------------------------------------
 const WhackADev = () => {
-  const [activeTab, setActiveTab] = useState<"whack" | "memory" | "typer">("whack");
+  const [activeTab, setActiveTab] = useState<"eventloop" | "whack" | "memory" | "typer">("eventloop");
 
   return (
-    <div className="pt-20 md:pt-24 pb-12 px-4 max-w-4xl mx-auto space-y-6">
+    <div className="pt-20 md:pt-24 pb-12 px-4 max-w-5xl mx-auto space-y-6">
       {/* Header */}
       <div className="text-center space-y-3">
         <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full border border-teal-500/30 bg-teal-500/10 text-teal-600 dark:text-teal-400 text-xs font-bold uppercase tracking-wider">
@@ -379,15 +380,27 @@ const WhackADev = () => {
           <LustreText text="Dev Arcade Hub" className="text-lg sm:text-3xl md:text-5xl font-extrabold" />
         </h1>
         <p className="text-[11px] sm:text-xs md:text-sm text-muted-foreground max-w-xl mx-auto">
-          Test your reaction speed, memory, and coding typing velocity in interactive mini-games built for developers.
+          Master JavaScript Event Loop, test reaction speed, memory, and typing velocity in interactive developer mini-games.
         </p>
       </div>
 
-      {/* Game Selector Tabs: Equal 3-Column Strip on Mobile */}
-      <div className="grid grid-cols-3 gap-1.5 sm:flex sm:flex-row sm:justify-center sm:gap-2 max-w-md mx-auto pt-2">
+      {/* Game Selector Tabs - Event Loop First */}
+      <div className="grid grid-cols-2 sm:grid-cols-4 gap-1.5 sm:flex sm:flex-row sm:justify-center sm:gap-2 max-w-xl mx-auto pt-2">
+        <button
+          onClick={() => setActiveTab("eventloop")}
+          className={`flex items-center justify-center gap-1 sm:gap-2 px-2 sm:px-4 py-2 sm:py-2.5 rounded-full text-[11px] sm:text-xs md:text-sm font-bold transition-all cursor-pointer w-full ${
+            activeTab === "eventloop"
+              ? "bg-gradient-to-r from-teal-500 to-blue-600 text-white shadow-md ring-2 ring-teal-400/50"
+              : "border border-border bg-card text-muted-foreground hover:bg-accent"
+          }`}
+        >
+          <Cpu className="w-3.5 h-3.5 sm:w-4 sm:h-4 flex-shrink-0 text-teal-400" />
+          <span className="truncate">Event Loop</span>
+        </button>
+
         <button
           onClick={() => setActiveTab("whack")}
-          className={`flex items-center justify-center gap-1 sm:gap-2 px-2 sm:px-5 py-2 sm:py-2.5 rounded-full text-[11px] sm:text-xs md:text-sm font-bold transition-all cursor-pointer w-full ${
+          className={`flex items-center justify-center gap-1 sm:gap-2 px-2 sm:px-4 py-2 sm:py-2.5 rounded-full text-[11px] sm:text-xs md:text-sm font-bold transition-all cursor-pointer w-full ${
             activeTab === "whack"
               ? "bg-gradient-to-r from-teal-500 to-blue-600 text-white shadow-md"
               : "border border-border bg-card text-muted-foreground hover:bg-accent"
@@ -399,7 +412,7 @@ const WhackADev = () => {
 
         <button
           onClick={() => setActiveTab("memory")}
-          className={`flex items-center justify-center gap-1 sm:gap-2 px-2 sm:px-5 py-2 sm:py-2.5 rounded-full text-[11px] sm:text-xs md:text-sm font-bold transition-all cursor-pointer w-full ${
+          className={`flex items-center justify-center gap-1 sm:gap-2 px-2 sm:px-4 py-2 sm:py-2.5 rounded-full text-[11px] sm:text-xs md:text-sm font-bold transition-all cursor-pointer w-full ${
             activeTab === "memory"
               ? "bg-gradient-to-r from-teal-500 to-blue-600 text-white shadow-md"
               : "border border-border bg-card text-muted-foreground hover:bg-accent"
@@ -411,7 +424,7 @@ const WhackADev = () => {
 
         <button
           onClick={() => setActiveTab("typer")}
-          className={`flex items-center justify-center gap-1 sm:gap-2 px-2 sm:px-5 py-2 sm:py-2.5 rounded-full text-[11px] sm:text-xs md:text-sm font-bold transition-all cursor-pointer w-full ${
+          className={`flex items-center justify-center gap-1 sm:gap-2 px-2 sm:px-4 py-2 sm:py-2.5 rounded-full text-[11px] sm:text-xs md:text-sm font-bold transition-all cursor-pointer w-full ${
             activeTab === "typer"
               ? "bg-gradient-to-r from-teal-500 to-blue-600 text-white shadow-md"
               : "border border-border bg-card text-muted-foreground hover:bg-accent"
@@ -424,6 +437,7 @@ const WhackADev = () => {
 
       {/* Active Game Card */}
       <Card className="rounded-3xl border border-border bg-card p-4 sm:p-6 shadow-xl">
+        {activeTab === "eventloop" && <EventLoopPlayground />}
         {activeTab === "whack" && <WhackGame />}
         {activeTab === "memory" && <MemoryGame />}
         {activeTab === "typer" && <TyperGame />}
