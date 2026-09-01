@@ -51,8 +51,8 @@ export function IconCloud({ icons, images }: IconCloudProps) {
 
     const newIconCanvases = items.map((item, index) => {
       const offscreen = document.createElement("canvas");
-      offscreen.width = 40;
-      offscreen.height = 40;
+      offscreen.width = 48;
+      offscreen.height = 48;
       const offCtx = offscreen.getContext("2d");
 
       if (offCtx) {
@@ -66,12 +66,12 @@ export function IconCloud({ icons, images }: IconCloudProps) {
 
             // Create circular clipping path
             offCtx.beginPath();
-            offCtx.arc(20, 20, 20, 0, Math.PI * 2);
+            offCtx.arc(24, 24, 24, 0, Math.PI * 2);
             offCtx.closePath();
             offCtx.clip();
 
             // Draw the image
-            offCtx.drawImage(img, 0, 0, 40, 40);
+            offCtx.drawImage(img, 0, 0, 48, 48);
 
             imagesLoadedRef.current[index] = true;
           };
@@ -113,9 +113,9 @@ export function IconCloud({ icons, images }: IconCloudProps) {
       const z = Math.sin(phi) * r;
 
       newIcons.push({
-        x: x * 100,
-        y: y * 100,
-        z: z * 100,
+        x: x * 135,
+        y: y * 135,
+        z: z * 135,
         scale: 1,
         opacity: 1,
         id: i,
@@ -278,12 +278,12 @@ export function IconCloud({ icons, images }: IconCloudProps) {
             iconCanvasesRef.current[index] &&
             imagesLoadedRef.current[index]
           ) {
-            ctx.drawImage(iconCanvasesRef.current[index], -20, -20, 40, 40);
+            ctx.drawImage(iconCanvasesRef.current[index], -24, -24, 48, 48);
           }
         } else {
           // Show numbered circles if no icons/images are provided
           ctx.beginPath();
-          ctx.arc(0, 0, 20, 0, Math.PI * 2);
+          ctx.arc(0, 0, 24, 0, Math.PI * 2);
           ctx.fillStyle = "#4444ff";
           ctx.fill();
           ctx.fillStyle = "white";
@@ -310,13 +310,13 @@ export function IconCloud({ icons, images }: IconCloudProps) {
   return (
     <canvas
       ref={canvasRef}
-      width={200}
-      height={300}
+      width={340}
+      height={340}
       onMouseDown={handleMouseDown}
       onMouseMove={handleMouseMove}
       onMouseUp={handleMouseUp}
       onMouseLeave={handleMouseUp}
-      className="rounded-lg"
+      className="w-full h-auto max-w-[340px] bg-transparent"
       aria-label="Interactive 3D Icon Cloud"
       role="img"
     />

@@ -2,6 +2,7 @@
 import React, { useEffect, useState } from "react";
 import { motion, useAnimation } from "framer-motion";
 
+import { usePathname } from "next/navigation";
 import Link from "next/link";
 import StylishDock from "@/components/ui/magicdock";
 import { HomeIcon, InfoIcon, PhoneIcon, SettingsIcon } from "lucide-react"
@@ -177,6 +178,7 @@ const NavbarFlow: React.FC<NavbarFlowProps> = ({
   styleName = "",
   rightComponent,
 }) => {
+  const pathname = usePathname();
   const [sequenceDone, setSequenceDone] = useState(false);
   const [mobileMenuVisible, setMobileMenuVisible] = useState(false);
   const [mobileView, setMobileView] = useState(false);
@@ -277,57 +279,73 @@ const NavbarFlow: React.FC<NavbarFlowProps> = ({
 
   return (
     <div className={`sticky top-0 z-50 w-full ${styleName}`}>
-      <div className="hidden md:block">
-        <div className="relative w-full max-w-7xl mx-auto h-24 flex items-center justify-between px-4 lg:px-10">
+      {/* Top Header Navbar */}
+      <div className="block">
+        <div className="relative w-full max-w-7xl mx-auto h-24 flex items-center justify-between px-2 sm:px-4 lg:px-10">
           <motion.div
             initial={{ opacity: 0, x: -50 }}
             animate={emblemMotion}
-            className="bg-gray-100/80 dark:bg-black/95 backdrop-blur-sm text-gray-800 dark:text-gray-200 rounded-full font-semibold text-lg lg:text-xl z-10 flex-shrink-0"
+            className="bg-gray-100/80 dark:bg-black/95 backdrop-blur-sm text-gray-800 dark:text-gray-200 rounded-full font-semibold text-sm sm:text-lg lg:text-xl z-10 flex-shrink-0"
           >
             {emblem}
           </motion.div>
 
+          {/* Mobile Icon Dock Navbar - Top Header */}
+          <div className="flex md:hidden z-10">
+            <PortfolioDock />
+          </div>
+
+          {/* Desktop Text Links Navbar */}
           <motion.nav
             initial={{
               width: "120px",
-              padding: "8px 20px",
+              padding: "8px 16px",
             }}
             animate={navMotion}
-            // className="bg-gray-200/80 dark:bg-black/95 backdrop-blur-sm rounded-full flex items-center justify-center gap-6 lg:gap-12 z-10 flex-shrink-0"
             onMouseLeave={() => setSelectedSubmenu(null)}
-            className="bg-white/30 border dark:bg-black/20 backdrop-blur-sm rounded-full flex items-center justify-center gap-6 lg:gap-12 z-10 flex-shrink-0"
+            className="hidden md:flex bg-white/30 border dark:bg-black/20 backdrop-blur-sm rounded-full items-center justify-center gap-6 lg:gap-12 z-10 flex-shrink-0"
           >
-            {links.map((element) => (
-              <div key={element.text}>
-                {element.submenu ? (
-                  <ListItem
-                    setSelected={setSelectedSubmenu}
-                    selected={selectedSubmenu}
-                    element={element.text}
-                  >
-                    {element.submenu}
-                  </ListItem>
-                ) : (
-                  <motion.div
-                    initial={{ opacity: 0 }}
-                    animate={{ opacity: sequenceDone ? 1 : 0 }}
-                  >
-                    <Link
-                      href={element.url || "/"}
-                      className="text-gray-500 dark:text-gray-200 font-medium text-base lg:text-sm whitespace-nowrap hover:text-gray-900 dark:hover:text-white transition-colors py-1"
+            {links.map((element) => {
+              const isActive = element.url === "/" 
+                ? pathname === "/" 
+                : pathname?.startsWith(element.url || "---");
+
+              return (
+                <div key={element.text}>
+                  {element.submenu ? (
+                    <ListItem
+                      setSelected={setSelectedSubmenu}
+                      selected={selectedSubmenu}
+                      element={element.text}
                     >
-                      {element.text}
-                    </Link>
-                  </motion.div>
-                )}
-              </div>
-            ))}
+                      {element.submenu}
+                    </ListItem>
+                  ) : (
+                    <motion.div
+                      initial={{ opacity: 0 }}
+                      animate={{ opacity: sequenceDone ? 1 : 0 }}
+                    >
+                      <Link
+                        href={element.url || "/"}
+                        className={`font-semibold text-xs sm:text-sm whitespace-nowrap transition-all px-3 py-1.5 rounded-full ${
+                          isActive
+                            ? "bg-teal-500/15 text-teal-600 dark:text-teal-300 border border-teal-500/30 shadow-sm"
+                            : "text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white hover:bg-accent/40"
+                        }`}
+                      >
+                        {element.text}
+                      </Link>
+                    </motion.div>
+                  )}
+                </div>
+              );
+            })}
           </motion.nav>
 
           <motion.div
             initial={{ opacity: 0, x: 50 }}
             animate={switchMotion}
-            className="bg-gray-200/80  dark:bg-black/95 backdrop-blur-sm rounded-full p-2 lg:p-3 z-10 flex-shrink-0 flex items-center gap-2 lg:gap-3"
+            className="bg-gray-200/80 dark:bg-black/95 backdrop-blur-sm rounded-full p-1.5 sm:p-2 lg:p-3 z-10 flex-shrink-0 flex items-center gap-2 lg:gap-3"
           >
             {extraIcons.map((icon, idx) => (
               <div key={idx} className="flex items-center justify-center">
@@ -575,13 +593,6 @@ const NavbarFlow: React.FC<NavbarFlowProps> = ({
               />
             </g>
           </motion.svg>
-        </div>
-      </div>
-
-      {/* mobile view */}
-      <div className="block md:hidden">
-        <div className="fixed bottom-0 left-0 w-full  z-50 md:hidden">
-            <PortfolioDock />
         </div>
       </div>
     </div>

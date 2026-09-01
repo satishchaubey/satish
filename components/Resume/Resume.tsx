@@ -1,4 +1,3 @@
-// components/resume/Resume.tsx
 "use client";
 
 import React, { useState } from "react";
@@ -11,282 +10,235 @@ import { BlurFade } from "@/components/magicui/blur-fade";
 import LustreText from "../ui/lustretext";
 import AnimatedDivider from "../comman/underline";
 import { ResumeCertifications, ResumeHobbies } from "../Certifications/page";
-import FloatingResumeDownload from "../comman/Download";
 import ThankYou from "../comman/ThankYou";
 
 const experiences: any[] = [
   {
-    role: "Software Engineer (Frontend)",
-    company: "Plutos One Pvt Ltd",
+    role: "Software Engineer",
+    company: "Plutos One Pvt. Ltd.",
     period: "Feb 2024 - Present",
     description: [
-      "Maintained and developed the Plutos One website, AI SaaS platform, and multiple banking campaigns using Next.js 15 mono-repo.",
-      "Integrated PayU and Razorpay payment gateways ensuring secure transactions.",
-      "Built and optimized dynamic Next.js applications managing 30+ campaigns with efficient routing.",
-      "Developed CBMS, EMS (poll uploads), and VMS (voucher uploads & campaign assignment) dashboards to streamline client management.",
-      "Enhanced API performance, reducing page load times by 20%."
+      "Develop full-stack and frontend-focused features for SaaS, banking, and enterprise platforms using Next.js, React.js, TypeScript, and Node.js.",
+      "Led frontend development across 30+ enterprise application pages and maintained client & internal dashboards (VMS, CBMS, EMS, COU).",
+      "Integrated PayU and Razorpay payment gateways with secure frontend workflows and backend API coordination.",
+      "Collaborated within microservices architecture and improved application performance by 20% through Redis caching, API optimization, and lazy loading.",
+      "Engineered high-traffic bill payment platform (CSC & SVC) handling 20,000+ daily transactions."
     ],
-    technologies: ["Next.js 15", "React.js", "TailwindCSS", "ShadCN", "REST APIs", "PayU", "Razorpay"]
+    technologies: ["Next.js 15", "React 19", "TypeScript", "Node.js", "Express", "PayU", "Razorpay", "BBPS API", "Redis"]
   },
   {
-    role: "Frontend Developer",
-    company: "Speqto Technology Pvt Ltd",
+    role: "Front-End Developer",
+    company: "Speqto Technology Pvt. Ltd.",
     period: "Jun 2023 - Jan 2024",
     description: [
-      "Built reusable UI components with React.js, Next.js, and Vite; integrated RESTful APIs and Binance Smart Chain (BSC) smart contracts.",
-      "Implemented secure decentralized wallet features with a focus on responsiveness, cross-browser compatibility, and performance optimization."
+      "Built reusable UI components and production interfaces using React.js, Next.js, and Vite.",
+      "Integrated decentralized wallet workflows with REST APIs and contributed to blockchain-based applications with BSC smart contract integration.",
+      "Improved responsive behavior and cross-browser compatibility across application interfaces."
     ],
-    technologies: ["React.js", "Next.js", "Vite", "TailwindCSS", "REST APIs", "Blockchain", "BSC"]
+    technologies: ["React.js", "Next.js", "Vite", "Tailwind CSS", "REST APIs", "BSC Smart Contracts"]
   },
   {
-    role: "Freelance Frontend Developer",
-    company: "Trading Solutions",
-    period: "Aug 2024 - Present",
-    description: [
-      "Developing a modern trading solution platform with a focus on speed, responsiveness, and scalability using Next.js.",
-      "Leveraged ShadCN UI components and TailwindCSS to design a sleek, consistent, and user-friendly interface.",
-      "Implemented reusable, accessible UI components for dashboards, trading charts, and user portfolios.",
-      "Optimized frontend performance and API integrations to ensure seamless real-time trading interactions."
-    ],
-    technologies: ["Next.js", "ShadCN", "TailwindCSS", "TypeScript"]
-  },
-  {
-    role: "MERN Stack Developer (Internship)",
-    company: "Techpile Technology Pvt Ltd",
+    role: "MERN Stack Intern",
+    company: "Techpile Technology Pvt. Ltd.",
     period: "Jun 2022 - May 2023",
     description: [
-      "Developed web applications using MongoDB, Express.js, React.js, and Node.js.",
-      "Created responsive, interactive UIs with React.js, Redux, and Bootstrap."
+      "Developed full-stack applications using MongoDB, Express.js, React.js, and Node.js.",
+      "Built interactive user interfaces with React, Redux Toolkit, and Bootstrap.",
+      "Developed backend APIs and integrated application databases."
     ],
     technologies: ["MongoDB", "Express.js", "React.js", "Node.js", "Redux", "Bootstrap"]
-  },
-  {
-    role: "Freelance Frontend Developer",
-    company: "Bound Finance (Crypto Trading Platform)",
-    period: "Dec 2023 - Jan 2024",
-    description: [
-      "Developed the frontend for Bound Finance, a crypto trading platform.",
-      "Integrated MetaMask wallet connection using wagmi hooks.",
-      "Built responsive UI with React.js and optimized performance for smooth Web3 interactions."
-    ],
-    technologies: ["React.js", "Wagmi", "MetaMask", "Web3.js", "TailwindCSS", "Blockchain"]
-  },
-  {
-    role: "Freelance Frontend Developer",
-    company: "Bound Finance Landing Page",
-    period: "Dec 2023",
-    description: [
-      "Designed and developed a modern, responsive landing page for Bound Finance to highlight platform features and educate users on its working model.",
-      "Implemented pixel-perfect UI components using React.js and TailwindCSS, ensuring seamless responsiveness across devices.",
-      "Optimized load performance and SEO, resulting in faster rendering and improved visibility."
-    ],
-    technologies: ["React.js", "TailwindCSS"]
-  },
-  {
-    role: "Freelance Frontend Developer",
-    company: "Bound Finance Ethernet",
-    period: "Ongoing",
-    description: [
-      "Currently building a crypto trading platform where users can securely buy and sell Ethereum with real-time price updates.",
-      "Integrated wallet connection and transaction features using Wagmi hooks and Web3.js, ensuring smooth MetaMask interactions.",
-      "Focused on scalability and performance to handle high-volume Web3 transactions efficiently."
-    ],
-    technologies: ["React.js", "Wagmi", "Web3.js", "Blockchain"]
-  },
-  {
-    role: "Freelance Frontend Developer",
-    company: "Udenz Book Appointment",
-    period: "Nov 2023",
-    description: [
-      "Developed a healthcare booking platform where patients can easily schedule doctor appointments and manage prescriptions online.",
-      "Created an intuitive UI with React.js and TailwindCSS, improving user experience for both patients and doctors.",
-      "Enhanced accessibility and responsiveness, enabling seamless use across mobile and desktop devices."
-    ],
-    technologies: ["React.js", "TailwindCSS"]
-  },
-
+  }
 ];
 
 const education: any[] = [
   {
     degree: "Bachelor of Computer Applications (BCA)",
-    institution: "ITM, GIDA, Gorakhpur",
-    period: "2020 - 2023",
+    institution: "ITM College of Management, Gorakhpur",
+    period: "2019 - 2021",
     description: [
-      "Gained strong fundamentals in programming, data structures, and web technologies.",
-      "Focused on practical learning through projects involving MERN stack and software development.",
-      "Built problem-solving and analytical skills with hands-on coding experience."
+      "Gained strong fundamentals in programming, data structures, database management, and web development.",
+      "Focused on practical application building using the MERN stack and modern JavaScript frameworks."
     ]
   },
   {
-    degree: "Higher Secondary Education (12th - PCM)",
-    institution: "Shree Ram Swaroop Inter College, Payagpur, Bahraich",
-    // period: "2018 - 2020",
+    degree: "MERN Stack Developer Certification",
+    institution: "Techpile Technology Pvt. Ltd.",
+    period: "2022 - 2023",
     description: [
-      "Specialized in Physics, Chemistry, and Mathematics.",
-      "Developed logical thinking and technical aptitude, forming the base for software studies."
-    ]
-  },
-  {
-    degree: "Secondary Education (10th)",
-    institution: "City Montessori School, Bahraich",
-    // period: "2017 - 2018",
-    description: [
-      "Completed foundational education with a focus on Mathematics and Science.",
-      "Sparked early interest in computers and technology."
+      "Comprehensive full-stack training covering MongoDB, Express.js, React.js, Node.js, Redux, and REST API deployment."
     ]
   }
 ];
 
-
 const skills: any[] = [
-  { name: "React.js", category: "Frontend", proficiency: 5 },
-  { name: "Next.js (Latest)", category: "Frontend", proficiency: 5 },
-  { name: "Redux Toolkit / Thunk", category: "Frontend", proficiency: 4 },
-  { name: "JavaScript (ES6+)", category: "Frontend", proficiency: 5 },
-  { name: "HTML5", category: "Frontend", proficiency: 5 },
-  { name: "CSS3 / SCSS", category: "Frontend", proficiency: 4 },
-  { name: "TailwindCSS", category: "Frontend", proficiency: 5 },
-  { name: "Bootstrap / MUI / ShadCN", category: "Frontend", proficiency: 4 },
-  { name: "REST API Integration", category: "Other", proficiency: 5 },
-  { name: "Payment Gateways (PayU, Razorpay)", category: "Other", proficiency: 4 },
-  { name: "Microservices", category: "Backend", proficiency: 3 },
-  { name: "Docker / Jenkins", category: "DevOps", proficiency: 3 },
-  { name: "Git, GitHub, Postman, Jira", category: "Tools", proficiency: 5 },
-  { name: "Performance Optimization", category: "Other", proficiency: 4 }
+  { name: "React.js & Next.js", category: "Frontend", proficiency: 5 },
+  { name: "TypeScript & JavaScript", category: "Frontend", proficiency: 5 },
+  { name: "Tailwind CSS & ShadCN UI", category: "Frontend", proficiency: 5 },
+  { name: "Redux Toolkit", category: "Frontend", proficiency: 4 },
+  { name: "Node.js & Express.js", category: "Backend", proficiency: 5 },
+  { name: "FastAPI & REST APIs", category: "Backend", proficiency: 4 },
+  { name: "Payment Gateways (PayU, Razorpay)", category: "Backend", proficiency: 5 },
+  { name: "MongoDB & Redis Caching", category: "Database", proficiency: 5 },
+  { name: "PostgreSQL & MySQL", category: "Database", proficiency: 4 },
+  { name: "AWS & GCP Cloud", category: "DevOps", proficiency: 4 },
+  { name: "Git, GitHub & Postman", category: "Tools", proficiency: 5 }
 ];
 
 const freelanceProjects = [
   {
-    title: "Featured Projects",
-    description: " Portfolio projects coming soon. Check my GitHub for current work.",
-    technologies: ["Next.js", "TailwindCSS", "TypeScript", "ShadCN"]
+    title: "plutos ONE Payment & BBPS SaaS",
+    description: "High-scale AI SaaS and BBPS bill payments engine integrated with PayU & Razorpay payment gateways, CBMS, and VMS campaign dashboards.",
+    technologies: ["Next.js 15", "React 19", "BBPS API", "PayU / Razorpay", "Tailwind CSS"]
   },
   {
-    title: "Trading Solutions",
-    description: "A modern trading solution platform focused on speed, responsiveness, and scalability. Implemented reusable dashboards, trading charts, and portfolio components with optimized API integrations.",
-    technologies: ["Next.js", "ShadCN", "TailwindCSS", "TypeScript"]
+    title: "Saarthi — Central Bank of India Platform",
+    description: "Production banking platform for Central Bank of India built with Next.js & React, prioritizing secure data handling and intuitive banking user journeys.",
+    technologies: ["Next.js 15", "React 19", "Redux Toolkit", "TypeScript", "REST API"]
   },
   {
-    title: "Bound Finance (Crypto Trading Platform)",
-    description: "Frontend for a crypto trading platform with MetaMask integration, built responsive UI, and optimized performance for smooth Web3 interactions.",
-    technologies: ["React.js", "Wagmi", "MetaMask", "Web3.js", "TailwindCSS", "Blockchain"]
+    title: "CSC & SVC High-Traffic Bill Payment Engine",
+    description: "High-throughput bill payment engine engineered to process 20,000+ daily transactions with Redis caching and microservices architecture.",
+    technologies: ["Next.js", "Node.js", "Express.js", "MongoDB", "Redis Caching"]
+  },
+  {
+    title: "AI Call Monitoring & Sentiment Analytics",
+    description: "Automated call monitoring platform powered by LLM-based call analysis APIs, audio sentiment scoring, and real-time operational dashboards.",
+    technologies: ["Next.js", "Node.js", "LLM APIs", "WebSockets", "ShadCN UI"]
+  },
+  {
+    title: "Visa & CSC Multi-Country AI Chatbot",
+    description: "Multinational assistance chatbot handling visa queries, automated documentation assistance, and real-time customer support routing.",
+    technologies: ["React.js", "LLM APIs", "Node.js", "FastAPI", "Vector Search"]
+  },
+  {
+    title: "Bound Finance Crypto Trading Platform",
+    description: "Web3 crypto platform with real-time WebSocket ticker updates, wallet integration (MetaMask & Wagmi), dynamic trading charts, and responsive dashboards.",
+    technologies: ["Next.js", "TypeScript", "Web3.js", "Wagmi", "Framer Motion"]
+  },
+  {
+    title: "Udenz Healthcare Appointment Portal",
+    description: "Comprehensive patient-doctor scheduling system with electronic prescription records, real-time booking, and secure NestJS backend.",
+    technologies: ["React.js", "NestJS", "PostgreSQL", "Tailwind CSS", "REST API"]
+  },
+  {
+    title: "Real-Time Trading Solutions Dashboard",
+    description: "Scalable trading metrics and portfolio manager with real-time updates, MongoDB persistence, and customized analytics widgets.",
+    technologies: ["Next.js", "Node.js", "MongoDB", "Redux Toolkit", "ShadCN UI"]
+  },
+  {
+    title: "Full Stack MERN E-Commerce Platform",
+    description: "Feature-rich e-commerce store with JWT authentication, cart management, Stripe checkout integration, and full admin management.",
+    technologies: ["MongoDB", "Express.js", "React.js", "Node.js", "Redux"]
+  },
+  {
+    title: "Enterprise Dashboards (VMS, CBMS, EMS, COU)",
+    description: "Operational dashboards supporting voucher management, election poll uploads, client campaign assignments, and analytical reporting.",
+    technologies: ["Next.js", "React.js", "Tailwind CSS", "ShadCN", "REST APIs"]
+  },
+  {
+    title: "Bound Finance Ethereum Exchange",
+    description: "Crypto platform enabling users to buy and sell Ethereum securely with real-time price updates and Web3.js transaction flows.",
+    technologies: ["React.js", "Wagmi", "Web3.js", "MetaMask", "Ethereum"]
+  },
+  {
+    title: "Plutos One Main Website & Vouchers Platform",
+    description: "Production website and voucher redemption engine for Plutos One with performance optimization and dynamic campaign routing.",
+    technologies: ["Next.js 15", "React 19", "Tailwind CSS", "TypeScript"]
   },
   {
     title: "Bound Finance Landing Page",
-    description: "Responsive landing page for Bound Finance, featuring pixel-perfect UI, SEO optimization, and seamless cross-device responsiveness.",
-    technologies: ["React.js", "TailwindCSS"]
-  },
-  {
-    title: "Bound Finance Ethernet",
-    description: "Ongoing project for a crypto trading platform enabling secure Ethereum trading with real-time updates and wallet integration.",
-    technologies: ["React.js", "Wagmi", "Web3.js", "Blockchain"]
-  },
-  {
-    title: "Udenz Book Appointment",
-    description: "Healthcare booking platform for scheduling doctor appointments and managing prescriptions with an intuitive, responsive UI.",
-    technologies: ["React.js", "TailwindCSS"]
+    description: "Pixel-perfect, high-converting landing page highlighting Web3 crypto features, security protocols, and platform architecture.",
+    technologies: ["React.js", "Tailwind CSS", "SEO", "Framer Motion"]
   }
 ];
 
 const certifications: any[] = [
   {
     name: "MERN Stack Developer Certification",
-    institution: "Techpile Technology Pvt Ltd",
+    institution: "Techpile Technology Pvt. Ltd.",
     year: 2023
   }
 ];
 
 const hobbies: any[] = [
-  "Exploring Emerging Technologies",
-  "Traveling",
-  "Book Reading",
+  "Exploring Emerging AI Technologies",
+  "Building Open Source Projects",
+  "Tech Reading & Blogging",
   "Cricket"
 ];
-
 
 const ResumePage: React.FC<any> = () => {
   const [showThankYou, setShowThankYou] = useState(true);
 
   return (
-    <div className="min-h-screen py-8 px-4" suppressHydrationWarning>
-      <BlurFade delay={0.5} inView>
-        <>
-          <ResumeHeader />
-        </>
+    <div className="min-h-screen pt-20 md:pt-24 pb-8 px-4 md:px-8 max-w-6xl mx-auto space-y-4" suppressHydrationWarning>
+      {/* 1. Profile Header & Summary */}
+      <BlurFade delay={0.2} inView>
+        <ResumeHeader />
       </BlurFade>
+      
       <AnimatedDivider />
-      <BlurFade delay={0.5} inView>
-        <>
-          <h2 className="text-2xl  md:text-4xl  font-extrabold bg-gradient-to-r from-gray-400 via-gray-500 to-gray-600 bg-clip-text text-transparent leading-tight drop-shadow-lg">
+      
+      {/* 2. Work Experience */}
+      <BlurFade delay={0.3} inView>
+        <div className="pt-1">
+          <h2 className="text-xl md:text-2xl font-extrabold tracking-tight mb-2">
             <LustreText text="Work Experience" />
           </h2>
-          <ResumeExperience
-            experiences={experiences}
-          />
-        </>
-      </BlurFade>
-      <BlurFade delay={0.5} inView>
-        <>
-          <h2 className="text-2xl md:text-4xl pt-30  font-extrabold bg-gradient-to-r from-gray-400 via-gray-500 to-gray-600 bg-clip-text text-transparent leading-tight drop-shadow-lg">
-            <LustreText text="Skills" />
-          </h2>
-          <ResumeSkills
-            skills={skills}
-          />
-        </>
-      </BlurFade>
-      <AnimatedDivider />
-      <BlurFade delay={0.5} inView>
-        <>
-          <h2 className="text-2xl  md:text-4xl  font-extrabold bg-gradient-to-r from-gray-400 via-gray-500 to-gray-600 bg-clip-text text-transparent leading-tight drop-shadow-lg">
-            <LustreText text="Education " />
-          </h2>
-          <ResumeEducation
-            education={education}
-          />
-        </>
-      </BlurFade>
-      <AnimatedDivider />
-      <BlurFade delay={0.5} inView>
-        <>
-          <h2 className="text-2xl  md:text-4xl  font-extrabold bg-gradient-to-r from-gray-400 via-gray-500 to-gray-600 bg-clip-text text-transparent leading-tight drop-shadow-lg">
-            <LustreText text="Projects" />
-          </h2>
-          <ResumeProjects
-            projects={freelanceProjects}
-          />
-        </>
-      </BlurFade>
-      <AnimatedDivider />
-      <BlurFade delay={0.5} inView>
-        <>
-          <h2 className="text-2xl  md:text-4xl  font-extrabold bg-gradient-to-r from-gray-400 via-gray-500 to-gray-600 bg-clip-text text-transparent leading-tight drop-shadow-lg">
-            <LustreText text="Certifications" />
-          </h2>
-          <ResumeCertifications certifications={certifications} />
-        </>
-      </BlurFade>
-      <AnimatedDivider />
-      <BlurFade delay={0.5} inView>
-        <>
-          <h2 className="text-2xl  md:text-4xl  font-extrabold bg-gradient-to-r from-gray-400 via-gray-500 to-gray-600 bg-clip-text text-transparent leading-tight drop-shadow-lg">
-            <LustreText text="Hobbies & Interests" />
-          </h2>
-          <ResumeHobbies hobbies={hobbies} />
-        </>
+          <ResumeExperience experiences={experiences} />
+        </div>
       </BlurFade>
 
+      <AnimatedDivider />
 
-      <ThankYou
-        onButtonClick={() => setShowThankYou(false)}
-        autoDismiss={true}
-        dismissTime={3000}
-        title="Professional Experience"
-        message="A journey of building impactful products, solving problems, and collaborating with amazing teams and clients."
-      />
+      {/* 3. Core Technical Skills */}
+      <BlurFade delay={0.4} inView>
+        <div className="pt-1">
+          <h2 className="text-xl md:text-2xl font-extrabold tracking-tight mb-2">
+            <LustreText text="Core Technical Skills" />
+          </h2>
+          <ResumeSkills skills={skills} />
+        </div>
+      </BlurFade>
       
-      <FloatingResumeDownload />
+      <AnimatedDivider />
+      
+      {/* 4. Production Projects */}
+      <BlurFade delay={0.5} inView>
+        <div className="pt-1">
+          <h2 className="text-xl md:text-2xl font-extrabold tracking-tight mb-2">
+            <LustreText text="Production Projects" />
+          </h2>
+          <ResumeProjects projects={freelanceProjects} />
+        </div>
+      </BlurFade>
+      
+      <AnimatedDivider />
+      
+      {/* 5. Education */}
+      <BlurFade delay={0.6} inView>
+        <div className="pt-1">
+          <h2 className="text-xl md:text-2xl font-extrabold tracking-tight mb-2">
+            <LustreText text="Education" />
+          </h2>
+          <ResumeEducation education={education} />
+        </div>
+      </BlurFade>
+      
+      <AnimatedDivider />
+      
+      {/* 6. Certifications & Hobbies */}
+      <BlurFade delay={0.7} inView>
+        <div className="pt-1">
+          <h2 className="text-xl md:text-2xl font-extrabold tracking-tight mb-2">
+            <LustreText text="Certifications & Hobbies" />
+          </h2>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <ResumeCertifications certifications={certifications} />
+            <ResumeHobbies hobbies={hobbies} />
+          </div>
+        </div>
+      </BlurFade>
     </div>
   );
 };

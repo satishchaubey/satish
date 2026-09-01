@@ -1,7 +1,7 @@
 "use client";
 
 import { cn } from "@/lib/utils";
-import { useEffect, useMemo, useState } from "react";
+import { useEffect, useMemo, useState, useCallback } from "react";
 
 type Grid = {
   rows: number;
@@ -26,19 +26,22 @@ interface PixelImageProps {
   pixelFadeInDuration?: number; // in ms
   maxAnimationDelay?: number; // in ms
   colorRevealDelay?: number; // in ms
+  className?: string;
 }
 
 export const PixelImage = ({
   src,
-  grid = "6x4",
+  grid = "8x8",
   grayscaleAnimation = true,
-  pixelFadeInDuration = 1000,
-  maxAnimationDelay = 1200,
-  colorRevealDelay = 1300,
+  pixelFadeInDuration = 700,
+  maxAnimationDelay = 900,
+  colorRevealDelay = 1000,
   customGrid,
+  className,
 }: PixelImageProps) => {
   const [isVisible, setIsVisible] = useState(false);
   const [showColor, setShowColor] = useState(false);
+  const [animationKey, setAnimationKey] = useState(0);
 
   const MIN_GRID = 1;
   const MAX_GRID = 16;
@@ -57,16 +60,33 @@ export const PixelImage = ({
       );
     };
 
-    return isValidGrid(customGrid) ? customGrid! : DEFAULT_GRIDS[grid];
+    return isValidGrid(customGrid) ? customGrid! : DEFAULT_GRIDS[grid] || DEFAULT_GRIDS["8x8"];
   }, [customGrid, grid]);
 
-  useEffect(() => {
-    setIsVisible(true);
-    const colorTimeout = setTimeout(() => {
+  const triggerAnimation = useCallback(() => {
+    setIsVisible(false);
+    setShowColor(false);
+    
+    setAnimationKey((prev) => prev + 1);
+
+    const visibleTimer = setTimeout(() => {
+      setIsVisible(true);
+    }, 40);
+
+    const colorTimer = setTimeout(() => {
       setShowColor(true);
     }, colorRevealDelay);
-    return () => clearTimeout(colorTimeout);
+
+    return () => {
+      clearTimeout(visibleTimer);
+      clearTimeout(colorTimer);
+    };
   }, [colorRevealDelay]);
+
+  useEffect(() => {
+    const cleanup = triggerAnimation();
+    return cleanup;
+  }, [triggerAnimation]);
 
   const pieces = useMemo(() => {
     const total = rows * cols;
@@ -87,16 +107,24 @@ export const PixelImage = ({
         delay,
       };
     });
-  }, [rows, cols, maxAnimationDelay]);
+  }, [rows, cols, maxAnimationDelay, animationKey]);
 
   return (
-    <div className="relative h-72 w-72 select-none md:h-96 md:w-96 rounded-full" suppressHydrationWarning>
+    <div
+      onClick={triggerAnimation}
+      onMouseEnter={triggerAnimation}
+      className={cn(
+        "relative h-72 w-72 md:h-96 md:w-96 select-none overflow-hidden rounded-2xl cursor-pointer group shadow-2xl",
+        className
+      )}
+      suppressHydrationWarning
+    >
       {pieces.map((piece, index) => (
         <div
-          key={index}
+          key={`${animationKey}-${index}`}
           className={cn(
             "absolute inset-0 transition-all ease-out",
-            isVisible ? "opacity-100" : "opacity-0",
+            isVisible ? "opacity-100 scale-100" : "opacity-0 scale-95",
           )}
           style={{
             clipPath: piece.clipPath,
@@ -109,8 +137,8 @@ export const PixelImage = ({
             src={src}
             alt={`Pixel image piece ${index + 1}`}
             className={cn(
-              "z-1 object-cover rounded-full",
-              grayscaleAnimation && (showColor ? "grayscale-0" : "grayscale"),
+              "w-full h-full object-cover transition-all duration-700",
+              grayscaleAnimation && (showColor ? "grayscale-0" : "grayscale contrast-125"),
             )}
             style={{
               transition: grayscaleAnimation
@@ -121,6 +149,13 @@ export const PixelImage = ({
           />
         </div>
       ))}
+      
+      {/* Interactive hover hint badge */}
+      <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end justify-center pb-4 z-20 pointer-events-none">
+        <span className="text-xs font-semibold text-white bg-black/60 backdrop-blur-md px-3 py-1 rounded-full border border-white/20">
+          ✨ Re-animate Pixels
+        </span>
+      </div>
     </div>
   );
 };

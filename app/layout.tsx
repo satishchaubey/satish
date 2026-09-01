@@ -3,6 +3,7 @@ import { Roboto } from "next/font/google";
 import "./globals.css";
 import Layout from "@/components/Layout/page";
 import { ToastProvider } from "@/components/ui/toast";
+import { ThemeProvider } from "@/components/theme-provider";
 
 const geistSans = Roboto({
   variable: "--font-geist-sans",
@@ -121,6 +122,8 @@ const jsonLd = {
     "SQL"]
 };
 
+import UniversalChatbot from "@/components/AIPlayground/UniversalChatbot";
+
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -142,11 +145,19 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} antialiased`}
       >
-        <ToastProvider >
-          <Layout>
-            {children}
-          </Layout>
-        </ToastProvider>
+        <ThemeProvider
+          attribute="class"
+          defaultTheme="system"
+          enableSystem
+          disableTransitionOnChange
+        >
+          <ToastProvider>
+            <Layout>
+              {children}
+            </Layout>
+            <UniversalChatbot />
+          </ToastProvider>
+        </ThemeProvider>
       </body>
     </html>
   );

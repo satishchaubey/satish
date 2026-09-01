@@ -2,8 +2,9 @@
 
 import NavbarFlow from "@/components/ui/navbar-flow";
 import { ThemeSwitch } from "@/components/ui/theme-switch";
-import { Sun, Moon } from "lucide-react";
+import { Code2, Terminal } from "lucide-react";
 import React, { useState } from "react";
+import Link from "next/link";
 
 export default function NavbarFlowDemo() {
     const [showNavbar] = useState(true);
@@ -14,12 +15,17 @@ export default function NavbarFlowDemo() {
                 <div className="fixed top-0 left-0 right-0 z-50">
                     <NavbarFlow
                         emblem={
-                            <>
-                                <img src={`https://storage.googleapis.com/public-images-plutosone/cbms/campaign/image-1756189253048-assets_task_01k3h78k1te6jr0jyt2kebg97e_1756145983_img_1.webp`}
-                                    alt="logo"
-                                    className="w-14 h-14 rounded-full object-fill"
-                                />
-                            </>
+                            <Link href="/" className="flex items-center gap-1.5 p-1 sm:p-1.5 group cursor-pointer" aria-label="Home">
+                                <div className="w-9 h-9 sm:w-11 sm:h-11 rounded-full bg-gradient-to-tr from-teal-500 via-blue-500 to-purple-600 p-[2px] shadow-md shadow-teal-500/20 group-hover:scale-105 transition-all">
+                                    <div className="w-full h-full rounded-full bg-background flex items-center justify-center">
+                                        <Code2 className="w-4 h-4 sm:w-5 sm:h-5 text-teal-600 dark:text-teal-400 group-hover:rotate-12 transition-transform duration-300" />
+                                    </div>
+                                </div>
+                                <div className="hidden sm:flex flex-col text-left pr-2">
+                                    <span className="text-sm font-extrabold tracking-tight text-foreground leading-none">Satish</span>
+                                    <span className="text-[10px] font-bold text-teal-600 dark:text-teal-400 tracking-wider">DEV.IO</span>
+                                </div>
+                            </Link>
                         }
                         links={[
                             {
@@ -29,6 +35,10 @@ export default function NavbarFlowDemo() {
                             {
                                 text: "Experience",
                                 url: "/resume",
+                            },
+                            {
+                                text: "AI Assistant",
+                                url: "/ai-playground",
                             },
                             {
                                 text: "Games",

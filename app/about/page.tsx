@@ -6,11 +6,9 @@ import React from 'react'
 
 const About = () => {
     return (
-        <>
-            <div>
-                <WorkExperience />
-            </div>
-        </>
+        <div className="min-h-screen font-sans">
+            <WorkExperience />
+        </div>
     )
 }
 

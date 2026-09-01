@@ -5,11 +5,9 @@ import React from 'react'
 
 const Games = () => {
   return (
-    <>
-      <div>
-        <WhackADev/>
-      </div>
-    </>
+    <div className="min-h-screen font-sans">
+      <WhackADev/>
+    </div>
   )
 }
 

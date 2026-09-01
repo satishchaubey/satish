@@ -6,9 +6,8 @@ import React from 'react'
 
 
 const Resume = () => {
-
   return (
-    <div className='font-sans md:pt-30'>
+    <div className='font-sans pt-12 md:pt-16'>
       <ResumePage/>
     </div>
   )

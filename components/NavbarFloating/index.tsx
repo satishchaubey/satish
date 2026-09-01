@@ -1,59 +1,50 @@
 "use client";
 
-import { HomeIcon, BriefcaseIcon, GamepadIcon, UserIcon, MailIcon } from "lucide-react";
+import { HomeIcon, BriefcaseIcon, GamepadIcon, UserIcon, MailIcon, BotIcon } from "lucide-react";
 import Link from "next/link";
 import React from "react";
-
-import { buttonVariants } from "@/components/ui/button";
-import { Separator } from "@/components/ui/separator";
-import {
-  Tooltip,
-  TooltipContent,
-  TooltipProvider,
-  TooltipTrigger,
-} from "@/components/ui/tooltip";
+import { usePathname } from "next/navigation";
 import { cn } from "@/lib/utils";
 import { Dock, DockIcon } from "@/components/magicui/dock";
 
-export type IconProps = React.HTMLAttributes<SVGElement>;
-
-// Define your navigation items
 const NAV_ITEMS = [
   { href: "/", icon: HomeIcon, label: "Home" },
   { href: "/resume", icon: BriefcaseIcon, label: "Experience" },
+  { href: "/ai-playground", icon: BotIcon, label: "AI Assistant" },
   { href: "/game", icon: GamepadIcon, label: "Games" },
   { href: "/about", icon: UserIcon, label: "About" },
   { href: "/contact", icon: MailIcon, label: "Contact" },
 ];
 
 export function PortfolioDock() {
+  const pathname = usePathname();
+
   return (
-    <div className="fixed bottom-6 left-1/2 transform -translate-x-1/2 z-50">
-      <TooltipProvider>
-        <Dock direction="middle" className="bg-background/80 backdrop-blur-md rounded-full border shadow-lg p-2">
-          {NAV_ITEMS.map((item) => (
-            <DockIcon key={item.label}>
-              <Tooltip>
-                <TooltipTrigger asChild>
-                  <Link
-                    href={item.href}
-                    aria-label={item.label}
-                    className={cn(
-                      buttonVariants({ variant: "ghost", size: "icon" }),
-                      "size-12 rounded-full hover:bg-primary/10 transition-colors"
-                    )}
-                  >
-                    <item.icon className="size-5" />
-                  </Link>
-                </TooltipTrigger>
-                <TooltipContent>
-                  <p>{item.label}</p>
-                </TooltipContent>
-              </Tooltip>
-            </DockIcon>
-          ))}
-        </Dock>
-      </TooltipProvider>
+    <div className="z-50 pointer-events-auto">
+      <div className="bg-card/95 backdrop-blur-xl rounded-full border border-border shadow-md p-1 flex items-center gap-0.5 sm:gap-1.5">
+        {NAV_ITEMS.map((item) => {
+          const isActive = pathname === item.href;
+          const Icon = item.icon;
+          return (
+            <Link
+              key={item.label}
+              href={item.href}
+              aria-label={item.label}
+              className={cn(
+                "p-1.5 sm:p-2 rounded-full transition-all flex items-center justify-center relative cursor-pointer",
+                isActive
+                  ? "bg-teal-500 text-white shadow-sm scale-105"
+                  : "text-muted-foreground hover:text-foreground hover:bg-accent"
+              )}
+            >
+              <Icon className="w-3.5 h-3.5 sm:w-4 sm:h-4" />
+              {isActive && (
+                <span className="absolute -bottom-0.5 w-1 h-1 rounded-full bg-white" />
+              )}
+            </Link>
+          );
+        })}
+      </div>
     </div>
   );
 }

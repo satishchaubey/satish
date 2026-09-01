@@ -11,37 +11,49 @@ interface ThemeSwitchProps extends React.HTMLAttributes<HTMLDivElement> {
 
 const ThemeSwitch = React.forwardRef<HTMLDivElement, ThemeSwitchProps>(
   ({ className, showHiEmoji = true, ...props }, ref) => {
-    const { theme, setTheme } = useTheme();
-    const [isClient, setIsClient] = React.useState(false);
+    const { theme, setTheme, resolvedTheme } = useTheme();
+    const [mounted, setMounted] = React.useState(false);
     const [showHi, setShowHi] = React.useState(false);
 
     React.useEffect(() => {
-      setIsClient(true);
+      setMounted(true);
     }, []);
 
+    const activeTheme = theme === "system" ? resolvedTheme : theme;
+    const isDark = activeTheme === "dark";
+
     const handleToggle = React.useCallback(() => {
-      setTheme(theme === "light" ? "dark" : "light");
+      const nextTheme = isDark ? "light" : "dark";
+      setTheme(nextTheme);
       
       // Show "Hi" emoji briefly when toggling
       if (showHiEmoji) {
         setShowHi(true);
         setTimeout(() => setShowHi(false), 1000);
       }
-    }, [theme, setTheme, showHiEmoji]);
+    }, [isDark, setTheme, showHiEmoji]);
 
-    if (!isClient) return null;
+    if (!mounted) {
+      return (
+        <div className={cn("relative flex items-center gap-2", className)} ref={ref} {...props}>
+          <div className="relative inline-flex w-16 h-8 rounded-full border border-input bg-background/50 p-1 shadow-sm opacity-60" />
+        </div>
+      );
+    }
 
     return (
       <div className={cn("relative flex items-center gap-2", className)} ref={ref} {...props}>
         {/* Hi emoji that appears briefly */}
         {showHi && (
-          <div className="absolute -top-8 left-1/2 transform -translate-x-1/2 animate-bounce">
+          <div className="absolute -top-8 left-1/2 transform -translate-x-1/2 animate-bounce z-50">
             <span className="text-2xl">👋</span>
           </div>
         )}
         
-        {/* Theme switch */}
-        <div
+        {/* Theme switch button */}
+        <button
+          type="button"
+          aria-label="Toggle theme"
           className={cn(
             "relative inline-flex w-16 h-8 rounded-full border border-input bg-background p-1 shadow-sm transition-colors cursor-pointer",
             "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
@@ -51,19 +63,19 @@ const ThemeSwitch = React.forwardRef<HTMLDivElement, ThemeSwitchProps>(
           {/* Toggle indicator */}
           <div
             className={cn(
-              "absolute top-1 left-1 h-6 w-6 rounded-full bg-foreground text-background flex items-center justify-center transition-transform duration-300",
-              theme === "dark" && "transform translate-x-8"
+              "absolute top-1 left-1 h-6 w-6 rounded-full bg-foreground text-background flex items-center justify-center transition-transform duration-300 z-10",
+              isDark && "transform translate-x-8"
             )}
           >
-            {theme === "light" ? <Sun size={14} /> : <Moon size={14} />}
+            {isDark ? <Moon size={14} /> : <Sun size={14} />}
           </div>
           
-          {/* Icons in background */}
+          {/* Background icons */}
           <div className="flex w-full justify-between items-center px-1">
-            <Sun size={14} className="text-muted-foreground" />
-            <Moon size={14} className="text-muted-foreground" />
+            <Sun size={14} className={cn("transition-colors", !isDark ? "text-amber-500 font-bold opacity-100" : "text-muted-foreground opacity-50")} />
+            <Moon size={14} className={cn("transition-colors", isDark ? "text-blue-400 font-bold opacity-100" : "text-muted-foreground opacity-50")} />
           </div>
-        </div>
+        </button>
       </div>
     );
   }

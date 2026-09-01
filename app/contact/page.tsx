@@ -5,9 +5,9 @@ import React from 'react'
 
 const Contact = () => {
   return (
-    <>
-     <ContactForm/> 
-    </>
+    <div className="min-h-screen font-sans">
+      <ContactForm/> 
+    </div>
   )
 }
 
