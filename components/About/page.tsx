@@ -97,11 +97,11 @@ const WorkExperience = () => {
           </h1>
 
           <p className="text-xs sm:text-base text-muted-foreground leading-relaxed">
-            I am a **Full Stack Engineer** with **3+ years of experience** building high-throughput web applications using **Next.js 16** (App Router & React Compiler) and **React 19.x**, payment engines, SaaS dashboards, and AI integrations. Based in Uttar Pradesh, India, I specialize in crafting clean, resilient JavaScript/TypeScript applications across the full web stack.
+            I am a **Full Stack Engineer** with **3+ years of experience** building high-throughput web applications using **Next.js 16** (App Router & React Compiler) and **React 19.x**, payment engines, SaaS dashboards, and AI architectures (**RAG & CAG context caching**). Based in Uttar Pradesh, India, I specialize in crafting clean, resilient JavaScript/TypeScript applications across the full web stack.
           </p>
 
           <p className="text-xs sm:text-base text-muted-foreground leading-relaxed">
-            Over the past 3 years, I have architected high-traffic bill payment systems, integrated payment gateways (PayU, Razorpay, BBPS), and developed enterprise digital banking platforms.
+            Over the past 3 years, I have architected high-traffic bill payment systems, integrated payment gateways (PayU, Razorpay, BBPS), AI RAG/CAG document search pipelines, and developed enterprise digital banking platforms.
           </p>
 
           <div className="grid grid-cols-2 gap-2 sm:flex sm:flex-row sm:items-center pt-2 max-w-sm sm:max-w-none">

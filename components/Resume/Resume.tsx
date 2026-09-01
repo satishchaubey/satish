@@ -20,11 +20,12 @@ const experiences: any[] = [
     description: [
       "Develop full-stack and frontend-focused features for SaaS, banking, and enterprise platforms using Next.js, React.js, TypeScript, and Node.js.",
       "Led frontend development across 30+ enterprise application pages and maintained client & internal operational dashboards.",
+      "Architected AI RAG (Retrieval-Augmented Generation) & CAG (Cache-Augmented Generation) document search pipelines and conversational AI microservices.",
       "Integrated PayU and Razorpay payment gateways with secure frontend workflows and backend API coordination.",
       "Collaborated within microservices architecture and optimized application performance through Redis caching, API optimization, and lazy loading.",
       "Engineered high-traffic bill payment platform with microservices architecture."
     ],
-    technologies: ["Next.js 15", "React 19", "TypeScript", "Node.js", "Express", "PayU", "Razorpay", "BBPS API", "Redis"]
+    technologies: ["Next.js 15", "React 19", "TypeScript", "Node.js", "Express", "PayU", "Razorpay", "BBPS API", "Redis", "AI RAG/CAG", "Vector DBs"]
   },
   {
     role: "Front-End Developer",
@@ -74,9 +75,10 @@ const skills: any[] = [
   { name: "React.js & Next.js", category: "Frontend", proficiency: 5 },
   { name: "TypeScript & JavaScript", category: "Frontend", proficiency: 5 },
   { name: "Tailwind CSS & ShadCN UI", category: "Frontend", proficiency: 5 },
-  { name: "Redux Toolkit", category: "Frontend", proficiency: 4 },
+  { name: "Redux Toolkit & Zustand", category: "Frontend", proficiency: 4 },
   { name: "Node.js & Express.js", category: "Backend", proficiency: 5 },
   { name: "FastAPI & REST APIs", category: "Backend", proficiency: 4 },
+  { name: "AI RAG & CAG Architecture (Gemini, Vector DBs)", category: "AI & Backend", proficiency: 5 },
   { name: "Payment Gateways (PayU, Razorpay)", category: "Backend", proficiency: 5 },
   { name: "MongoDB & Redis Caching", category: "Database", proficiency: 5 },
   { name: "PostgreSQL & MySQL", category: "Database", proficiency: 4 },
