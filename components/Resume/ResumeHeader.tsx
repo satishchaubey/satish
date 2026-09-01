@@ -7,6 +7,8 @@ import LustreText from "../ui/lustretext";
 import { PixelImage } from "../magicui/pixel-image";
 import { AnimatedButton } from "../ui/animated-button";
 
+import NumberCounter from "@/components/ui/NumberCounter";
+
 interface ResumeHeaderProps {
   imageUrl?: string;
   name?: string;
@@ -35,7 +37,7 @@ const ResumeHeader: React.FC<ResumeHeaderProps> = ({
       {/* Left Info Section (Order 2 on mobile, Order 1 on desktop) */}
       <div className="lg:col-span-8 space-y-4 text-left order-2 lg:order-1">
         <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full border border-teal-500/30 bg-teal-500/10 text-teal-600 dark:text-teal-300 text-xs font-bold uppercase tracking-wider">
-          <Briefcase className="w-3.5 h-3.5" /> 3+ Years Production Experience
+          <Briefcase className="w-3.5 h-3.5" /> <NumberCounter value="3+" /> Years Production Experience
         </div>
 
         <h1 className="text-3xl sm:text-4xl md:text-5xl font-extrabold tracking-tight">

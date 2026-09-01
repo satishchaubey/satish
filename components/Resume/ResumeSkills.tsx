@@ -18,6 +18,8 @@ import {
   ChevronUp
 } from "lucide-react";
 
+import NumberCounter from "@/components/ui/NumberCounter";
+
 interface ResumeSkillItem {
   name: string;
   category: string;
@@ -125,7 +127,9 @@ const ResumeSkills: React.FC<ResumeSkillsProps> = ({ skills }) => {
                 <div className="space-y-1 pt-1">
                   <div className="flex justify-between text-[11px] font-semibold text-muted-foreground">
                     <span>Proficiency</span>
-                    <span className="text-foreground font-bold">{percentage}%</span>
+                    <span className="text-foreground font-bold">
+                      <NumberCounter value={`${percentage}%`} />
+                    </span>
                   </div>
                   <div className="w-full bg-accent/60 rounded-full h-1.5 overflow-hidden">
                     <motion.div

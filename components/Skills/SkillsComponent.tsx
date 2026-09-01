@@ -6,6 +6,8 @@ import { Code2, Server, Database, Cpu, Layers, Terminal, Wrench, ChevronDown, Ch
 import LustreText from "../ui/lustretext";
 import { AwsIcon, NextJsIcon, NodeJsIcon, ReactIcon, SqlIcon } from "../Icons";
 
+import NumberCounter from "@/components/ui/NumberCounter";
+
 interface SkillItem {
   name: string;
   category: "Frontend" | "Backend" | "Database & Cloud" | "Tools & Styling";
@@ -149,7 +151,9 @@ const SkillsComponent = () => {
               <div className="mt-4">
                 <div className="flex justify-between items-center text-xs text-muted-foreground mb-1.5 font-medium">
                   <span>Proficiency</span>
-                  <span className="font-bold text-foreground">{skill.percentage}%</span>
+                  <span className="font-bold text-foreground">
+                    <NumberCounter value={`${skill.percentage}%`} />
+                  </span>
                 </div>
                 <div className="w-full bg-accent/60 rounded-full h-2 overflow-hidden">
                   <motion.div

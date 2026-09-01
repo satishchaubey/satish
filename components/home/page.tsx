@@ -9,49 +9,7 @@ import Link from "next/link";
 import { ArrowRight, Code2, FileText, Github, Linkedin, Mail, Sparkles, Terminal, CheckCircle2 } from "lucide-react";
 import { AnimatedButton } from "@/components/ui/animated-button";
 import { useEffect, useRef, useState } from "react";
-
-// Animated Number Counter Component
-const NumberCounter = ({ value }: { value: string }) => {
-  const [count, setCount] = useState(0);
-  const ref = useRef<HTMLSpanElement>(null);
-  const isInView = useInView(ref, { once: true });
-
-  const match = value.match(/^([\d.]+)(.*)$/);
-  const targetNumber = match ? parseFloat(match[1]) : 0;
-  const suffix = match ? match[2] : "";
-
-  useEffect(() => {
-    if (!isInView || targetNumber === 0) return;
-
-    let start = 0;
-    const duration = 1600; // 1.6s counting animation
-    const steps = 40;
-    const increment = targetNumber / steps;
-    const stepTime = duration / steps;
-
-    const timer = setInterval(() => {
-      start += increment;
-      if (start >= targetNumber) {
-        setCount(targetNumber);
-        clearInterval(timer);
-      } else {
-        setCount(start);
-      }
-    }, stepTime);
-
-    return () => clearInterval(timer);
-  }, [isInView, targetNumber]);
-
-  const formattedCount = Number.isInteger(targetNumber)
-    ? Math.round(count)
-    : count.toFixed(1);
-
-  return (
-    <span ref={ref}>
-      {isInView ? formattedCount : "0"}{suffix}
-    </span>
-  );
-};
+import NumberCounter from "@/components/ui/NumberCounter";
 
 export default function VenomBeamDemo() {
     const itemVariants = {
