@@ -31,7 +31,7 @@ const qaDatabase: { id: number; keywords: string[]; question: string; answer: st
     id: 3,
     keywords: ["current", "role", "company", "present", "enterprise"],
     question: "What is Satish's current role and company?",
-    answer: "Satish currently works as a Software Engineer at a FinTech & SaaS Enterprise (Feb 2024–Present), leading frontend SaaS engineering, payment gateway integrations, and BBPS bill payment engines."
+    answer: "Satish currently works as a Software Engineer at plutosONE (FinTech & SaaS Enterprise) (Feb 2024–Present), leading frontend SaaS engineering, payment gateway integrations, and BBPS bill payment engines."
   },
   {
     id: 4,

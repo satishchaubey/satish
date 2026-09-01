@@ -15,7 +15,7 @@ import ThankYou from "../comman/ThankYou";
 const experiences: any[] = [
   {
     role: "Software Engineer",
-    company: "FinTech & SaaS Enterprise",
+    company: "plutosONE (FinTech & SaaS Enterprise)",
     period: "Feb 2024 - Present",
     description: [
       "Develop full-stack and frontend-focused features for SaaS, banking, and enterprise platforms using Next.js, React.js, TypeScript, and Node.js.",

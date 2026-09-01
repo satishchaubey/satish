@@ -1,8 +1,8 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Code2, Server, Database, Cpu, Layers, Terminal, Wrench } from "lucide-react";
+import { Code2, Server, Database, Cpu, Layers, Terminal, Wrench, ChevronDown, ChevronUp, Sparkles } from "lucide-react";
 import LustreText from "../ui/lustretext";
 import { AwsIcon, NextJsIcon, NodeJsIcon, ReactIcon, SqlIcon } from "../Icons";
 
@@ -28,8 +28,8 @@ const allSkills: SkillItem[] = [
   { name: "Node.js & Express.js", category: "Backend", level: "Expert", percentage: 92, icon: <NodeJsIcon />, color: "from-green-500 to-emerald-600" },
   { name: "PayU & Razorpay Gateways", category: "Backend", level: "Expert", percentage: 90, color: "from-emerald-500 to-teal-500" },
   { name: "REST APIs & FastAPI Integration", category: "Backend", level: "Advanced", percentage: 88, color: "from-blue-500 to-indigo-500" },
-  { name: "Redis Caching (20%+ Speed Boost)", category: "Backend", level: "Advanced", percentage: 86, color: "from-red-500 to-rose-600" },
-  { name: "LLM & AI-based Call APIs", category: "Backend", level: "Advanced", percentage: 85, color: "from-purple-500 to-pink-500" },
+  { name: "Redis Caching & Event Streams", category: "Backend", level: "Advanced", percentage: 86, color: "from-red-500 to-rose-600" },
+  { name: "LLM & AI RAG/CAG Architecture", category: "Backend", level: "Advanced", percentage: 85, color: "from-purple-500 to-pink-500" },
 
   // Database & Cloud
   { name: "MongoDB & Mongoose ODM", category: "Database & Cloud", level: "Expert", percentage: 92, color: "from-emerald-500 to-teal-600" },
@@ -53,10 +53,22 @@ const categories = [
 
 const SkillsComponent = () => {
   const [activeCategory, setActiveCategory] = useState<string>("All Skills");
+  const [showAll, setShowAll] = useState<boolean>(false);
+  const [isMobile, setIsMobile] = useState<boolean>(false);
+
+  useEffect(() => {
+    const checkMobile = () => setIsMobile(window.innerWidth < 640);
+    checkMobile();
+    window.addEventListener("resize", checkMobile);
+    return () => window.removeEventListener("resize", checkMobile);
+  }, []);
 
   const filteredSkills = activeCategory === "All Skills" 
     ? allSkills 
     : allSkills.filter(s => s.category === activeCategory);
+
+  const initialLimit = isMobile ? 4 : 3;
+  const visibleSkills = showAll ? filteredSkills : filteredSkills.slice(0, initialLimit);
 
   return (
     <section id="skills" className="py-3 md:py-4 px-4 max-w-7xl mx-auto">
@@ -103,7 +115,7 @@ const SkillsComponent = () => {
         className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 md:gap-6"
       >
         <AnimatePresence mode="popLayout">
-          {filteredSkills.map((skill, idx) => (
+          {visibleSkills.map((skill, idx) => (
             <motion.div
               key={skill.name}
               layout
@@ -152,6 +164,20 @@ const SkillsComponent = () => {
           ))}
         </AnimatePresence>
       </motion.div>
+
+      {/* View All Skills Toggle Button */}
+      {filteredSkills.length > initialLimit && (
+        <div className="flex justify-center pt-8">
+          <button
+            onClick={() => setShowAll(!showAll)}
+            className="flex items-center gap-2 px-6 py-2.5 rounded-full border border-teal-500/40 bg-teal-500/10 hover:bg-teal-500/20 text-teal-600 dark:text-teal-400 text-xs sm:text-sm font-bold transition-all cursor-pointer hover:scale-105 shadow-md"
+          >
+            <Sparkles className="w-4 h-4 text-amber-500" />
+            <span>{showAll ? "Show Top Skills" : `View All Skills & Core Competencies (${filteredSkills.length} Total)`}</span>
+            {showAll ? <ChevronUp className="w-4 h-4" /> : <ChevronDown className="w-4 h-4" />}
+          </button>
+        </div>
+      )}
     </section>
   );
 };

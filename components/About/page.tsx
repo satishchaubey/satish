@@ -25,7 +25,7 @@ const WorkExperience = () => {
 
   const experiences: Experience[] = [
     {
-      company: "FinTech & SaaS Enterprise",
+      company: "plutosONE (FinTech & SaaS Enterprise)",
       role: "Software Engineer",
       period: "Feb 2024 - Present",
       icon: <Rocket className="w-5 h-5 text-teal-500" />,
