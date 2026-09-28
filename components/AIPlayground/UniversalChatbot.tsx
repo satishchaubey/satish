@@ -203,19 +203,7 @@ const qaDatabase: { id: number; keywords: string[]; question: string; answer: st
   }
 ];
 
-const getAIResponse = (query: string): string => {
-  const q = query.toLowerCase();
-
-  const match = qaDatabase.find((item) =>
-    item.keywords.some((key) => q.includes(key))
-  );
-
-  if (match) {
-    return `📌 ${match.question}\n\n${match.answer}`;
-  }
-
-  return `🤖 Satish Chaubey is a Full Stack Engineer (3+ years exp) focused on React 19, Next.js 16, Node.js, BBPS payment engines, and AI applications.\n\nYou can contact Satish at satishchaubey02@gmail.com or ask me about his skills, experience, and projects!`;
-};
+// getAIResponse is replaced by real API calls — see handleSend below
 
 export default function UniversalChatbot() {
   const pathname = usePathname();
@@ -246,7 +234,7 @@ export default function UniversalChatbot() {
     }
   }, [messages, isTyping, isOpen]);
 
-  const handleSend = (textToSend?: string) => {
+  const handleSend = async (textToSend?: string) => {
     const query = textToSend || input;
     if (!query.trim()) return;
 
@@ -257,21 +245,43 @@ export default function UniversalChatbot() {
       timestamp: new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' }),
     };
 
-    setMessages((prev) => [...prev, userMsg]);
+    const currentMessages = [...messages, userMsg];
+    setMessages(currentMessages);
     if (!textToSend) setInput("");
     setIsTyping(true);
 
-    setTimeout(() => {
-      const aiReply = getAIResponse(query);
+    try {
+      const res = await fetch('/api/chat', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          message: query,
+          history: currentMessages,
+        }),
+      });
+
+      const data = await res.json();
+
       const aiMsg: Message = {
         id: (Date.now() + 1).toString(),
         sender: "ai",
-        text: aiReply,
+        text: res.ok
+          ? data.reply
+          : (data.error || "Something went wrong. Please try again."),
         timestamp: new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' }),
       };
       setMessages((prev) => [...prev, aiMsg]);
+    } catch {
+      const errMsg: Message = {
+        id: (Date.now() + 1).toString(),
+        sender: "ai",
+        text: "⚠️ Unable to reach AI. Please check your connection and try again.",
+        timestamp: new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' }),
+      };
+      setMessages((prev) => [...prev, errMsg]);
+    } finally {
       setIsTyping(false);
-    }, 400);
+    }
   };
 
   return (
