@@ -250,6 +250,9 @@ export default function UniversalChatbot() {
     if (!textToSend) setInput("");
     setIsTyping(true);
 
+    const aiMsgId = (Date.now() + 1).toString();
+    const timestamp = new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
+
     try {
       const res = await fetch('/api/chat', {
         method: 'POST',
@@ -260,25 +263,44 @@ export default function UniversalChatbot() {
         }),
       });
 
-      const data = await res.json();
+      if (!res.ok) {
+        const data = await res.json().catch(() => ({}));
+        const errorText = data.error || "Something went wrong. Please try again.";
+        setMessages((prev) => [
+          ...prev,
+          { id: aiMsgId, sender: "ai", text: errorText, timestamp }
+        ]);
+        return;
+      }
 
-      const aiMsg: Message = {
-        id: (Date.now() + 1).toString(),
-        sender: "ai",
-        text: res.ok
-          ? data.reply
-          : (data.error || "Something went wrong. Please try again."),
-        timestamp: new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' }),
-      };
-      setMessages((prev) => [...prev, aiMsg]);
+      // Add initial AI placeholder message
+      setMessages((prev) => [
+        ...prev,
+        { id: aiMsgId, sender: "ai", text: "", timestamp }
+      ]);
+
+      const reader = res.body?.getReader();
+      const decoder = new TextDecoder();
+      let accumulatedText = "";
+
+      if (reader) {
+        setIsTyping(false);
+        while (true) {
+          const { done, value } = await reader.read();
+          if (done) break;
+          accumulatedText += decoder.decode(value, { stream: true });
+          setMessages((prev) =>
+            prev.map((msg) =>
+              msg.id === aiMsgId ? { ...msg, text: accumulatedText } : msg
+            )
+          );
+        }
+      }
     } catch {
-      const errMsg: Message = {
-        id: (Date.now() + 1).toString(),
-        sender: "ai",
-        text: "⚠️ Unable to reach AI. Please check your connection and try again.",
-        timestamp: new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' }),
-      };
-      setMessages((prev) => [...prev, errMsg]);
+      setMessages((prev) => [
+        ...prev,
+        { id: aiMsgId, sender: "ai", text: "⚠️ Unable to reach AI. Please check your connection.", timestamp }
+      ]);
     } finally {
       setIsTyping(false);
     }

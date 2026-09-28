@@ -98,22 +98,39 @@ export async function POST(request: NextRequest) {
     // Add current user message
     conversationHistory.push({ role: 'user', content: message });
 
-    const completion = await client.chat.completions.create({
+    const responseStream = await client.chat.completions.create({
       model: 'meta/llama-3.2-11b-vision-instruct',
       messages: conversationHistory,
-      temperature: 0.5,
+      temperature: 0.3,
       top_p: 1,
-      max_tokens: 512,
-      stream: false,
+      max_tokens: 250,
+      stream: true,
     });
 
-    const reply = completion.choices[0]?.message?.content?.trim();
+    const encoder = new TextEncoder();
+    const stream = new ReadableStream({
+      async start(controller) {
+        try {
+          for await (const chunk of responseStream) {
+            const content = chunk.choices[0]?.delta?.content;
+            if (content) {
+              controller.enqueue(encoder.encode(content));
+            }
+          }
+        } catch (err) {
+          console.error('Stream error:', err);
+        } finally {
+          controller.close();
+        }
+      },
+    });
 
-    if (!reply) {
-      return NextResponse.json({ error: 'No response from AI' }, { status: 500 });
-    }
-
-    return NextResponse.json({ reply });
+    return new Response(stream, {
+      headers: {
+        'Content-Type': 'text/plain; charset=utf-8',
+        'Cache-Control': 'no-cache, no-transform',
+      },
+    });
 
   } catch (error: unknown) {
     console.error('NVIDIA AI API error:', error);
